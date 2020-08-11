@@ -119,3 +119,7 @@ form div {
 .button-space {
 	margin-right: 5px;
 }
+
+.form-centered {
+	display: contents;
+}
