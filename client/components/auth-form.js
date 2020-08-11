@@ -2,49 +2,87 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {auth} from "../store";
-import {Button} from "react-bootstrap";
+import {Button, Container, Col, Form, FormGroup} from "react-bootstrap";
+import {Label, Input} from "reactstrap";
 
 const AuthForm = props => {
 	const {name, displayName, handleSubmit, error} = props;
 
 	return (
-		<div className="App">
-			<form onSubmit={handleSubmit} name={name} className="form">
-				<h3>{name}</h3>
-				<div className="form-group">
-					<label htmlFor="email" className="label-style">
-						<small>Email</small>
-					</label>
-					<input
-						name="email"
-						type="text"
-						className="form-control input-style"
-						placeholder="Enter email"
-					/>
-				</div>
-				<div className="form-group">
-					<label className="label-style">
-						<small>Password</small>
-					</label>
-					<input
-						htmlFor="password"
-						className="form-control input-style"
-						placeholder="Enter password"
-					/>
-				</div>
-				<div className="form-group password-label">
-					<div className="custom-control custom-checkbox">
-						<input
-							type="checkbox"
-							className="custom-control-input"
-							id="customCheck1"
-						/>
-						<label className="custom-control-label" htmlFor="customCheck1">
-							Remember me
-						</label>
+		<Container className="App">
+			<Form onSubmit={handleSubmit} name={name} className="form">
+				<h3>{displayName}</h3>
+				{name === "signup" ? (
+					<div className="form-centered">
+						<Col>
+							<FormGroup>
+								<Label for="exampleFName" className="label-style">
+									First Name
+								</Label>
+								<Input
+									name="firstName"
+									type="text"
+									className="input-style"
+									placeholder="Enter first name"
+								/>
+							</FormGroup>
+						</Col>
+						<Col>
+							<FormGroup>
+								<Label for="exampleLName" className="label-style">
+									Last Name
+								</Label>
+								<Input
+									name="lastName"
+									type="text"
+									className="form-control input-style"
+									placeholder="Enter first name"
+								/>
+							</FormGroup>
+						</Col>
 					</div>
-				</div>
-				<div>
+				) : null}
+				<Col>
+					<FormGroup>
+						<Label for="exampleEmail" className="label-style">
+							Email
+						</Label>
+						<Input
+							name="email"
+							type="text"
+							className="form-control input-style"
+							placeholder="Enter email"
+						/>
+					</FormGroup>
+				</Col>
+				<Col>
+					<FormGroup>
+						<Label for="examplePassword" className="label-style">
+							Password
+						</Label>
+						<Input
+							htmlFor="password"
+							className="form-control input-style"
+							placeholder="**********"
+						/>
+					</FormGroup>
+				</Col>
+				<Col>
+					<div htmlFor="forgotPassword" className="password-label">
+						<div className="custom-control custom-checkbox">
+							<Input
+								name="forgotPassword"
+								type="checkbox"
+								className="custom-control-input"
+								id="customCheck1"
+							/>
+							<Label className="custom-control-label" htmlFor="customCheck1">
+								Remember me
+							</Label>
+						</div>
+					</div>
+				</Col>
+				<Col>
 					<Button variant="dark" type="submit" className="btn button-space">
 						{displayName}
 					</Button>
@@ -54,16 +92,16 @@ const AuthForm = props => {
 					<p className="forgot-password text-right">
 						Forgot <a href="#">password?</a>
 					</p>
-				</div>
+				</Col>
 				{error && error.response && <div> {error.response.data} </div>}
-			</form>
-		</div>
+			</Form>
+		</Container>
 	);
 };
 
 const mapLogin = state => {
 	return {
-		name: "Login",
+		name: "login",
 		displayName: "Login",
 		error: state.user.error
 	};
@@ -71,7 +109,7 @@ const mapLogin = state => {
 
 const mapSignup = state => {
 	return {
-		name: "Sign up",
+		name: "signup",
 		displayName: "Sign Up",
 		error: state.user.error
 	};
@@ -82,9 +120,12 @@ const mapDispatch = dispatch => {
 		handleSubmit(evt) {
 			evt.preventDefault();
 			const formName = evt.target.name;
+			const firstName =
+				formName === "signup" ? evt.target.firstName.value : null;
+			const lastName = formName === "signup" ? evt.target.lastName.value : null;
 			const email = evt.target.email.value;
 			const password = evt.target.password.value;
-			dispatch(auth(email, password, formName));
+			dispatch(auth(firstName, lastName, email, password, formName));
 		}
 	};
 };
