@@ -62,6 +62,7 @@ const AuthForm = props => {
 						</Label>
 						<Input
 							htmlFor="password"
+							name="password"
 							className="form-control input-style"
 							placeholder="**********"
 						/>
@@ -86,7 +87,7 @@ const AuthForm = props => {
 					<Button variant="dark" type="submit" className="btn button-space">
 						{displayName}
 					</Button>
-					<Button variant="dark" href="/auth/google">
+					<Button variant="dark" type="submit" href="/auth/google">
 						{displayName} with Google
 					</Button>
 					<p className="forgot-password text-right">
