@@ -60,12 +60,13 @@ class NewPostForm extends Component {
 				</div>
 
 				<div className="col-md-6 mb-3">
-					<label htmlFor="image">Image</label>
+					<label htmlFor="img">Select Image</label>
 					<input
-						type="text"
+						type="file"
 						name="image"
 						className="form-control"
 						id="image"
+						accept="image/*"
 						placeholder="image"
 						required=""
 						value={this.state.image}
