@@ -123,3 +123,17 @@ form div {
 .form-centered {
 	display: contents;
 }
+
+.post-row {
+	display: flex;
+	justify-content: center;
+}
+
+.post-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.nav-admin-color {
+	color: white;
+}

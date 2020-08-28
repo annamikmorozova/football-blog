@@ -2,11 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import {logout} from "../store";
+import {logout, fetchPosts} from "../store";
 import {IoIosFootball} from "react-icons/io";
 import {Navbar, Row, Col} from "react-bootstrap";
 
 class MainNavbar extends React.Component {
+	componentDidMount() {
+		this.props.allPosts();
+	}
 	render() {
 		return (
 			<div>
@@ -16,20 +19,38 @@ class MainNavbar extends React.Component {
 							<div>
 								<h1 className="website-name">FOOTBALL BLOG RU</h1>
 								<Row className="navbar-row">
-									<Link to="/">About</Link>
-									<Link to="#">Posts</Link>
-									<Link to="#">Library</Link>
-									{this.props.isAdmin ? <Link to="/users">Users</Link> : ""}
+									<Link className="nav-admin-color" to="/about">
+										About
+									</Link>
+									<Link className="nav-admin-color" to="/posts">
+										Posts
+									</Link>
+									<Link className="nav-admin-color" to="library">
+										Library
+									</Link>
 									{this.props.isAdmin ? (
-										<Link to="/new-post">Make a post</Link>
+										<Link className="nav-admin-color" to="/users">
+											Users
+										</Link>
 									) : (
 										""
 									)}
-									<Link className="posts-navbar-link" to="/cart">
+									{this.props.isAdmin ? (
+										<Link className="nav-admin-color" to="/new_post">
+											Make a post
+										</Link>
+									) : (
+										""
+									)}
+									<Link className="posts-navbar-link" to="/posts">
 										{" "}
 										<IoIosFootball color="white" size={38} />
 									</Link>
-									<a href="#" onClick={this.props.handleClick}>
+									<a
+										className="nav-admin-color"
+										href="/posts"
+										onClick={this.props.handleClick}
+									>
 										Logout
 									</a>
 								</Row>
@@ -38,9 +59,9 @@ class MainNavbar extends React.Component {
 							<div className="navbar-text">
 								<h1 className="website-name">FOOTBALL BLOG RU</h1>
 								<Row className="navbar-row">
-									<Link to="#">About</Link>
-									<Link to="#">Posts</Link>
-									<Link to="#">Library</Link>
+									<Link to="/about">About</Link>
+									<Link to="/posts">Posts</Link>
+									<Link to="/">Library</Link>
 									<Link className="posts-navbar-link" to="#">
 										{" "}
 										<IoIosFootball color="white" size={38} />
@@ -68,6 +89,9 @@ const mapDispatch = dispatch => {
 	return {
 		handleClick() {
 			dispatch(logout());
+		},
+		allPosts() {
+			dispatch(fetchPosts());
 		}
 	};
 };
