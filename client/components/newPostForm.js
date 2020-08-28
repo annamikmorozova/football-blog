@@ -35,10 +35,12 @@ class NewPostForm extends Component {
 
 	render() {
 		return (
-			<Form onSubmit={this.handleSubmit}>
-				<div> Add a new post</div>
-				<div className="col-md-6 mb-3">
-					<label htmlFor="title">Title</label>
+			<Form className="form-style" onSubmit={this.handleSubmit}>
+				<h1> Add a new post </h1>
+				<div className="col-md-6 form-labels-style">
+					<label className="form-title" htmlFor="title">
+						Title
+					</label>
 					<input
 						type="text"
 						name="title"
@@ -51,7 +53,7 @@ class NewPostForm extends Component {
 					/>
 				</div>
 
-				<div className="col-md-6 mb-3">
+				<div className="col-md-6 form-labels-style">
 					<label htmlFor="description">Description</label>
 					<input
 						type="text"
@@ -65,7 +67,7 @@ class NewPostForm extends Component {
 					/>
 				</div>
 
-				<div className="col-md-6 mb-3">
+				<div className="col-md-6 form-labels-style">
 					<label htmlFor="img">Select Image</label>
 					<input
 						type="file"
@@ -80,7 +82,7 @@ class NewPostForm extends Component {
 					/>
 				</div>
 
-				<Button size="lg" type="submit">
+				<Button variant="outline-primary" size="lg" type="submit">
 					Create
 				</Button>
 			</Form>

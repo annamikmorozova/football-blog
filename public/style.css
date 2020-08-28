@@ -148,3 +148,14 @@ form div {
 	margin-right: 0px;
 	margin-left: 0px;
 }
+
+.form-labels-style {
+	margin: 15px;
+}
+
+.form-style {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 30px;
+}
