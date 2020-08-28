@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 // import {Link} from "react-router-dom";
-// import {Button} from "reactstrap";
+import {Col} from "reactstrap";
 import {fetchPosts} from "../store/post";
 
 class AllPosts extends Component {
@@ -15,10 +15,13 @@ class AllPosts extends Component {
 			<div>
 				{posts.map(post => (
 					<div className="post-row" key={post.id}>
-						<div className="post-column">
+						<Col xs={3}>
+							<p>image</p>
+						</Col>
+						<Col xs={9}>
 							<p>{post.title}</p>
 							<p>{post.description}</p>
-						</div>
+						</Col>
 					</div>
 				))}
 			</div>
