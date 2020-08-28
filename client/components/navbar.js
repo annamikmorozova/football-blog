@@ -25,7 +25,7 @@ class MainNavbar extends React.Component {
 									<Link className="nav-admin-color" to="/posts">
 										Posts
 									</Link>
-									<Link className="nav-admin-color" to="library">
+									<Link className="nav-admin-color" to="/library">
 										Library
 									</Link>
 									{this.props.isAdmin ? (
@@ -61,8 +61,8 @@ class MainNavbar extends React.Component {
 								<Row className="navbar-row">
 									<Link to="/about">About</Link>
 									<Link to="/posts">Posts</Link>
-									<Link to="/">Library</Link>
-									<Link className="posts-navbar-link" to="#">
+									<Link to="/library">Library</Link>
+									<Link className="posts-navbar-link" to="/posts">
 										{" "}
 										<IoIosFootball color="white" size={38} />
 									</Link>

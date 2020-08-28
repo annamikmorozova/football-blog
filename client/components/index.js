@@ -4,3 +4,4 @@ export {Login, Signup} from "./auth-form";
 export {default as AllPosts} from "./AllPosts";
 export {default as NewPostForm} from "./NewPostForm";
 export {default as About} from "./About";
+export {default as Library} from "./Library";
