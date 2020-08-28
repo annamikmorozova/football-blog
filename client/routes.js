@@ -31,7 +31,7 @@ class Routes extends Component {
 				<Route path="/new_post" component={NewPostForm} />
 				<Route path="/about" component={About} />
 				<Route path="/library" component={Library} />
-				{/* <Route path="/posts/:id" component={SinglePost} />  */}
+				<Route path="/posts/:id" component={SinglePost} />
 				{isLoggedIn && (
 					<Switch>
 						{/* Routes placed here are only available after logging in */}
