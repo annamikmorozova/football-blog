@@ -15,10 +15,10 @@ const Post = db.define("post", {
 	},
 	description: {
 		type: Sequelize.TEXT
-	},
-	imageUrl: {
-		type: Sequelize.TEXT
 	}
+	// imageUrl: {
+	// 	type: Sequelize.TEXT
+	// }
 });
 
 module.exports = Post;

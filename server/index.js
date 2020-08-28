@@ -6,7 +6,9 @@ const session = require("express-session");
 const passport = require("passport");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const db = require("./db");
-const sessionStore = new SequelizeStore({db});
+const sessionStore = new SequelizeStore({
+	db
+});
 const PORT = process.env.PORT || 8080;
 const app = express();
 const socketio = require("socket.io");
@@ -33,7 +35,11 @@ const createApp = () => {
 	app.use(morgan("dev"));
 
 	app.use(express.json());
-	app.use(express.urlencoded({extended: true}));
+	app.use(
+		express.urlencoded({
+			extended: true
+		})
+	);
 
 	app.use(compression());
 
@@ -66,6 +72,8 @@ const createApp = () => {
 	app.use("*", (req, res) => {
 		res.sendFile(path.join(__dirname, "..", "public/index.html"));
 	});
+
+	app.use(express.static(path.join(__dirname, "uploads")));
 
 	app.use((err, req, res, next) => {
 		console.error(err);

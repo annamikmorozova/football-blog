@@ -4,7 +4,6 @@ const {Post} = require("../db/models");
 router.get("/", async (req, res, next) => {
 	try {
 		const posts = await Post.findAll();
-		console.log(posts);
 		res.json(posts);
 	} catch (error) {
 		next(error);

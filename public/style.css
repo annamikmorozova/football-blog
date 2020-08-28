@@ -139,3 +139,12 @@ form div {
 .nav-admin-color {
 	color: white;
 }
+
+.comments-all-posts {
+	margin-right: 10px;
+}
+
+.row-all-posts {
+	margin-right: 0px;
+	margin-left: 0px;
+}
