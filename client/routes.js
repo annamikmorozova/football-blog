@@ -8,7 +8,8 @@ import {
 	UserHome,
 	AllPosts,
 	NewPostForm,
-	SinglePost
+	SinglePost,
+	About
 } from "./components";
 import {me} from "./store";
 
@@ -27,6 +28,7 @@ class Routes extends Component {
 				<Route path="/login" component={Login} />
 				<Route path="/signup" component={Signup} />
 				<Route path="/new_post" component={NewPostForm} />
+				<Route path="/about" component={About} />
 				{/* <Route path="/posts/:id" component={SinglePost} />  */}
 				{isLoggedIn && (
 					<Switch>
