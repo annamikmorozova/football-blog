@@ -69,7 +69,13 @@ export const deletePostThunk = postId => {
 export const newPostThunk = data => {
 	return async dispatch => {
 		try {
-			await axios.post("/api/admin", data);
+			console.log(data);
+			await axios({
+				method: "post",
+				url: "/api/images",
+				data,
+				config: {headers: {"Content-Type": "multipart/form-data"}}
+			});
 			const post = await axios.get("/api/posts");
 			dispatch(updatePost(post.data));
 		} catch (error) {

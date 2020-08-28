@@ -14,6 +14,7 @@ class NewPostForm extends Component {
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleFileChange = this.handleFileChange.bind(this);
 	}
 
 	handleSubmit(event) {
@@ -25,6 +26,11 @@ class NewPostForm extends Component {
 	handleInputChange(event) {
 		event.preventDefault();
 		this.setState({[event.target.name]: event.target.value});
+	}
+
+	handleFileChange(event) {
+		event.preventDefault();
+		this.setState({image: event.target.files[0]});
 	}
 
 	render() {
@@ -70,7 +76,7 @@ class NewPostForm extends Component {
 						placeholder="image"
 						required=""
 						value={this.state.image}
-						onChange={this.handleInputChange}
+						onChange={this.handleFileChange}
 					/>
 				</div>
 
