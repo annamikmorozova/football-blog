@@ -1,29 +1,41 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {Link} from "react-router-dom";
-import {Button} from "reactstrap";
+// import {Link} from "react-router-dom";
+// import {Button} from "reactstrap";
+import {fetchPosts} from "../store/post";
 
-export class AllPosts extends Component {
-	//   constructor() {
-	//     super();
-	//   }
-	//   componentDidMount() {
-	//     this.props.allPosts();
-	//   }
+class AllPosts extends Component {
+	componentWillMount() {
+		this.props.allPosts();
+	}
 
 	render() {
-		// const {posts} = this.props;
-
-		return <div>Hi</div>;
+		const {posts} = this.props;
+		return (
+			<div>
+				{posts.map(post => (
+					<div className="post-row" key={post.id}>
+						<div className="post-column">
+							<p>{post.title}</p>
+							<p>{post.description}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		);
 	}
 }
 
 const mapStateToProps = state => {
-	return {};
+	return {
+		posts: state.post.allPosts
+	};
 };
 
 const mapDispatchToProps = dispatch => {
-	return {};
+	return {
+		allPosts: () => dispatch(fetchPosts())
+	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AllProducts);
+export default connect(mapStateToProps, mapDispatchToProps)(AllPosts);

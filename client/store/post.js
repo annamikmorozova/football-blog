@@ -66,11 +66,12 @@ export const deletePostThunk = postId => {
 	};
 };
 
-export const updatePostThunk = (postId, updatedPost) => {
+export const newPostThunk = data => {
 	return async dispatch => {
 		try {
-			const {data} = await axios.put(`/api/admin/${postId}`, updatedPost);
-			dispatch(updatePost(data));
+			await axios.post("/api/admin", data);
+			const post = await axios.get("/api/posts");
+			dispatch(updatePost(post.data));
 		} catch (error) {
 			console.log(error);
 		}

@@ -126,7 +126,7 @@ const mapDispatch = dispatch => {
 			const lastName = formName === "signup" ? evt.target.lastName.value : null;
 			const email = evt.target.email.value;
 			const password = evt.target.password.value;
-			dispatch(auth(firstName, lastName, email, password, formName));
+			dispatch(auth(email, password, lastName, firstName, formName));
 		}
 	};
 };
