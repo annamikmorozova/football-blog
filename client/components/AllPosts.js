@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-// import {Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {Col, Row} from "reactstrap";
 import {fetchPosts} from "../store/post";
 import {BsHeartFill} from "react-icons/bs";
@@ -20,8 +20,10 @@ class AllPosts extends Component {
 							<p>image</p>
 						</Col>
 						<Col xs={9}>
-							<p>{post.title}</p>
-							<p>{post.description}</p>
+							<Link to={`/posts/${post.id}`}>
+								<p>{post.title}</p>
+								<p>{post.description}</p>
+							</Link>
 							<Row className="row-all-posts">
 								<div className="comments-all-posts">Comments</div>
 								<BsHeartFill />
