@@ -77,7 +77,6 @@ class NewPostForm extends Component {
 						accept="image/*"
 						placeholder="image"
 						required=""
-						value={this.state.image}
 						onChange={this.handleFileChange}
 					/>
 				</div>
