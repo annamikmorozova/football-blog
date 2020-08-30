@@ -7,4 +7,3 @@ npm-debug.log
 yarn-error.log
 script/seed.js
 script/seed.spec.js
-script/seedData.js
