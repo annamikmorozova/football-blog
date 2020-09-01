@@ -19,7 +19,11 @@ class NewPostForm extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		this.props.newPostThunk(this.state);
+		const form = new FormData();
+		form.append("image", this.state.image);
+		form.append("title", this.state.title);
+		form.append("description", this.state.description);
+		this.props.newPostThunk(form);
 		this.props.history.push("/posts");
 	}
 
