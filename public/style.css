@@ -195,3 +195,9 @@ form div {
 	color: darkgray;
 	font-size: 16px;
 }
+
+.single-post {
+	background-color: lightgray;
+	padding: 20px;
+	margin: 50px;
+}
