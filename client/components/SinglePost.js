@@ -11,9 +11,9 @@ class SinglePost extends Component {
 		const {post} = this.props;
 		return (
 			<div>
-				<div>{post.title}</div>
-				<div>{post.description}</div>
-				<div>{post.date}</div>
+				<div className="single-post-date">{post.date}</div>
+				<div className="single-post-title">{post.title}</div>
+				<div className="single-post-description">{post.description}</div>
 			</div>
 		);
 	}

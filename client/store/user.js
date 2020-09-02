@@ -3,11 +3,23 @@ import history from "../history";
 
 const GET_USER = "GET_USER";
 const REMOVE_USER = "REMOVE_USER";
+const ALL_USERS = "ALL_USERS";
 
 const defaultUser = {};
 
-const getUser = user => ({type: GET_USER, user});
-const removeUser = () => ({type: REMOVE_USER});
+const getUser = user => ({
+	type: GET_USER,
+	user
+});
+
+const removeUser = () => ({
+	type: REMOVE_USER
+});
+
+const getAllUsers = users => ({
+	type: ALL_USERS,
+	users
+});
 
 export const me = () => async dispatch => {
 	try {
@@ -55,10 +67,22 @@ export const logout = () => async dispatch => {
 	}
 };
 
+export const fetchUsers = () => async dispatch => {
+	try {
+		const {data} = await axios.get("api/admin");
+		console.log(data);
+		dispatch(getAllUsers(data));
+	} catch (err) {
+		console.log(err);
+	}
+};
+
 export default function(state = defaultUser, action) {
 	switch (action.type) {
 		case GET_USER:
 			return action.user;
+		case ALL_USERS:
+			return [...action.users];
 		case REMOVE_USER:
 			return defaultUser;
 		default:

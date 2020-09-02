@@ -10,7 +10,8 @@ import {
 	NewPostForm,
 	SinglePost,
 	About,
-	Library
+	Library,
+	Users
 } from "./components";
 import {me} from "./store";
 
@@ -32,6 +33,7 @@ class Routes extends Component {
 				<Route path="/about" component={About} />
 				<Route path="/library" component={Library} />
 				<Route path="/posts/:id" component={SinglePost} />
+				<Route path="/users" component={Users} />
 				{isLoggedIn && (
 					<Switch>
 						{/* Routes placed here are only available after logging in */}
