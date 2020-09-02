@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {getSinglePost} from "../store/post";
+import Comment from "./Comment";
 
 class SinglePost extends Component {
 	componentDidMount() {
@@ -10,10 +11,13 @@ class SinglePost extends Component {
 	render() {
 		const {post} = this.props;
 		return (
-			<div className="single-post">
-				<div className="single-post-date">{post.date}</div>
-				<div className="single-post-title">{post.title}</div>
-				<div className="single-post-description">{post.description}</div>
+			<div>
+				<div className="single-post">
+					<div className="single-post-date">{post.date}</div>
+					<div className="single-post-title">{post.title}</div>
+					<div className="single-post-description">{post.description}</div>
+				</div>
+				<Comment />
 			</div>
 		);
 	}
