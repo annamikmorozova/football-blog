@@ -40,7 +40,7 @@ router.get("/:postId", async (req, res, next) => {
 
 router.post("/", upload.single("image"), async (req, res, next) => {
 	try {
-		const path = req.file.path;
+		const path = req.file.path.slice(8);
 		const {title, description, date} = req.body;
 		const entry = await Post.create({
 			title,
@@ -68,8 +68,9 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 			};
 		} else {
 			params = {
-				name,
-				description
+				title,
+				description,
+				date
 			};
 		}
 		const post = await Post.update(params, {

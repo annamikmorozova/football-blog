@@ -6,3 +6,4 @@ export {default as NewPostForm} from "./newPostForm";
 export {default as About} from "./About";
 export {default as Library} from "./Library";
 export {default as SinglePost} from "./SinglePost";
+export {default as Users} from "./Users";

@@ -72,12 +72,12 @@ export const newPostThunk = data => {
 		try {
 			await axios({
 				method: "post",
-				url: "/api/images",
+				url: "/api/posts",
 				data,
 				config: {headers: {"Content-Type": "multipart/form-data"}}
 			});
 			const post = await axios.get("/api/posts");
-			dispatch(updatePost(post.data));
+			dispatch(allPosts(post.data));
 		} catch (error) {
 			console.log(error);
 		}

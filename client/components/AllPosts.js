@@ -17,7 +17,7 @@ class AllPosts extends Component {
 				{posts.map(post => (
 					<div className="post-row" key={post.id}>
 						<Col xs={3}>
-							<img scr={`/${post.imageName}`} />
+							<img className="posts-images" src={`/${post.imageName}`} />
 						</Col>
 						<Col xs={9}>
 							<Link to={`/posts/${post.id}`}>
