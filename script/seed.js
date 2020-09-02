@@ -2,7 +2,7 @@
 
 const db = require("../server/db");
 const {User, Post} = require("../server/db/models");
-const {admins, posts} = require("./seedData");
+const {admins, posts, users} = require("./seedData");
 
 async function seed() {
 	try {
@@ -19,10 +19,10 @@ async function seed() {
 			})
 		);
 
-		const users = [...admins];
+		const allUsers = [...admins, ...users];
 
 		await Promise.all(
-			users.map(user => {
+			allUsers.map(user => {
 				return User.create(user);
 			})
 		);

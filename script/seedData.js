@@ -1,5 +1,3 @@
-const faker = require("faker");
-
 const posts = [
 	{
 		title: "Воротилин Станислав Петрович",
@@ -48,18 +46,32 @@ const admins = [
 	}
 ];
 
-function getUserSeed() {
-	return {
-		firstName: faker.name.firstName(),
-		lastName: faker.name.lastName(),
-		email: faker.internet.email(),
-		password: faker.internet.password(),
-		role: "customer"
-	};
-}
+const users = [
+	{
+		firstName: "Erik",
+		lastName: "Y",
+		email: "erik@gmail.com",
+		password: "12345",
+		role: "guest"
+	},
+	{
+		firstName: "Anna",
+		lastName: "M",
+		email: "anna@gmail.com",
+		password: "12345",
+		role: "guest"
+	},
+	{
+		firstName: "Alisa",
+		lastName: "M",
+		email: "alisa@gmail.com",
+		password: "12345",
+		role: "guest"
+	}
+];
 
 module.exports = {
 	posts,
-	getUserSeed,
-	admins
+	admins,
+	users
 };
