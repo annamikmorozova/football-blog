@@ -10,6 +10,7 @@ class MainNavbar extends React.Component {
 	componentDidMount() {
 		this.props.allPosts();
 	}
+
 	render() {
 		return (
 			<div>

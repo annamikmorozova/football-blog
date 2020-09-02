@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const {User, Post, Image} = require("../db/models");
+const {User, Post} = require("../db/models");
 
 function adminOnly(req, res, next) {
 	if (req.user.role === "admin") {
@@ -40,25 +40,6 @@ router.put("/:postId", adminOnly, async (req, res, next) => {
 	}
 });
 
-router.put("/:imageId", adminOnly, async (req, res, next) => {
-	try {
-		const [numOfAffectedRows, affectedRows] = await Image.update(req.body, {
-			where: {
-				id: req.params.imageId
-			},
-			returning: true,
-			plain: true
-		});
-		if (!affectedRows) {
-			res.sendStatus(404);
-		} else {
-			res.json(affectedRows);
-		}
-	} catch (error) {
-		next(error);
-	}
-});
-
 router.post("/", adminOnly, async (req, res, next) => {
 	try {
 		const post = req.body;
@@ -69,34 +50,11 @@ router.post("/", adminOnly, async (req, res, next) => {
 	}
 });
 
-router.post("/", adminOnly, async (req, res, next) => {
-	try {
-		const image = req.body;
-		const createImage = await Image.create(image);
-		res.json(createImage);
-	} catch (error) {
-		next(error);
-	}
-});
-
 router.delete("/:postId", adminOnly, async (req, res, next) => {
 	try {
 		await Post.destroy({
 			where: {
 				id: req.params.postId
-			}
-		});
-		res.json(204);
-	} catch (error) {
-		next(error);
-	}
-});
-
-router.delete("/:imageId", adminOnly, async (req, res, next) => {
-	try {
-		await Image.destroy({
-			where: {
-				id: req.params.imageId
 			}
 		});
 		res.json(204);

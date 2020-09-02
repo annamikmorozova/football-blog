@@ -16,7 +16,7 @@ export default class About extends Component {
 				<Col size={4}>
 					<img
 						className="home-page-image-size"
-						scr="/front-page.jpg"
+						scr="./front-page.jpg"
 						alt="MikhailMorozov"
 					/>
 				</Col>

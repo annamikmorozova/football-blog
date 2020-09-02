@@ -37,6 +37,7 @@ export const fetchPosts = () => {
 	return async dispatch => {
 		try {
 			const {data} = await axios.get("/api/posts");
+			console.log(data);
 			dispatch(allPosts(data));
 		} catch (error) {
 			console.log(error);
@@ -69,7 +70,6 @@ export const deletePostThunk = postId => {
 export const newPostThunk = data => {
 	return async dispatch => {
 		try {
-			console.log(data);
 			await axios({
 				method: "post",
 				url: "/api/images",
