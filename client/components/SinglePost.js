@@ -15,11 +15,11 @@ class SinglePost extends Component {
 				<div className="single-post">
 					<div className="single-post-date">{post.date}</div>
 					<div className="single-post-title">{post.title}</div>
-					<div className="single-post-description">{post.description}</div>
+					<div className="post-layout">
+						<div className="single-post-description">{post.description}</div>
+						<img className="single-post-image" src={`/${post.imageName}`} />
+					</div>
 				</div>
-				{/* <div>
-					<div className="single-post-description">{post.imageName}</div>
-				</div> */}
 				<Comment />
 			</div>
 		);

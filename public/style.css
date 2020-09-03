@@ -200,6 +200,8 @@ form div {
 	background-color: lightgray;
 	padding: 20px;
 	margin: 50px;
+	box-shadow: 0 10px 15px 9px rgba(0, 0, 0, 0.2),
+		0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .posts-images {
@@ -213,4 +215,31 @@ form div {
 .library-layout {
 	display: flex;
 	justify-content: space-evenly;
+}
+
+.single-post-image {
+	max-height: 300px;
+	margin: auto;
+}
+
+.post-layout {
+	display: flex;
+}
+
+@media (max-width: 800px) {
+	.post-layout {
+		flex-direction: column;
+	}
+	.single-post-description {
+		justify-content: center;
+	}
+	.single-post-image {
+		max-height: 300px;
+		max-width: 250px;
+		max-block-size: fit-content;
+	}
+	.single-post-title {
+		display: flex;
+		text-align: center;
+	}
 }
