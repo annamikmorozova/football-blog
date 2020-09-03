@@ -37,7 +37,6 @@ export const fetchPosts = () => {
 	return async dispatch => {
 		try {
 			const {data} = await axios.get("/api/posts");
-			console.log(data);
 			dispatch(allPosts(data));
 		} catch (error) {
 			console.log(error);
