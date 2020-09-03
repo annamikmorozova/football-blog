@@ -10,7 +10,9 @@ class NewPostForm extends Component {
 		this.state = {
 			title: "",
 			description: "",
-			image: ""
+			image: "",
+			shortcut: "",
+			imageTitle: ""
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,6 +25,8 @@ class NewPostForm extends Component {
 		form.append("image", this.state.image);
 		form.append("title", this.state.title);
 		form.append("description", this.state.description);
+		form.append("imageTitle", this.state.imageTitle);
+		form.append("shortcut", this.state.shortcut);
 		this.props.newPostThunk(form);
 		this.props.history.push("/posts");
 	}
@@ -67,6 +71,34 @@ class NewPostForm extends Component {
 						placeholder="description"
 						required=""
 						value={this.state.description}
+						onChange={this.handleInputChange}
+					/>
+				</div>
+
+				<div className="col-md-6 form-labels-style">
+					<label htmlFor="shortcut">Shortcut</label>
+					<input
+						type="text"
+						name="shortcut"
+						className="form-control"
+						id="shortcut"
+						placeholder="shortcut"
+						required=""
+						value={this.state.shortcut}
+						onChange={this.handleInputChange}
+					/>
+				</div>
+
+				<div className="col-md-6 form-labels-style">
+					<label htmlFor="imageTitle">Image title</label>
+					<input
+						type="text"
+						name="imageTitle"
+						className="form-control"
+						id="imageTitle"
+						placeholder="image title"
+						required=""
+						value={this.state.imageTitle}
 						onChange={this.handleInputChange}
 					/>
 				</div>

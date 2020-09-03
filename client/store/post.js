@@ -59,7 +59,7 @@ export const getSinglePost = postId => {
 export const deletePostThunk = postId => {
 	return async dispatch => {
 		try {
-			await axios.delete(`/api/admin/${postId}`);
+			await axios.delete(`/api/posts/${postId}`);
 			dispatch(deletePost(postId));
 		} catch (error) {
 			console.log(error);

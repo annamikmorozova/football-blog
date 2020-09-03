@@ -17,6 +17,7 @@ class Library extends Component {
 				<div className="library-layout">
 					{posts.map(post => (
 						<div key={post.id}>
+							<div>{post.imageTitle}</div>
 							<img className="library-images" src={`/${post.imageName}`} />
 						</div>
 					))}

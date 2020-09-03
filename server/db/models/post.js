@@ -16,7 +16,13 @@ const Post = db.define("post", {
 	description: {
 		type: Sequelize.TEXT
 	},
+	shortcut: {
+		type: Sequelize.TEXT
+	},
 	imageName: {
+		type: Sequelize.STRING
+	},
+	imageTitle: {
 		type: Sequelize.STRING
 	}
 });
