@@ -11,12 +11,15 @@ class SinglePost extends Component {
 	render() {
 		const {post} = this.props;
 		return (
-			<div>
+			<div className="columns-post">
 				<div className="single-post">
 					<div className="single-post-date">{post.date}</div>
 					<div className="single-post-title">{post.title}</div>
 					<div className="single-post-description">{post.description}</div>
 				</div>
+				{/* <div>
+					<div className="single-post-description">{post.imageName}</div>
+				</div> */}
 				<Comment />
 			</div>
 		);

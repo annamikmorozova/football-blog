@@ -13,7 +13,7 @@ function adminOnly(req, res, next) {
 router.get("/", adminOnly, async (req, res, next) => {
 	try {
 		const users = await User.findAll({
-			attributes: ["id", "firstName", "lastName", "email"]
+			attributes: ["id", "firstName", "lastName", "role", "email"]
 		});
 		res.json(users);
 	} catch (error) {

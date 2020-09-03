@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {fetchUsers} from "../store";
+import {Table} from "react-bootstrap";
 
 class Users extends Component {
 	componentWillMount() {
@@ -13,27 +14,30 @@ class Users extends Component {
 		return (
 			<div>
 				<h1 className="about-title">Users</h1>
-				<table>
+				<Table className="users-table">
 					<thead className="thead-light">
-						<tr>
+						<tr className="users-rows">
 							<th scope="col">#</th>
-							<th scope="col">First</th>
-							<th scope="col">Last</th>
+							<th scope="col">First Name</th>
+							<th scope="col">Last Name</th>
+							<th scope="col">Role</th>
 							<th scope="col">Email</th>
 						</tr>
 					</thead>
 					<tbody>
 						{users.map(user => (
-							<tr key={user.id}>
-								<th scope="row">{user.id}</th>
+							<tr className="users-rows" key={user.id}>
+								<th classNam="users-col" scope="row">
+									{user.id}
+								</th>
 								<td>{user.firstName}</td>
 								<td>{user.lastName}</td>
+								<td>{user.role}</td>
 								<td>{user.email}</td>
 							</tr>
 						))}
 					</tbody>
-				</table>
-				<button type="submit">Delete</button>
+				</Table>
 			</div>
 		);
 	}
@@ -41,7 +45,7 @@ class Users extends Component {
 
 const mapStateToProps = state => {
 	return {
-		users: state.users
+		users: state.allUsers
 	};
 };
 

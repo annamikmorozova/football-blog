@@ -47,7 +47,7 @@ class Comment extends Component {
 							// onChange={this.handleInputChange}
 						/>
 					</div>
-					<Button variant="outline-primary" size="lg" type="submit">
+					<Button variant="outline-primary" size="md" type="submit">
 						Comment
 					</Button>
 				</Form>
