@@ -1,16 +1,41 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
 // import {Link} from "react-router-dom";
-import {Col} from "reactstrap";
+// import {Col} from "reactstrap";
+import {fetchPosts} from "../store";
 
 class Library extends Component {
+	componentWillMount() {
+		this.props.allPosts();
+	}
+
 	render() {
+		const {posts} = this.props;
 		return (
 			<div>
 				<h1 className="library-title">Library</h1>
-				<div>images to be here</div>
+				<div className="library-layout">
+					{posts.map(post => (
+						<div key={post.id}>
+							<img className="library-images" src={`/${post.imageName}`} />
+						</div>
+					))}
+				</div>
 			</div>
 		);
 	}
 }
 
-export default Library;
+const mapStateToProps = state => {
+	return {
+		posts: state.post.allPosts
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		allPosts: () => dispatch(fetchPosts())
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Library);

@@ -14,9 +14,9 @@ class Users extends Component {
 		return (
 			<div>
 				<h1 className="about-title">Users</h1>
-				<Table className="users-table">
+				<Table>
 					<thead className="thead-light">
-						<tr className="users-rows">
+						<tr>
 							<th scope="col">#</th>
 							<th scope="col">First Name</th>
 							<th scope="col">Last Name</th>
@@ -27,9 +27,7 @@ class Users extends Component {
 					<tbody>
 						{users.map(user => (
 							<tr className="users-rows" key={user.id}>
-								<th classNam="users-col" scope="row">
-									{user.id}
-								</th>
+								<th scope="row">{user.id}</th>
 								<td>{user.firstName}</td>
 								<td>{user.lastName}</td>
 								<td>{user.role}</td>

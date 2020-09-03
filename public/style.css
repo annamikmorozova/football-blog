@@ -206,16 +206,11 @@ form div {
 	height: 150px;
 }
 
-.users-table {
-	margin-right: 100px;
-	margin-left: 100px;
+.library-images {
+	height: 150px;
 }
 
-.users-rows {
-	padding-left: 50px;
-	padding-right: 50px;
-}
-
-.users-col {
-	padding: 20px;
+.library-layout {
+	display: flex;
+	justify-content: space-evenly;
 }
