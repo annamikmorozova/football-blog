@@ -1,8 +1,8 @@
 "use strict";
 
 const db = require("../server/db");
-const {User, Post} = require("../server/db/models");
-const {admins, posts, users} = require("./seedData");
+const {User, Post, Comment} = require("../server/db/models");
+const {admins, posts, users, comments} = require("./seedData");
 
 async function seed() {
 	try {
@@ -24,6 +24,14 @@ async function seed() {
 		await Promise.all(
 			allUsers.map(user => {
 				return User.create(user);
+			})
+		);
+
+		const allComments = [...comments];
+
+		await Promise.all(
+			allComments.map(comment => {
+				return Comment.create(comment);
 			})
 		);
 

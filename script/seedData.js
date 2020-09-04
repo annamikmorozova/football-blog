@@ -1,7 +1,6 @@
 const posts = [
 	{
 		title: "Воротилин Станислав Петрович",
-		// date: 100,
 		description:
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "AAAAAAAAA",
@@ -10,7 +9,6 @@ const posts = [
 	},
 	{
 		title: "Воротилин Станислав Петрович",
-		// date: 100,
 		description:
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "BBBBBBB",
@@ -19,7 +17,6 @@ const posts = [
 	},
 	{
 		title: "Воротилин Станислав Петрович",
-		// date: 100,
 		description:
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "CCCCCC",
@@ -28,7 +25,6 @@ const posts = [
 	},
 	{
 		title: "Воротилин Станислав Петрович",
-		// date: 100,
 		description:
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "DDDDDD",
@@ -37,12 +33,34 @@ const posts = [
 	},
 	{
 		title: "Воротилин Станислав Петрович",
-		// date: 100,
 		description:
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "EEEEEE",
 		imageTitle: "7 августа 1979 года ",
 		imageName: "image_1598996840874.jpg"
+	}
+];
+
+const comments = [
+	{
+		description: "xxexexex",
+		postId: 1
+	},
+	{
+		description: "xaxaaxa",
+		postId: 1
+	},
+	{
+		description: "xxexErikexex",
+		postId: 1
+	},
+	{
+		description: "ERIK",
+		postId: 1
+	},
+	{
+		description: "ERIKERIKERIK",
+		postId: 1
 	}
 ];
 
@@ -83,5 +101,6 @@ const users = [
 module.exports = {
 	posts,
 	admins,
-	users
+	users,
+	comments
 };

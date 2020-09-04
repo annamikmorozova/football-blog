@@ -3,7 +3,7 @@ const db = require("../db");
 
 const Comment = db.define("comment", {
 	date: {
-		type: Sequelize.DATEONLY,
+		type: Sequelize.DATE,
 		defaultValue: Date.now()
 	},
 	description: {

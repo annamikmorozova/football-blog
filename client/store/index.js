@@ -5,9 +5,8 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import user from "./user";
 import post from "./post";
 import allUsers from "./allUsers.js";
-import comments from "./comment";
 
-const reducer = combineReducers({user, post, allUsers, comments});
+const reducer = combineReducers({user, post, allUsers});
 const middleware = composeWithDevTools(
 	applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 );
@@ -17,4 +16,3 @@ export default store;
 export * from "./user";
 export * from "./post";
 export * from "./allUsers";
-export * from "./comment";

@@ -1,9 +1,10 @@
 import React, {Component} from "react";
-// import {connect} from "react-redux";
-import {Col, Button} from "reactstrap";
+import {connect} from "react-redux";
+import {Button} from "reactstrap";
 import {Form} from "react-bootstrap";
+import {BsThreeDots} from "react-icons/bs";
 
-class Comment extends Component {
+export default class Comments extends Component {
 	// constructor() {
 	// 	super();
 	// 	this.state = {
@@ -29,11 +30,26 @@ class Comment extends Component {
 	// }
 
 	render() {
+		const {comments} = this.props;
+
 		return (
 			<div>
-				<Form className="form-style">
-					<h1> Add a new comment </h1>
+				<h2 className="comments-title">Comments</h2>
+				<div className="comments-title">
+					{" "}
+					<BsThreeDots />
+				</div>
 
+				<div>
+					{comments.map(comment => (
+						<div key={comment.id}>
+							<div>{comment.description}</div>
+						</div>
+					))}
+				</div>
+
+				<Form className="form-style">
+					<h2> Add a new comment </h2>
 					<div className="col-md-6 form-labels-style">
 						<label htmlFor="description">Description</label>
 						<input
@@ -55,5 +71,3 @@ class Comment extends Component {
 		);
 	}
 }
-
-export default Comment;

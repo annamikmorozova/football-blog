@@ -243,3 +243,8 @@ form div {
 		text-align: center;
 	}
 }
+
+.comments-title {
+	display: flex;
+	justify-content: center;
+}

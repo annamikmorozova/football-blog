@@ -1,15 +1,17 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {getSinglePost} from "../store/post";
-import Comment from "./Comment";
+import Comments from "./Comment";
+import FacebookComments from "./FacebookComments";
 
 class SinglePost extends Component {
-	componentDidMount() {
+	componentWillMount() {
 		this.props.getSinglePost(this.props.match.params.id);
 	}
 
 	render() {
 		const {post} = this.props;
+
 		return (
 			<div className="columns-post">
 				<div className="single-post">
@@ -20,7 +22,8 @@ class SinglePost extends Component {
 						<img className="single-post-image" src={`/${post.imageName}`} />
 					</div>
 				</div>
-				<Comment />
+				<Comments comments={post.comments || []} />
+				<FacebookComments id={post.id} />
 			</div>
 		);
 	}
