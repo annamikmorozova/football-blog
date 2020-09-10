@@ -32,8 +32,8 @@ class AllPosts extends Component {
 						</Col>
 						<Col xs={7}>
 							<Link to={`/posts/${post.id}`}>
-								<p>{post.title}</p>
-								<p>{post.shortcut}</p>
+								<p className="post-font">{post.title}</p>
+								<p className="post-text">{post.shortcut}</p>
 							</Link>
 							<Row className="row-all-posts">
 								<div className="comments-all-posts">Comments</div>
