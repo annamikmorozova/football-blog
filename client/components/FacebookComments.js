@@ -3,10 +3,13 @@ import {FacebookProvider, Comments} from "react-facebook";
 
 export default class FacebookComments extends Component {
 	render() {
-		return (
-			<FacebookProvider appId="123456789">
-				<Comments href="http://localhost:8080/posts" />
-			</FacebookProvider>
-		);
+		if (this.props.id) {
+			return (
+				<FacebookProvider appId={process.env.FB_APPID || "123456789"}>
+					<Comments href={`http://localhost:8081/posts/${this.props.id}`} />
+				</FacebookProvider>
+			);
+		}
+		return "";
 	}
 }
