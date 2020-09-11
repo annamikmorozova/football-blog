@@ -7,6 +7,5 @@ export {default as About} from "./About";
 export {default as Library} from "./Library";
 export {default as SinglePost} from "./SinglePost";
 export {default as Users} from "./Users";
-export {default as Comments} from "./Comment";
 export {default as FacebookComments} from "./FacebookComments";
 export {default as LikePost} from "./LikePost";

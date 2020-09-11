@@ -180,6 +180,23 @@ form div {
 	flex-direction: column;
 	align-items: center;
 	margin-top: 30px;
+	background-color: darkorange;
+	margin-right: 50px;
+	margin-left: 50px;
+	padding-top: 30px;
+}
+
+@media (min-width: 820px) {
+	.form-style {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 30px;
+		background-color: darkorange;
+		margin-right: 120px;
+		margin-left: 120px;
+		padding-top: 30px;
+	}
 }
 
 .about-title,
@@ -293,5 +310,11 @@ form div {
 .folder:hover {
 	color: yellow;
 	font-size: 32px;
+	align-items: center;
+}
+
+.comment-align {
+	display: flex;
+	justify-content: center;
 	align-items: center;
 }
