@@ -11,7 +11,8 @@ import {
 	SinglePost,
 	About,
 	Library,
-	Users
+	Users,
+	LibraryForm
 } from "./components";
 import {me} from "./store";
 
@@ -33,6 +34,7 @@ class Routes extends Component {
 				<Route path="/library" component={Library} />
 				<Route path="/posts/:id" component={SinglePost} />
 				<Route path="/users" component={Users} />
+				<Route path="/library-form" component={LibraryForm} />
 				{isLoggedIn && (
 					<Switch>
 						<Route path="/home" component={UserHome} />
