@@ -22,7 +22,6 @@ class SinglePost extends Component {
 						<img className="single-post-image" src={`/${post.imageName}`} />
 					</div>
 				</div>
-				<Comments comments={post.comments || []} />
 				<FacebookComments id={post.id} />
 			</div>
 		);
