@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {Col, Row} from "reactstrap";
 import {fetchPosts, deletePostThunk} from "../store/post";
 import {BsHeartFill} from "react-icons/bs";
+import LikePost from "./LikePost";
 
 class AllPosts extends Component {
 	constructor() {
@@ -38,6 +39,7 @@ class AllPosts extends Component {
 							<Row className="row-all-posts">
 								<div className="comments-all-posts">Comments</div>
 								<BsHeartFill />
+								<LikePost id={post.id} />
 							</Row>
 						</Col>
 						{this.props.isAdmin ? (

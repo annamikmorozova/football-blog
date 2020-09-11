@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {getSinglePost} from "../store/post";
 import FacebookComments from "./FacebookComments";
+import LikePost from "./LikePost";
 
 class SinglePost extends Component {
 	componentWillMount() {
@@ -20,6 +21,7 @@ class SinglePost extends Component {
 						<div className="single-post-description">{post.description}</div>
 						<img className="single-post-image" src={`/${post.imageName}`} />
 					</div>
+					<LikePost id={post.id} />
 				</div>
 				<div className="comment-align">
 					<FacebookComments id={post.id} />
