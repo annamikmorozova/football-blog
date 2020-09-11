@@ -1,5 +1,7 @@
 "use strict";
 
+if (process.env.NODE_ENV !== "production") require("../secrets");
+
 const db = require("../server/db");
 const {User, Post, Comment} = require("../server/db/models");
 const {admins, posts, users, comments} = require("./seedData");

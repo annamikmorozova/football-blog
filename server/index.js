@@ -5,6 +5,7 @@ const compression = require("compression");
 const session = require("express-session");
 const passport = require("passport");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+if (process.env.NODE_ENV !== "production") require("../secrets");
 const db = require("./db");
 const sessionStore = new SequelizeStore({
 	db
@@ -17,8 +18,6 @@ module.exports = app;
 if (process.env.NODE_ENV === "test") {
 	after("close the session store", () => sessionStore.stopExpiringSessions());
 }
-
-if (process.env.NODE_ENV !== "production") require("../secrets");
 
 passport.serializeUser((user, done) => done(null, user.id));
 
