@@ -13,7 +13,7 @@ class NewPostForm extends Component {
 			image: "",
 			shortcut: "",
 			imageTitle: "",
-			category: "",
+			tag: "",
 			credits: "",
 			pictureDescription: ""
 		};
@@ -30,7 +30,7 @@ class NewPostForm extends Component {
 		form.append("description", this.state.description);
 		form.append("imageTitle", this.state.imageTitle);
 		form.append("shortcut", this.state.shortcut);
-		form.append("category", this.state.category);
+		form.append("tag", this.state.tag);
 		form.append("credits", this.state.credits);
 		form.append("pictureDescription", this.state.pictureDescription);
 		this.props.newPostThunk(form);
@@ -124,17 +124,17 @@ class NewPostForm extends Component {
 				</div>
 
 				<div className="col-md-6 form-labels-style">
-					<label className="form-title" htmlFor="category">
-						Category
+					<label className="form-title" htmlFor="tag">
+						Tag
 					</label>
 					<input
 						type="text"
-						name="category"
+						name="tag"
 						className="form-control"
-						id="category"
-						placeholder="Category"
+						id="tag"
+						placeholder="Tag"
 						required=""
-						value={this.state.category}
+						value={this.state.tag}
 						onChange={this.handleInputChange}
 					/>
 				</div>

@@ -5,7 +5,10 @@ const posts = [
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "AAAAAAAAA",
 		imageTitle: "7 августа 1979 года ",
-		imageName: "image_1598996840874.jpg"
+		imageName: "image_1598996840874.jpg",
+		category: "year",
+		credits: "Google",
+		pictureDescription: "this is a test"
 	},
 	{
 		title: "Воротилин Станислав Петрович",
@@ -13,7 +16,10 @@ const posts = [
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "BBBBBBB",
 		imageTitle: "7 августа 1979 года ",
-		imageName: "image_1598996840874.jpg"
+		imageName: "image_1598996840874.jpg",
+		category: "year",
+		credits: "Google",
+		pictureDescription: "this is a test"
 	},
 	{
 		title: "Воротилин Станислав Петрович",
@@ -21,7 +27,10 @@ const posts = [
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "CCCCCC",
 		imageTitle: "7 августа 1979 года ",
-		imageName: "image_1598996840874.jpg"
+		imageName: "image_1598996840874.jpg",
+		category: "1970",
+		credits: "Google",
+		pictureDescription: "this is a test"
 	},
 	{
 		title: "Воротилин Станислав Петрович",
@@ -29,7 +38,10 @@ const posts = [
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "DDDDDD",
 		imageTitle: "7 августа 1979 года",
-		imageName: "image_1598996840874.jpg"
+		imageName: "image_1598996840874.jpg",
+		category: "1990",
+		credits: "Google",
+		pictureDescription: "this is a test"
 	},
 	{
 		title: "Воротилин Станислав Петрович",
@@ -37,30 +49,41 @@ const posts = [
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "EEEEEE",
 		imageTitle: "7 августа 1979 года ",
-		imageName: "image_1598996840874.jpg"
+		imageName: "image_1598996840874.jpg",
+		category: "1990",
+		credits: "Google",
+		pictureDescription: "this is a test"
 	}
 ];
 
-const comments = [
+const tags = [
 	{
-		description: "xxexexex",
-		postId: 1
+		text: "1990",
+		category: "year"
 	},
 	{
-		description: "xaxaaxa",
-		postId: 1
+		text: "1980",
+		category: "year"
 	},
 	{
-		description: "xxexErikexex",
-		postId: 1
+		text: "1970",
+		category: "year"
 	},
 	{
-		description: "ERIK",
-		postId: 1
+		text: "National Team",
+		category: "team"
 	},
 	{
-		description: "ERIKERIKERIK",
-		postId: 1
+		text: "Shinnik",
+		category: "team"
+	},
+	{
+		text: "2000",
+		category: "year"
+	},
+	{
+		text: "Barcelona",
+		category: "team"
 	}
 ];
 
@@ -102,5 +125,5 @@ module.exports = {
 	posts,
 	admins,
 	users,
-	comments
+	tags
 };

@@ -52,7 +52,7 @@ router.post("/", upload.single("image"), async (req, res, next) => {
 			date,
 			shortcut,
 			imageTitle,
-			category,
+			tag,
 			credits,
 			pictureDescription
 		} = req.body;
@@ -62,7 +62,7 @@ router.post("/", upload.single("image"), async (req, res, next) => {
 			date,
 			shortcut,
 			imageTitle,
-			category,
+			tag,
 			credits,
 			pictureDescription,
 			imageName: path
@@ -83,7 +83,7 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 			date,
 			shortcut,
 			imageTitle,
-			category,
+			tag,
 			credits,
 			pictureDescription
 		} = req.body;
@@ -95,7 +95,7 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 				date,
 				shortcut,
 				imageTitle,
-				category,
+				tag,
 				credits,
 				pictureDescription,
 				imageName: path
@@ -106,7 +106,7 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 				description,
 				date,
 				shortcut,
-				category,
+				tag,
 				credits,
 				pictureDescription,
 				imageTitle

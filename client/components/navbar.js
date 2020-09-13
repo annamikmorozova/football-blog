@@ -43,13 +43,6 @@ class MainNavbar extends React.Component {
 									) : (
 										""
 									)}
-									{this.props.isAdmin ? (
-										<Link className="nav-admin-color" to="/library-form">
-											Add to Library
-										</Link>
-									) : (
-										""
-									)}
 									<Link className="posts-navbar-link" to="/posts">
 										{" "}
 										<IoIosFootball color="white" size={38} />

@@ -3,8 +3,8 @@
 if (process.env.NODE_ENV !== "production") require("../secrets");
 
 const db = require("../server/db");
-const {User, Post, Comment} = require("../server/db/models");
-const {admins, posts, users, comments} = require("./seedData");
+const {User, Post, Tag} = require("../server/db/models");
+const {admins, posts, users, tags} = require("./seedData");
 
 async function seed() {
 	try {
@@ -13,7 +13,7 @@ async function seed() {
 		});
 		console.log("db synced!");
 
-		let allPosts = [...posts];
+		const allPosts = [...posts];
 
 		await Promise.all(
 			allPosts.map(post => {
@@ -29,11 +29,11 @@ async function seed() {
 			})
 		);
 
-		const allComments = [...comments];
+		const allTags = [...tags];
 
 		await Promise.all(
-			allComments.map(comment => {
-				return Comment.create(comment);
+			allTags.map(tag => {
+				return Tag.create(tag);
 			})
 		);
 
