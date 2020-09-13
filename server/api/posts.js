@@ -46,13 +46,25 @@ router.get("/:postId", async (req, res, next) => {
 router.post("/", upload.single("image"), async (req, res, next) => {
 	try {
 		const path = req.file.path.slice(8);
-		const {title, description, date, shortcut, imageTitle} = req.body;
+		const {
+			title,
+			description,
+			date,
+			shortcut,
+			imageTitle,
+			category,
+			credits,
+			pictureDescription
+		} = req.body;
 		const entry = await Post.create({
 			title,
 			description,
 			date,
 			shortcut,
 			imageTitle,
+			category,
+			credits,
+			pictureDescription,
 			imageName: path
 		});
 		res.json(entry);
@@ -64,7 +76,17 @@ router.post("/", upload.single("image"), async (req, res, next) => {
 router.put("/", upload.single("image"), async (req, res, next) => {
 	try {
 		const path = req.file && req.file.path;
-		const {id, title, description, date, shortcut, imageTitle} = req.body;
+		const {
+			id,
+			title,
+			description,
+			date,
+			shortcut,
+			imageTitle,
+			category,
+			credits,
+			pictureDescription
+		} = req.body;
 		let params = {};
 		if (path) {
 			params = {
@@ -73,6 +95,9 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 				date,
 				shortcut,
 				imageTitle,
+				category,
+				credits,
+				pictureDescription,
 				imageName: path
 			};
 		} else {
@@ -81,6 +106,9 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 				description,
 				date,
 				shortcut,
+				category,
+				credits,
+				pictureDescription,
 				imageTitle
 			};
 		}

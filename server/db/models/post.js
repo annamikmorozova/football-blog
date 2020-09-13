@@ -24,6 +24,15 @@ const Post = db.define("post", {
 	},
 	imageTitle: {
 		type: Sequelize.STRING
+	},
+	category: {
+		type: Sequelize.STRING
+	},
+	credits: {
+		type: Sequelize.STRING
+	},
+	pictureDescription: {
+		type: Sequelize.STRING
 	}
 });
 
