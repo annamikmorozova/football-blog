@@ -9,4 +9,3 @@ export {default as SinglePost} from "./SinglePost";
 export {default as Users} from "./Users";
 export {default as FacebookComments} from "./FacebookComments";
 export {default as LikePost} from "./LikePost";
-export {default as LibraryForm} from "./LibraryForm";

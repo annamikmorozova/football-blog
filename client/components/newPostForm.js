@@ -12,7 +12,10 @@ class NewPostForm extends Component {
 			description: "",
 			image: "",
 			shortcut: "",
-			imageTitle: ""
+			imageTitle: "",
+			category: "",
+			credits: "",
+			pictureDescription: ""
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,6 +30,9 @@ class NewPostForm extends Component {
 		form.append("description", this.state.description);
 		form.append("imageTitle", this.state.imageTitle);
 		form.append("shortcut", this.state.shortcut);
+		form.append("category", this.state.category);
+		form.append("credits", this.state.credits);
+		form.append("pictureDescription", this.state.pictureDescription);
 		this.props.newPostThunk(form);
 		this.props.history.push("/posts");
 	}
@@ -114,6 +120,50 @@ class NewPostForm extends Component {
 						placeholder="image"
 						required=""
 						onChange={this.handleFileChange}
+					/>
+				</div>
+
+				<div className="col-md-6 form-labels-style">
+					<label className="form-title" htmlFor="category">
+						Category
+					</label>
+					<input
+						type="text"
+						name="category"
+						className="form-control"
+						id="category"
+						placeholder="Category"
+						required=""
+						value={this.state.category}
+						onChange={this.handleInputChange}
+					/>
+				</div>
+
+				<div className="col-md-6 form-labels-style">
+					<label htmlFor="credits">Credits</label>
+					<input
+						type="text"
+						name="credits"
+						className="form-control"
+						id="credits"
+						placeholder="Credits"
+						required=""
+						value={this.state.credits}
+						onChange={this.handleInputChange}
+					/>
+				</div>
+
+				<div className="col-md-6 form-labels-style">
+					<label htmlFor="pictureDescription">Picture Description</label>
+					<input
+						type="text"
+						name="pictureDescription"
+						className="form-control"
+						id="pictureDescription"
+						placeholder="Picture Description"
+						required=""
+						value={this.state.pictureDescription}
+						onChange={this.handleInputChange}
 					/>
 				</div>
 
