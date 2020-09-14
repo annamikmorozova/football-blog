@@ -4,7 +4,8 @@ const Tag = require("./tag");
 
 User.hasMany(Post);
 Post.belongsTo(User);
-Post.hasMany(Tag);
+Post.belongsToMany(Tag, {through: "PostTags"});
+Tag.belongsToMany(Post, {through: "PostTags"});
 
 module.exports = {
 	User,

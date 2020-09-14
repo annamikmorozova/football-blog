@@ -52,7 +52,6 @@ router.post("/", upload.single("image"), async (req, res, next) => {
 			date,
 			shortcut,
 			imageTitle,
-			tag,
 			credits,
 			pictureDescription
 		} = req.body;
@@ -62,14 +61,17 @@ router.post("/", upload.single("image"), async (req, res, next) => {
 			date,
 			shortcut,
 			imageTitle,
-			tag,
 			credits,
 			pictureDescription,
 			imageName: path
 		});
+
+		const tagIds = JSON.parse(req.body.tags).map(tag => tag.id);
+		await entry.setTags(tagIds);
+
 		res.json(entry);
-	} catch (error) {
-		next(error);
+	} catch (err) {
+		next(err);
 	}
 });
 
@@ -83,7 +85,6 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 			date,
 			shortcut,
 			imageTitle,
-			tag,
 			credits,
 			pictureDescription
 		} = req.body;
@@ -95,7 +96,6 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 				date,
 				shortcut,
 				imageTitle,
-				tag,
 				credits,
 				pictureDescription,
 				imageName: path
@@ -106,7 +106,6 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 				description,
 				date,
 				shortcut,
-				tag,
 				credits,
 				pictureDescription,
 				imageTitle

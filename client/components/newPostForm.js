@@ -54,7 +54,7 @@ class NewPostForm extends Component {
 		form.append("description", this.state.description);
 		form.append("imageTitle", this.state.imageTitle);
 		form.append("shortcut", this.state.shortcut);
-		form.append("tag", this.state.tag);
+		form.append("tags", JSON.stringify(this.state.tags));
 		form.append("credits", this.state.credits);
 		form.append("pictureDescription", this.state.pictureDescription);
 		this.props.newPostThunk(form);
