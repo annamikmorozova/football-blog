@@ -3,6 +3,8 @@ import {connect} from "react-redux";
 import {Button} from "reactstrap";
 import {Form} from "react-bootstrap";
 import {newPostThunk} from "../store/post";
+import axios from "axios";
+import ReactTags from "react-tag-autocomplete";
 
 class NewPostForm extends Component {
 	constructor() {
@@ -15,11 +17,33 @@ class NewPostForm extends Component {
 			imageTitle: "",
 			tag: "",
 			credits: "",
-			pictureDescription: ""
+			pictureDescription: "",
+			tags: []
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleFileChange = this.handleFileChange.bind(this);
+		axios.get("/api/tags").then(tags => {
+			const suggestions = tags.data.map(tagObj => {
+				return {
+					id: tagObj.id,
+					name: tagObj.text
+				};
+			});
+			this.setState({suggestions});
+		});
+		this.reactTags = React.createRef();
+	}
+
+	onDelete(i) {
+		const tags = this.state.tags.slice(0);
+		tags.splice(i, 1);
+		this.setState({tags});
+	}
+
+	onAddition(tag) {
+		const tags = [].concat(this.state.tags, tag);
+		this.setState({tags});
 	}
 
 	handleSubmit(event) {
@@ -124,18 +148,13 @@ class NewPostForm extends Component {
 				</div>
 
 				<div className="col-md-6 form-labels-style">
-					<label className="form-title" htmlFor="tag">
-						Tag
-					</label>
-					<input
-						type="text"
-						name="tag"
-						className="form-control"
-						id="tag"
-						placeholder="Tag"
-						required=""
-						value={this.state.tag}
-						onChange={this.handleInputChange}
+					<label htmlFor="img">Select Tags</label>
+					<ReactTags
+						ref={this.reactTags}
+						tags={this.state.tags}
+						suggestions={this.state.suggestions}
+						onDelete={this.onDelete.bind(this)}
+						onAddition={this.onAddition.bind(this)}
 					/>
 				</div>
 
