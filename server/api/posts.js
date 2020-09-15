@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const {Post, Comment} = require("../db/models");
+const {Post, Tag} = require("../db/models");
 
 const multer = require("multer");
 
@@ -30,8 +30,14 @@ router.get("/:postId", async (req, res, next) => {
 		const post = await Post.findOne({
 			where: {
 				id: req.params.postId
-			}
+			},
+			include: [
+				{
+					model: Tag
+				}
+			]
 		});
+
 		if (!post) {
 			res.sendStatus(404);
 		} else {

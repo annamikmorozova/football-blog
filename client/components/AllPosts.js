@@ -32,9 +32,11 @@ class AllPosts extends Component {
 							<img className="posts-images" src={`/${post.imageName}`} />
 						</Col>
 						<Col xs={7}>
+							<p className="post-font">{post.title}</p>
 							<Link to={`/posts/${post.id}`}>
-								<p className="post-font">{post.title}</p>
-								<p className="post-text">{post.shortcut}</p>
+								<p className="post-text">
+									{post.shortcut} <div className="read-more">READ MORE</div>
+								</p>
 							</Link>
 							<Row className="row-all-posts">
 								<div className="comments-all-posts">Comments</div>

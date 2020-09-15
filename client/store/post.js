@@ -48,7 +48,6 @@ export const getSinglePost = postId => {
 	return async dispatch => {
 		try {
 			const {data} = await axios.get(`/api/posts/${postId}`);
-			console.log("HERE", data);
 			dispatch(singlePost(data));
 		} catch (error) {
 			console.log(error);

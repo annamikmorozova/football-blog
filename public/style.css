@@ -314,10 +314,12 @@ form div {
 
 .post-font {
 	font-size: 22px;
+	color: black;
 }
 
 .post-text {
 	font-size: 18px;
+	color: black;
 }
 
 .library-folders {
@@ -359,4 +361,9 @@ form div {
 
 .p-margin {
 	margin-right: 70px;
+}
+
+.read-more {
+	color: orangered;
+	font-style: italic;
 }
