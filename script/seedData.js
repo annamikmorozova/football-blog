@@ -5,8 +5,7 @@ const posts = [
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "AAAAAAAAA",
 		imageTitle: "7 августа 1979 года ",
-		imageName: "image_1598996840874.jpg",
-		category: "year",
+		imageName: "image_1600058382141.jpg",
 		credits: "Google",
 		pictureDescription: "this is a test"
 	},
@@ -16,8 +15,7 @@ const posts = [
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "BBBBBBB",
 		imageTitle: "7 августа 1979 года ",
-		imageName: "image_1598996840874.jpg",
-		category: "year",
+		imageName: "image_1600058382141.jpg",
 		credits: "Google",
 		pictureDescription: "this is a test"
 	},
@@ -27,8 +25,7 @@ const posts = [
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "CCCCCC",
 		imageTitle: "7 августа 1979 года ",
-		imageName: "image_1598996840874.jpg",
-		category: "1970",
+		imageName: "image_1600058382141.jpg",
 		credits: "Google",
 		pictureDescription: "this is a test"
 	},
@@ -38,8 +35,7 @@ const posts = [
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "DDDDDD",
 		imageTitle: "7 августа 1979 года",
-		imageName: "image_1598996840874.jpg",
-		category: "1990",
+		imageName: "image_1600058382141.jpg",
 		credits: "Google",
 		pictureDescription: "this is a test"
 	},
@@ -49,8 +45,7 @@ const posts = [
 			"7 августа 1979 года  Воротилину Станиславу  Петровичу  было присвоено  звание  “Заслуженный тренер РСФСР”.",
 		shortcut: "EEEEEE",
 		imageTitle: "7 августа 1979 года ",
-		imageName: "image_1598996840874.jpg",
-		category: "1990",
+		imageName: "image_1600058382141.jpg",
 		credits: "Google",
 		pictureDescription: "this is a test"
 	}

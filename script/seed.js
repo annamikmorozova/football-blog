@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== "production") require("../secrets");
 
 const db = require("../server/db");
 const {User, Post, Tag} = require("../server/db/models");
-const {admins, posts, users, tags} = require("./seedData");
+const {admins, posts, users, tags, postTags} = require("./seedData");
 
 async function seed() {
 	try {

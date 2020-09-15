@@ -30,8 +30,7 @@ router.get("/:postId", async (req, res, next) => {
 		const post = await Post.findOne({
 			where: {
 				id: req.params.postId
-			},
-			include: [{model: Comment}]
+			}
 		});
 		if (!post) {
 			res.sendStatus(404);
