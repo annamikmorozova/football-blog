@@ -64,6 +64,7 @@
     "react-dom": "^16.13.1",
     "react-facebook": "^8.1.4",
     "react-icons": "^3.11.0",
+    "react-material-admin-template": "0.0.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-tag-autocomplete": "^6.1.0",
@@ -73,7 +74,8 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "sequelize": "^5.22.3",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "yarn": "^1.22.5"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

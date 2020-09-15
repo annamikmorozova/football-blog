@@ -55,7 +55,6 @@ router.post("/", upload.single("image"), async (req, res, next) => {
 			title,
 			description,
 			date,
-			shortcut,
 			imageTitle,
 			credits,
 			pictureDescription
@@ -64,7 +63,6 @@ router.post("/", upload.single("image"), async (req, res, next) => {
 			title,
 			description,
 			date,
-			shortcut,
 			imageTitle,
 			credits,
 			pictureDescription,
@@ -88,7 +86,6 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 			title,
 			description,
 			date,
-			shortcut,
 			imageTitle,
 			credits,
 			pictureDescription
@@ -99,7 +96,6 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 				title,
 				description,
 				date,
-				shortcut,
 				imageTitle,
 				credits,
 				pictureDescription,
@@ -110,7 +106,6 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 				title,
 				description,
 				date,
-				shortcut,
 				credits,
 				pictureDescription,
 				imageTitle

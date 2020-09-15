@@ -13,9 +13,7 @@ class NewPostForm extends Component {
 			title: "",
 			description: "",
 			image: "",
-			shortcut: "",
 			imageTitle: "",
-			tag: "",
 			credits: "",
 			pictureDescription: "",
 			tags: []
@@ -53,7 +51,6 @@ class NewPostForm extends Component {
 		form.append("title", this.state.title);
 		form.append("description", this.state.description);
 		form.append("imageTitle", this.state.imageTitle);
-		form.append("shortcut", this.state.shortcut);
 		form.append("tags", JSON.stringify(this.state.tags));
 		form.append("credits", this.state.credits);
 		form.append("pictureDescription", this.state.pictureDescription);
@@ -101,20 +98,6 @@ class NewPostForm extends Component {
 						placeholder="description"
 						required=""
 						value={this.state.description}
-						onChange={this.handleInputChange}
-					/>
-				</div>
-
-				<div className="col-md-6 form-labels-style">
-					<label htmlFor="shortcut">Shortcut</label>
-					<input
-						type="text"
-						name="shortcut"
-						className="form-control"
-						id="shortcut"
-						placeholder="shortcut"
-						required=""
-						value={this.state.shortcut}
 						onChange={this.handleInputChange}
 					/>
 				</div>

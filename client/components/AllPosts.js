@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {Col, Row} from "reactstrap";
 import {fetchPosts, deletePostThunk} from "../store/post";
-import {BsHeartFill} from "react-icons/bs";
 import LikePost from "./LikePost";
 
 class AllPosts extends Component {
@@ -26,35 +25,37 @@ class AllPosts extends Component {
 
 		return (
 			<div>
-				{posts.map(post => (
-					<div className="post-row" key={post.id}>
-						<Col xs={3}>
+				<div className="all-posts-boxes">
+					{posts.map(post => (
+						<div className="post-box" key={post.id}>
 							<img className="posts-images" src={`/${post.imageName}`} />
-						</Col>
-						<Col xs={7}>
 							<p className="post-font">{post.title}</p>
-							<Link to={`/posts/${post.id}`}>
-								<p className="post-text">
-									{post.shortcut} <div className="read-more">READ MORE</div>
-								</p>
-							</Link>
+							<div className="button-explore">
+								<Link to={`/posts/${post.id}`}>
+									<button className="explore-button" type="submit">
+										Explore
+									</button>
+								</Link>
+							</div>
 							<Row className="row-all-posts">
-								<div className="comments-all-posts">Comments</div>
-								<BsHeartFill />
-								<LikePost id={post.id} />
+								<div className="likes">
+									<LikePost id={post.id} />
+								</div>
 							</Row>
-						</Col>
-						{this.props.isAdmin ? (
-							<Col>
-								<form onSubmit={event => this.handleDelete(event, post.id)}>
-									<button type="submit">Delete</button>
-								</form>
-							</Col>
-						) : (
-							""
-						)}
-					</div>
-				))}
+							{this.props.isAdmin ? (
+								<Col>
+									<div className="button-delete">
+										<form onSubmit={event => this.handleDelete(event, post.id)}>
+											<button type="submit">Delete</button>
+										</form>
+									</div>
+								</Col>
+							) : (
+								""
+							)}
+						</div>
+					))}
+				</div>
 			</div>
 		);
 	}

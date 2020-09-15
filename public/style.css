@@ -315,6 +315,8 @@ form div {
 .post-font {
 	font-size: 22px;
 	color: black;
+	text-align: center;
+	margin-top: 20px;
 }
 
 .post-text {
@@ -366,4 +368,50 @@ form div {
 .read-more {
 	color: orangered;
 	font-style: italic;
+}
+
+.post-box {
+	background: darkorange;
+	width: 300px;
+	height: 300px;
+	margin: 30px;
+	box-shadow: 0 10px 15px 9px rgba(0, 0, 0, 0.2),
+		0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.all-posts-boxes {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.likes {
+	display: flex;
+	justify-content: center;
+}
+
+.explore-button:hover {
+	background: #101727;
+	color: white;
+}
+
+.button-delete {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.explore-button {
+	text-transform: uppercase;
+	text-decoration: none;
+	background: white;
+	border-radius: 5px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+	border: 2px solid black;
+}
+
+.button-explore {
+	text-align: center;
 }
