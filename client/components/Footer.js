@@ -20,7 +20,7 @@ export default class Footer extends React.Component {
 						<div className="footer-text">Resources</div>
 						<a
 							className="admin-login"
-							href="https://github.com/annamikmorozova/football-blog"
+							href="#"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -63,7 +63,12 @@ export default class Footer extends React.Component {
 					<div className="designed-by">
 						Designed by Anna Morozova and Erik Yeomans
 					</div>
-					<a className="github" href="">
+					<a
+						className="github"
+						href="https://github.com/annamikmorozova/football-blog"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
 						Github
 					</a>
 				</div>
