@@ -18,31 +18,20 @@ class MainNavbar extends React.Component {
 					<Col className="navbar-title-and-menu">
 						{this.props.isLoggedIn ? (
 							<div>
-								<h1 className="website-name">FOOTBALL BLOG RU</h1>
+								<h1 className="website-name">FOOTBALL76</h1>
 								<Row className="navbar-row">
+									<Link className="nav-admin-color" to="/home">
+										Admin
+									</Link>
 									<Link className="nav-admin-color" to="/about">
 										About
 									</Link>
 									<Link className="nav-admin-color" to="/posts">
 										Posts
 									</Link>
-									<Link className="nav-admin-color" to="/library">
-										Library
+									<Link className="nav-admin-color" to="/gallery">
+										Gallery
 									</Link>
-									{this.props.isAdmin ? (
-										<Link className="nav-admin-color" to="/users">
-											Users
-										</Link>
-									) : (
-										""
-									)}
-									{this.props.isAdmin ? (
-										<Link className="nav-admin-color" to="/new_post">
-											Make a post
-										</Link>
-									) : (
-										""
-									)}
 									<Link className="posts-navbar-link" to="/posts">
 										{" "}
 										<IoIosFootball color="white" size={38} />
@@ -58,17 +47,15 @@ class MainNavbar extends React.Component {
 							</div>
 						) : (
 							<div className="navbar-text">
-								<h1 className="website-name">FOOTBALL BLOG RU</h1>
+								<h1 className="website-name">FOOTBALL76</h1>
 								<Row className="navbar-row">
 									<Link to="/about">About</Link>
 									<Link to="/posts">Posts</Link>
-									<Link to="/library">Library</Link>
+									<Link to="/gallery">Library</Link>
 									<Link className="posts-navbar-link" to="/posts">
 										{" "}
 										<IoIosFootball color="white" size={38} />
 									</Link>
-									<Link to="/login">Login</Link>
-									<Link to="/signup">Sign Up</Link>
 								</Row>
 							</div>
 						)}

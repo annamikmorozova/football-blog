@@ -10,7 +10,7 @@ import {
 	NewPostForm,
 	SinglePost,
 	About,
-	Library,
+	Gallery,
 	Users
 } from "./components";
 import {me} from "./store";
@@ -30,7 +30,7 @@ class Routes extends Component {
 				<Route path="/signup" component={Signup} />
 				<Route path="/new_post" component={NewPostForm} />
 				<Route path="/about" component={About} />
-				<Route path="/library" component={Library} />
+				<Route path="/gallery" component={Gallery} />
 				<Route path="/posts/:id" component={SinglePost} />
 				<Route path="/users" component={Users} />
 				{isLoggedIn && (

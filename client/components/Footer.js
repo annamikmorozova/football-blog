@@ -9,7 +9,7 @@ export default class Footer extends React.Component {
 			<div className="footer">
 				<div className="footer-col">
 					<div className="footer-inside-col">
-						<div className="footer-text">Football 76</div>
+						<div className="footer-text">Football76</div>
 						<p className="footer-description">
 							На этой странице пишу о футболе, о людях, связанных с историей
 							футбольного клуба «Шинник».
@@ -18,12 +18,7 @@ export default class Footer extends React.Component {
 
 					<div className="footer-inside-col">
 						<div className="footer-text">Resources</div>
-						<a
-							className="admin-login"
-							href="#"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+						<a className="admin-login" href="/login">
 							Admin Login
 						</a>
 						<a
