@@ -1,11 +1,11 @@
-import React, {Component} from "react";
+import React from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {Col, Row} from "reactstrap";
 import {fetchPosts, deletePostThunk} from "../store/post";
 import LikePost from "./LikePost";
 
-class AllPosts extends Component {
+class AllPosts extends React.Component {
 	constructor() {
 		super();
 		this.handleDelete = this.handleDelete.bind(this);
