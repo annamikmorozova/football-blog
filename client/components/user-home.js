@@ -1,13 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
+import {AdminDashboard} from ".";
+import {GrEmoji} from "react-icons/gr";
 
 export const UserHome = props => {
 	const {firstName} = props;
 
 	return (
 		<div>
-			<h3>Welcome, {firstName}</h3>
+			<h3 className="welcome-admin">
+				Welcome, {firstName} <GrEmoji />
+			</h3>
+
+			<AdminDashboard />
 		</div>
 	);
 };

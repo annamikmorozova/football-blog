@@ -87,9 +87,6 @@ const AuthForm = props => {
 					<Button variant="dark" type="submit" className="btn button-space">
 						{displayName}
 					</Button>
-					<Button variant="dark" type="submit" href="/auth/google">
-						{displayName} with Google
-					</Button>
 					<p className="forgot-password text-right">
 						Forgot <a href="#">password?</a>
 					</p>

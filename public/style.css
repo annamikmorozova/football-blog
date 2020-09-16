@@ -487,3 +487,30 @@ form div {
 	justify-content: center;
 	flex-direction: row;
 }
+
+.admin-dashboard {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.welcome-admin {
+	text-align: center;
+	padding-top: 30px;
+}
+
+.admin-options {
+	background-color: gainsboro;
+	box-shadow: 0 10px 15px 9px rgba(0, 0, 0, 0.2),
+		0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin: 20px;
+	padding: 30px;
+	width: 300px;
+	border: 2px solid darkgoldenrod;
+	font-weight: 700;
+}
+
+.admin-options:hover {
+	background-color: gold;
+	border: 2px solid black;
+}
