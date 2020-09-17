@@ -2,13 +2,16 @@ import React from "react";
 import {Button} from "reactstrap";
 import {Form} from "react-bootstrap";
 import axios from "axios";
+import {Redirect} from "react-router-dom";
 
 export default class Newsletters extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			fullName: "",
-			email: ""
+			firstName: "",
+			lastName: "",
+			email: "",
+			redirect: false
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,7 +19,7 @@ export default class Newsletters extends React.Component {
 
 	async handleSubmit(event) {
 		event.preventDefault();
-		await axios.post("/api/users", this.state);
+		await axios.post("/api/admin/users", this.state);
 		this.setState({
 			redirect: true
 		});
@@ -28,41 +31,46 @@ export default class Newsletters extends React.Component {
 	}
 
 	render() {
+		if (this.state.redirect) {
+			return <Redirect to="/submitted" />;
+		}
+
 		return (
 			<Form className="form-style" onSubmit={this.handleSubmit}>
 				<h1> Add a new post </h1>
+
 				<div className="col-md-6 form-labels-style">
-					<label className="form-title" htmlFor="fullName">
-						Full Name
+					<label htmlFor="firstName">First Name</label>
+					<input
+						type="text"
+						name="firstName"
+						className="form-control"
+						id="firstName"
+						placeholder="First Name"
+						required=""
+						value={this.state.firstName}
+						onChange={this.handleInputChange}
+					/>
+				</div>
+
+				<div className="col-md-6 form-labels-style">
+					<label className="form-title" htmlFor="lastName">
+						Last Name
 					</label>
 					<input
 						type="text"
-						name="fullName"
+						name="lastName"
 						className="form-control"
-						id="fullName"
-						placeholder="Full Name"
+						id="lastName"
+						placeholder="Last Name"
 						required=""
-						value={this.state.fullName}
+						value={this.state.lastName}
 						onChange={this.handleInputChange}
 					/>
 				</div>
 
 				<div className="col-md-6 form-labels-style">
-					<label htmlFor="description">Description</label>
-					<input
-						type="text"
-						name="description"
-						className="form-control"
-						id="description"
-						placeholder="description"
-						required=""
-						value={this.state.description}
-						onChange={this.handleInputChange}
-					/>
-				</div>
-
-				<div className="col-md-6 form-labels-style">
-					<label htmlFor="pictureDescription">Email</label>
+					<label htmlFor="email">Email</label>
 					<input
 						type="text"
 						name="email"

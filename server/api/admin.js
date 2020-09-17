@@ -50,6 +50,15 @@ router.post("/", adminOnly, async (req, res, next) => {
 	}
 });
 
+router.post("/users", async (req, res, next) => {
+	try {
+		const user = await User.create(req.body);
+		res.json(user);
+	} catch (error) {
+		next(error);
+	}
+});
+
 router.delete("/:postId", adminOnly, async (req, res, next) => {
 	try {
 		await Post.destroy({

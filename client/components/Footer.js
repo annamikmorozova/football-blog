@@ -21,12 +21,7 @@ export default class Footer extends React.Component {
 						<a className="admin-login" href="/login">
 							Admin Login
 						</a>
-						<a
-							className="signup-newsletters"
-							href="#"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+						<a className="signup-newsletters" href="/newletters">
 							Signup for Newsletters
 						</a>
 					</div>
