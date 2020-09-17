@@ -286,7 +286,13 @@ form div {
 }
 
 .posts-images {
-	height: 150px;
+	height: auto;
+	width: 100%;
+}
+
+.header-image {
+	height: auto;
+	width: -webkit-fill-available;
 }
 
 .library-images {
@@ -391,7 +397,7 @@ form div {
 }
 
 .post-box {
-	background: darkorange;
+	background: darkgrey;
 	width: 300px;
 	height: 300px;
 	margin: 30px;
@@ -545,4 +551,23 @@ form div {
 	font-weight: 700;
 	font-style: oblique;
 	font-size: larger;
+}
+
+.sort-tags {
+	display: flex;
+	justify-content: space-around;
+	margin-right: 50px;
+	margin-left: 50px;
+	margin-top: 30px;
+	flex-direction: row;
+}
+
+.tags {
+	background-color: darkgrey;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+	margin-right: 5px;
 }
