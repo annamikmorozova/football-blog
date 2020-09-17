@@ -56,6 +56,9 @@ form div {
 	display: flex;
 	justify-content: center;
 	flex-direction: row;
+	position: absolute;
+	bottom: 4px;
+	align-content: center;
 }
 
 .website-name {
@@ -70,7 +73,7 @@ form div {
 	display: flex;
 	align-items: center;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: space-around;
 }
 
 .posts-navbar-link {
@@ -78,7 +81,8 @@ form div {
 	flex-direction: row;
 }
 
-.navbar-light .navbar-text a {
+.navbar-light .navbar-text,
+.navbar-row a {
 	color: white;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	letter-spacing: 2px;
@@ -570,4 +574,10 @@ form div {
 	padding-right: 5px;
 	padding-left: 5px;
 	margin-right: 5px;
+}
+
+.navbar-container {
+	position: relative;
+	text-align: center;
+	color: white;
 }
