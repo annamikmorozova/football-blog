@@ -3,8 +3,6 @@ import {FacebookProvider, Comments} from "react-facebook";
 
 export default class FacebookComments extends Component {
 	render() {
-		console.log(process.env.FB_APPID);
-
 		if (this.props.id) {
 			return (
 				<FacebookProvider appId={process.env.FB_APPID || "123456789"}>

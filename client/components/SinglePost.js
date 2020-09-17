@@ -12,8 +12,19 @@ class SinglePost extends Component {
 	render() {
 		const {post} = this.props;
 
+		if (!post.tags) {
+			return "";
+		}
+
 		return (
 			<div className="columns-post">
+				<div className="single-post-tag">
+					{post.tags.map(tag => (
+						<div key={tag.id}>
+							<div className="tag-text">{tag.text}</div>
+						</div>
+					))}
+				</div>
 				<div className="single-post">
 					<div className="single-post-date">{post.date}</div>
 					<div className="single-post-title">{post.title}</div>

@@ -12,3 +12,4 @@ export {default as LikePost} from "./LikePost";
 export {default as Footer} from "./Footer";
 export {default as AdminDashboard} from "./AdminDashboard";
 export {default as Newsletters} from "./Newsletters";
+export {default as Submitted} from "./Submitted";

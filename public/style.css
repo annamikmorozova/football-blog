@@ -257,6 +257,22 @@ form div {
 	font-size: 16px;
 }
 
+.single-post-tag {
+	display: flex;
+	justify-content: flex-start;
+	margin-right: 50px;
+	margin-top: 20px;
+	color: darkgray;
+	font-size: 16px;
+	margin-left: 50px;
+}
+
+.tag-text {
+	background-color: darkgrey;
+	color: white;
+	padding: 10px;
+}
+
 .single-post {
 	background-color: lightgray;
 	padding: 20px;
@@ -513,4 +529,16 @@ form div {
 .admin-options:hover {
 	background-color: gold;
 	border: 2px solid black;
+}
+
+.submitted {
+	background-color: darkgray;
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-top: 50px;
+	text-align: center;
+	padding: 20px;
+	font-weight: 700;
+	font-style: oblique;
+	font-size: larger;
 }
