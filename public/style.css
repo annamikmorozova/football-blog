@@ -270,7 +270,11 @@ form div {
 .tag-text {
 	background-color: darkgrey;
 	color: white;
-	padding: 10px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+	margin-right: 5px;
 }
 
 .single-post {

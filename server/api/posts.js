@@ -18,7 +18,13 @@ const upload = multer({
 
 router.get("/", async (req, res, next) => {
 	try {
-		const posts = await Post.findAll();
+		const posts = await Post.findAll({
+			include: [
+				{
+					model: Tag
+				}
+			]
+		});
 		res.json(posts);
 	} catch (error) {
 		next(error);
