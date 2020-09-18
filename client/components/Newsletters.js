@@ -37,7 +37,7 @@ export default class Newsletters extends React.Component {
 
 		return (
 			<Form className="form-style" onSubmit={this.handleSubmit}>
-				<h1> Add a new post </h1>
+				<h1> Sign up for Newsletters </h1>
 
 				<div className="col-md-6 form-labels-style">
 					<label htmlFor="firstName">First Name</label>
@@ -81,6 +81,11 @@ export default class Newsletters extends React.Component {
 						value={this.state.email}
 						onChange={this.handleInputChange}
 					/>
+				</div>
+
+				<div className="col-md-6 form-labels-style">
+					<label htmlFor="agree">Agree to receive emails from us</label>
+					<input type="checkbox" required="" />
 				</div>
 
 				<Button variant="outline-primary" size="lg" type="submit">

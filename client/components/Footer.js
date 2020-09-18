@@ -21,7 +21,7 @@ class Footer extends React.Component {
 					<div className="footer-inside-col">
 						<div className="footer-text">Resources</div>
 						{this.props.isLoggedIn ? (
-							<a className="admin-login" href="#">
+							<a className="admin-login" href="/home">
 								Admin Login
 							</a>
 						) : (
