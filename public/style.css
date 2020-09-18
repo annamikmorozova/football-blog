@@ -221,7 +221,7 @@ form div {
 	align-self: center;
 }
 
-@media (min-width: 860px) {
+@media (min-width: 880px) {
 	.home-page-image-size {
 		width: 400px;
 		height: 400px;
@@ -384,7 +384,7 @@ form div {
 	margin-left: 40px;
 	margin-right: 40px;
 }
-@media (min-width: 788px) {
+@media (min-width: 880px) {
 	.about-row {
 		display: flex;
 		flex-direction: unset;
@@ -394,7 +394,7 @@ form div {
 }
 
 .p-margin {
-	margin-right: 70px;
+	margin-right: 30px;
 }
 
 .read-more {

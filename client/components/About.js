@@ -6,7 +6,7 @@ export default class About extends Component {
 			<div>
 				<h1 className="about-title">Mikhail Morozov</h1>
 				<div className="about-row">
-					<div>
+					<div className="all-body-text">
 						<p className="p-margin">
 							Советский футболист, Мастер Спорта СССР. Выступал за ФК Шинник
 							1981-1991гг. На этой странице пишу о футболе, о людях, связанных с
