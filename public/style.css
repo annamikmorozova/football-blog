@@ -219,6 +219,7 @@ form div {
 	margin-bottom: 20px;
 	box-shadow: 0 10px 15px 9px rgba(0, 0, 0, 0.2),
 		0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	align-self: center;
 }
 
 @media (min-width: 860px) {
@@ -227,6 +228,7 @@ form div {
 		height: 400px;
 		box-shadow: 0 10px 15px 9px rgba(0, 0, 0, 0.2),
 			0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		align-self: auto;
 	}
 }
 
@@ -347,6 +349,7 @@ form div {
 	color: black;
 	text-align: center;
 	margin-top: 20px;
+	min-height: 50px;
 }
 
 .post-text {
