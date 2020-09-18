@@ -10,7 +10,6 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 	prev[`process.env.${next}`] = JSON.stringify(env[next]);
 	return prev;
 }, {});
-console.log(envKeys);
 
 module.exports = {
 	mode: isDev ? "development" : "production",
