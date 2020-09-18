@@ -10,11 +10,6 @@ export default class AdminDashboard extends React.Component {
 						Make a post
 					</button>
 				</Link>
-				<Link to="/users">
-					<button type="button" className="admin-options">
-						Admins
-					</button>
-				</Link>
 				<Link to="/posts">
 					<button href="posts" type="button" className="admin-options">
 						Manage Posts

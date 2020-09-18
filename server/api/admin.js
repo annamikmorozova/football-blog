@@ -9,18 +9,6 @@ function adminOnly(req, res, next) {
 	}
 }
 
-// Admins can see all users
-router.get("/", adminOnly, async (req, res, next) => {
-	try {
-		const users = await User.findAll({
-			attributes: ["id", "firstName", "lastName", "role", "email"]
-		});
-		res.json(users);
-	} catch (error) {
-		next(error);
-	}
-});
-
 router.put("/:postId", adminOnly, async (req, res, next) => {
 	try {
 		const [numOfAffectedRows, affectedRows] = await Post.update(req.body, {

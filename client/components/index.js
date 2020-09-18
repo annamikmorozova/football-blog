@@ -6,7 +6,6 @@ export {default as NewPostForm} from "./newPostForm";
 export {default as About} from "./About";
 export {default as Gallery} from "./Gallery";
 export {default as SinglePost} from "./SinglePost";
-export {default as Users} from "./Users";
 export {default as FacebookComments} from "./FacebookComments";
 export {default as LikePost} from "./LikePost";
 export {default as Footer} from "./Footer";

@@ -34,7 +34,6 @@ class Routes extends Component {
 				<Route path="/about" component={About} />
 				<Route path="/gallery" component={Gallery} />
 				<Route path="/posts/:id" component={SinglePost} />
-				<Route path="/users" component={Users} />
 				<Route path="/newletters" component={Newsletters} />
 				<Route path="/submitted" component={Submitted} />
 				{isLoggedIn && (
