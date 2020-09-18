@@ -90,10 +90,10 @@ class NewPostForm extends Component {
 
 				<div className="col-md-6 form-labels-style">
 					<label htmlFor="description">Description</label>
-					<input
+					<textarea
 						type="text"
 						name="description"
-						className="form-control"
+						className="form-control description-blog"
 						id="description"
 						placeholder="description"
 						required=""

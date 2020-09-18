@@ -1,9 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
 import {IoLogoFacebook} from "react-icons/io";
 import {TiSocialInstagram} from "react-icons/ti";
 import {HiOutlineMail} from "react-icons/hi";
 
-export default class Footer extends React.Component {
+class Footer extends React.Component {
 	render() {
 		return (
 			<div className="footer">
@@ -18,9 +20,15 @@ export default class Footer extends React.Component {
 
 					<div className="footer-inside-col">
 						<div className="footer-text">Resources</div>
-						<a className="admin-login" href="/login">
-							Admin Login
-						</a>
+						{this.props.isLoggedIn ? (
+							<a className="admin-login" href="#">
+								Admin Login
+							</a>
+						) : (
+							<a className="admin-login" href="/login">
+								Admin Login
+							</a>
+						)}
 						<a className="signup-newsletters" href="/newletters">
 							Signup for Newsletters
 						</a>
@@ -66,3 +74,16 @@ export default class Footer extends React.Component {
 		);
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		isLoggedIn: !!state.user.id,
+		isAdmin: state.user.role === "admin"
+	};
+};
+
+export default connect(mapStateToProps)(Footer);
+
+Footer.propTypes = {
+	isLoggedIn: PropTypes.bool.isRequired
+};

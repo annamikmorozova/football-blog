@@ -15,10 +15,9 @@ class MainNavbar extends React.Component {
 		return (
 			<div className="navbar-container">
 				<img src="/header.png" alt="header" className="header-image" />
-				{/* <Navbar className="navbar-style" expand="lg"> */}
 				<Col className="navbar-title-and-menu">
 					{this.props.isLoggedIn ? (
-						<div>
+						<div className="navbar-text">
 							<h1 className="website-name">FOOTBALL76</h1>
 							<Row className="navbar-row">
 								<Link className="nav-admin-color" to="/home">
@@ -33,10 +32,7 @@ class MainNavbar extends React.Component {
 								<Link className="nav-admin-color" to="/gallery">
 									Gallery
 								</Link>
-								<Link className="posts-navbar-link" to="/posts">
-									{" "}
-									<IoIosFootball color="white" size={38} />
-								</Link>
+
 								<a
 									className="nav-admin-color"
 									href="/posts"
@@ -53,15 +49,10 @@ class MainNavbar extends React.Component {
 								<Link to="/about">About</Link>
 								<Link to="/posts">Posts</Link>
 								<Link to="/gallery">Gallery</Link>
-								<Link className="posts-navbar-link" to="/posts">
-									{" "}
-									<IoIosFootball color="white" size={38} />
-								</Link>
 							</Row>
 						</div>
 					)}
 				</Col>
-				{/* </Navbar> */}
 			</div>
 		);
 	}
