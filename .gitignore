@@ -8,3 +8,4 @@ yarn-error.log
 script/seed.js
 script/seed.spec.js
 uploads
+.env
