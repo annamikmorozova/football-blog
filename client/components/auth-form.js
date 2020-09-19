@@ -69,27 +69,9 @@ const AuthForm = props => {
 					</FormGroup>
 				</Col>
 				<Col>
-					<div htmlFor="forgotPassword" className="password-label">
-						<div className="custom-control custom-checkbox">
-							<Input
-								name="forgotPassword"
-								type="checkbox"
-								className="custom-control-input"
-								id="customCheck1"
-							/>
-							<Label className="custom-control-label" htmlFor="customCheck1">
-								Remember me
-							</Label>
-						</div>
-					</div>
-				</Col>
-				<Col>
 					<Button variant="dark" type="submit" className="btn button-space">
 						{displayName}
 					</Button>
-					<p className="forgot-password text-right">
-						Forgot <a href="#">password?</a>
-					</p>
 				</Col>
 				{error && error.response && <div> {error.response.data} </div>}
 			</Form>

@@ -4,14 +4,12 @@ import {withRouter, Route, Switch} from "react-router-dom";
 import PropTypes from "prop-types";
 import {
 	Login,
-	Signup,
 	UserHome,
 	AllPosts,
 	NewPostForm,
 	SinglePost,
 	About,
 	Gallery,
-	Users,
 	Newsletters,
 	Submitted
 } from "./components";
@@ -29,7 +27,6 @@ class Routes extends Component {
 			<Switch>
 				<Route exact path="/posts" component={AllPosts} />
 				<Route path="/login" component={Login} />
-				<Route path="/signup" component={Signup} />
 				<Route path="/new_post" component={NewPostForm} />
 				<Route path="/about" component={About} />
 				<Route path="/gallery" component={Gallery} />

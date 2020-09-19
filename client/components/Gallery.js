@@ -1,9 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-// import {Link} from "react-router-dom";
-// import {Col} from "reactstrap";
 import {fetchPosts} from "../store";
-import {BsFolderPlus} from "react-icons/bs";
+import {FcFolder} from "react-icons/fc";
 
 class Library extends Component {
 	componentWillMount() {
@@ -18,22 +16,22 @@ class Library extends Component {
 				<div className="library-layout">
 					<div className="folder">
 						<div className="library-folders">Shinnik 1900</div>
-						<BsFolderPlus size={72} />
+						<FcFolder size={72} />
 					</div>
 
 					<div className="folder">
 						<div className="library-folders">Shinnik 1800</div>
-						<BsFolderPlus size={72} />
+						<FcFolder size={72} />
 					</div>
 
 					<div className="folder">
 						<div className="library-folders">Shinnik 1700</div>
-						<BsFolderPlus size={72} />
+						<FcFolder size={72} />
 					</div>
 
 					<div className="folder">
 						<div className="library-folders">Shinnik 2000</div>
-						<BsFolderPlus size={72} />
+						<FcFolder size={72} />
 					</div>
 				</div>
 				<div className="library-layout">
