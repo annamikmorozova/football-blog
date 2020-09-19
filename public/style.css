@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Cabin:regular,italic,500,500italic,600,600italic,700,700italic);
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Spectral:200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic);
+
 * {
 	font-family: "Roboto", regular;
 }
@@ -172,6 +174,7 @@ form div {
 .row-all-posts {
 	margin-right: 0px;
 	margin-left: 0px;
+	padding-top: 20px;
 }
 
 .form-labels-style {
@@ -364,6 +367,7 @@ form div {
 
 .library-folders {
 	font-size: 22px;
+	letter-spacing: 2px;
 }
 
 .folder {
@@ -377,7 +381,7 @@ form div {
 	padding: 10px;
 	font-size: 22px;
 	align-items: center;
-	border-radius: 50%;
+	border-radius: 50% 20% / 10% 40%;
 }
 
 .comment-align {
@@ -433,6 +437,8 @@ form div {
 .likes {
 	display: flex;
 	justify-content: center;
+	padding-right: 10px;
+	padding-left: 10px;
 }
 
 .explore-button:hover {
