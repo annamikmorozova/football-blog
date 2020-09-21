@@ -11,7 +11,8 @@ import {
 	About,
 	Gallery,
 	Newsletters,
-	Submitted
+	Submitted,
+	updatePost
 } from "./components";
 import {me} from "./store";
 
@@ -33,6 +34,7 @@ class Routes extends Component {
 				<Route path="/posts/:id" component={SinglePost} />
 				<Route path="/newletters" component={Newsletters} />
 				<Route path="/submitted" component={Submitted} />
+				<Route path="/update-post" component={updatePost} />
 				{isLoggedIn && (
 					<Switch>
 						<Route path="/home" component={UserHome} />

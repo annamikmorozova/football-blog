@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {Col, Row} from "reactstrap";
 import {fetchPosts, deletePostThunk} from "../store/post";
 import LikePost from "./LikePost";
+import updatePost from "./updatePost";
 
 class AllPosts extends React.Component {
 	constructor() {
@@ -60,7 +61,9 @@ class AllPosts extends React.Component {
 									<Col>
 										<div className="button-update">
 											<form>
-												<button type="submit">Update</button>
+												<Link to="/update-post">
+													<button type="submit">Update</button>
+												</Link>
 											</form>
 										</div>
 									</Col>

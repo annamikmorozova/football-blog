@@ -122,6 +122,9 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 				id
 			}
 		});
+		const tagIds = JSON.parse(req.body.tags).map(tag => tag.id);
+		await post.setTags(tagIds);
+
 		res.json(post);
 	} catch (error) {
 		next(error);
