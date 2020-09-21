@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import {Col, Row} from "reactstrap";
+import {Col, Row, Badge} from "reactstrap";
 import {fetchPosts, deletePostThunk} from "../store/post";
 import LikePost from "./LikePost";
 import updatePost from "./updatePost";
@@ -70,6 +70,13 @@ class AllPosts extends React.Component {
 								) : (
 									""
 								)}
+							</Row>
+							<Row>
+								{post.tags.map(tag => (
+									<Badge variant="primary" key={tag.id}>
+										{tag.text}
+									</Badge>
+								))}
 							</Row>
 						</div>
 					))}

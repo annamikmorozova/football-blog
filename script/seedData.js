@@ -53,6 +53,11 @@ const posts = [
 	}
 ];
 
+// 0th post from above will get the 0th set of tags from this array
+// and so on.  These are lined up with the id of the tags which comes
+// from the order of the tags array
+const postTags = [[1, 4], [1, 4], [1, 4], [1, 4], [1, 4]];
+
 const tags = [
 	{
 		text: "1990",
@@ -122,5 +127,6 @@ module.exports = {
 	posts,
 	admins,
 	users,
-	tags
+	tags,
+	postTags
 };

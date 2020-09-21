@@ -13,14 +13,6 @@ async function seed() {
 		});
 		console.log("db synced!");
 
-		const allPosts = [...posts];
-
-		await Promise.all(
-			allPosts.map(post => {
-				return Post.create(post);
-			})
-		);
-
 		const allUsers = [...admins, ...users];
 
 		await Promise.all(
@@ -34,6 +26,20 @@ async function seed() {
 		await Promise.all(
 			allTags.map(tag => {
 				return Tag.create(tag);
+			})
+		);
+
+		const allPosts = [...posts];
+
+		const createdPosts = await Promise.all(
+			allPosts.map(post => {
+				return Post.create(post);
+			})
+		);
+
+		await Promise.all(
+			createdPosts.map((post, i) => {
+				return post.addTags(postTags[i]);
 			})
 		);
 
