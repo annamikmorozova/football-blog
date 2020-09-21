@@ -33,7 +33,7 @@ class AllPosts extends React.Component {
 							<div className="button-explore">
 								<Link to={`/posts/${post.id}`}>
 									<button className="explore-button" type="submit">
-										Explore
+										Read more
 									</button>
 								</Link>
 							</div>
@@ -42,17 +42,32 @@ class AllPosts extends React.Component {
 									<LikePost id={post.id} />
 								</div>
 							</Row>
-							{this.props.isAdmin ? (
-								<Col>
-									<div className="button-delete">
-										<form onSubmit={event => this.handleDelete(event, post.id)}>
-											<button type="submit">Delete</button>
-										</form>
-									</div>
-								</Col>
-							) : (
-								""
-							)}
+							<Row>
+								{this.props.isAdmin ? (
+									<Col>
+										<div className="button-delete">
+											<form
+												onSubmit={event => this.handleDelete(event, post.id)}
+											>
+												<button type="submit">Delete</button>
+											</form>
+										</div>
+									</Col>
+								) : (
+									""
+								)}
+								{this.props.isAdmin ? (
+									<Col>
+										<div className="button-update">
+											<form>
+												<button type="submit">Update</button>
+											</form>
+										</div>
+									</Col>
+								) : (
+									""
+								)}
+							</Row>
 						</div>
 					))}
 				</div>

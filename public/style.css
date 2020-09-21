@@ -358,6 +358,7 @@ form div {
 	text-align: center;
 	margin-top: 20px;
 	min-height: 50px;
+	text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7);
 }
 
 .post-text {
@@ -379,7 +380,6 @@ form div {
 .folder:hover {
 	background-color: #edeec9;
 	padding: 10px;
-	font-size: 22px;
 	align-items: center;
 	border-radius: 50% 20% / 10% 40%;
 }
@@ -427,6 +427,13 @@ form div {
 		0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
+.post-box:hover {
+	background-color: #d0d373;
+	-webkit-box-shadow: 0 8px 6px -6px #77bfa3;
+	-moz-box-shadow: 0 8px 6px -6px #77bfa3;
+	box-shadow: 0 8px 6px -6px #77bfa3;
+}
+
 .all-posts-boxes {
 	display: flex;
 	flex-direction: row;
@@ -447,6 +454,11 @@ form div {
 }
 
 .button-delete {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.button-update {
 	text-align: center;
 	margin-top: 20px;
 }
