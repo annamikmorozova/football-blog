@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 
 const isDev = process.env.NODE_ENV === "development";
 
-const env = dotenv.config().parsed;
+const env = dotenv.config().parsed || {};
 
 // reduce it to a nice object
 const envKeys = Object.keys(env).reduce((prev, next) => {
