@@ -4,6 +4,8 @@ import {getSinglePost} from "../store/post";
 import FacebookComments from "./FacebookComments";
 import LikePost from "./LikePost";
 import {Badge} from "reactstrap";
+import ShareButton from "./ShareButton";
+import {HiOutlineShare} from "react-icons/hi";
 
 class SinglePost extends Component {
 	componentWillMount() {
@@ -26,6 +28,10 @@ class SinglePost extends Component {
 								<Badge className="tag-text">{tag.text}</Badge>
 							</div>
 						))}
+					</div>
+					<div className="single-post-share">
+						<HiOutlineShare size={22} />
+						<ShareButton />
 					</div>
 					<div className="single-post-title">{post.title}</div>
 					<div className="single-post-date">

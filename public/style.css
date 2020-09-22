@@ -269,7 +269,8 @@ form div {
 	font-size: 16px;
 }
 
-.single-post-tag {
+.single-post-tag,
+.single-post-share {
 	display: flex;
 	justify-content: flex-start;
 	margin-right: 50px;
