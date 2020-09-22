@@ -338,7 +338,7 @@ form div {
 	}
 	.single-post-image {
 		max-height: 300px;
-		max-width: 250px;
+		max-width: 350px;
 		max-block-size: fit-content;
 	}
 	.single-post-title {
@@ -418,7 +418,10 @@ form div {
 	background: darkgrey;
 	width: 300px;
 	height: 400px;
-	margin: 30px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	margin-left: 20px;
 	-webkit-box-shadow: 0 8px 6px -6px black;
 	-moz-box-shadow: 0 8px 6px -6px black;
 	box-shadow: 0 8px 6px -6px black;
@@ -448,8 +451,8 @@ form div {
 }
 
 .explore-button:hover {
-	background: #101727;
-	color: white;
+	background: cadetblue;
+	color: black;
 }
 
 .button-delete {
@@ -465,7 +468,6 @@ form div {
 .explore-button {
 	text-transform: uppercase;
 	text-decoration: none;
-	background: white;
 	border-radius: 5px;
 	display: inline-block;
 	border: none;
@@ -629,4 +631,20 @@ form div {
 
 .author-link:hover {
 	color: darkolivegreen;
+}
+
+.tags-all-posts {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.each-tag {
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.buttons-align {
+	justify-content: space-around;
+	display: flex;
 }

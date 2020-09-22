@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import {Col, Row, Badge} from "reactstrap";
+import {Col, Row, Badge, Button} from "reactstrap";
 import {fetchPosts, deletePostThunk} from "../store/post";
 import LikePost from "./LikePost";
 
@@ -29,12 +29,23 @@ class AllPosts extends React.Component {
 					{posts.map(post => (
 						<div className="post-box" key={post.id}>
 							<img className="posts-images" src={`/${post.imageName}`} />
+							<Row className="tags-all-posts">
+								{post.tags.map(tag => (
+									<Badge className="each-tag" variant="primary" key={tag.id}>
+										{tag.text}
+									</Badge>
+								))}
+							</Row>
 							<p className="post-font">{post.title}</p>
 							<div className="button-explore">
 								<Link to={`/posts/${post.id}`}>
-									<button className="explore-button" type="submit">
+									<Button
+										color="secondary"
+										className="explore-button"
+										type="submit"
+									>
 										Read more
-									</button>
+									</Button>
 								</Link>
 							</div>
 							<Row className="row-all-posts">
@@ -42,41 +53,40 @@ class AllPosts extends React.Component {
 									<LikePost id={post.id} />
 								</div>
 							</Row>
-							<Row>
-								{this.props.isAdmin ? (
-									<Col>
-										<div className="button-delete">
-											<form
-												onSubmit={event => this.handleDelete(event, post.id)}
-											>
-												<button type="submit">Delete</button>
-											</form>
-										</div>
-									</Col>
-								) : (
-									""
-								)}
-								{this.props.isAdmin ? (
-									<Col>
-										<div className="button-update">
-											<form>
-												<Link to="/update-post">
-													<button type="submit">Update</button>
-												</Link>
-											</form>
-										</div>
-									</Col>
-								) : (
-									""
-								)}
-							</Row>
-							<Row>
-								{post.tags.map(tag => (
-									<Badge variant="primary" key={tag.id}>
-										{tag.text}
-									</Badge>
-								))}
-							</Row>
+							<div className="buttons-align">
+								<Row>
+									{this.props.isAdmin ? (
+										<Col>
+											<div className="button-delete">
+												<form
+													onSubmit={event => this.handleDelete(event, post.id)}
+												>
+													<Button color="danger" type="submit">
+														Delete
+													</Button>
+												</form>
+											</div>
+										</Col>
+									) : (
+										""
+									)}
+									{this.props.isAdmin ? (
+										<Col>
+											<div className="button-update">
+												<form>
+													<Link to="/update-post">
+														<Button color="warning" type="submit">
+															Update
+														</Button>
+													</Link>
+												</form>
+											</div>
+										</Col>
+									) : (
+										""
+									)}
+								</Row>
+							</div>
 						</div>
 					))}
 				</div>
