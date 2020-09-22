@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import {Col, Row, Badge} from "reactstrap";
 import {fetchPosts, deletePostThunk} from "../store/post";
 import LikePost from "./LikePost";
-import updatePost from "./updatePost";
 
 class AllPosts extends React.Component {
 	constructor() {

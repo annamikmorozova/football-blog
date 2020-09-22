@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {getSinglePost} from "../store/post";
 import FacebookComments from "./FacebookComments";
 import LikePost from "./LikePost";
+import {Badge} from "reactstrap";
 
 class SinglePost extends Component {
 	componentWillMount() {
@@ -18,16 +19,23 @@ class SinglePost extends Component {
 
 		return (
 			<div className="columns-post">
-				<div className="single-post-tag">
-					{post.tags.map(tag => (
-						<div key={tag.id}>
-							<div className="tag-text">{tag.text}</div>
-						</div>
-					))}
-				</div>
 				<div className="single-post">
-					<div className="single-post-date">{post.date}</div>
+					<div className="single-post-tag">
+						{post.tags.map(tag => (
+							<div key={tag.id}>
+								<Badge className="tag-text">{tag.text}</Badge>
+							</div>
+						))}
+					</div>
 					<div className="single-post-title">{post.title}</div>
+					<div className="single-post-date">
+						By{" "}
+						<a className="author-link" href="/about">
+							{" "}
+							Mikhail Morozov
+						</a>
+						| {post.date}
+					</div>
 					<div className="post-layout">
 						<div className="single-post-description">{post.description}</div>
 						<img className="single-post-image" src={`/${post.imageName}`} />

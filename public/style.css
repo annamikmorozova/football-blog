@@ -246,7 +246,7 @@ form div {
 
 .single-post-title {
 	display: flex;
-	justify-content: center;
+	margin-left: 50px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	font-size: x-large;
@@ -261,9 +261,10 @@ form div {
 
 .single-post-date {
 	display: flex;
-	justify-content: flex-end;
+	margin-left: 50px;
 	margin-right: 50px;
 	margin-top: 20px;
+	margin-bottom: 20px;
 	color: darkgray;
 	font-size: 16px;
 }
@@ -289,11 +290,9 @@ form div {
 }
 
 .single-post {
-	background-color: lightgray;
 	padding: 20px;
-	margin: 50px;
-	box-shadow: 0 10px 15px 9px rgba(0, 0, 0, 0.2),
-		0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	/* box-shadow: 0 10px 15px 9px rgba(0, 0, 0, 0.2),
+		0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .posts-images {
@@ -343,7 +342,6 @@ form div {
 	}
 	.single-post-title {
 		display: flex;
-		text-align: center;
 	}
 }
 
@@ -620,4 +618,14 @@ form div {
 
 .col-md-6 {
 	max-width: 100%;
+}
+
+.author-link {
+	padding-right: 5px;
+	padding-left: 5px;
+	color: darkkhaki;
+}
+
+.author-link:hover {
+	color: darkolivegreen;
 }
