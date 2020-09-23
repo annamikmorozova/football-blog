@@ -82,8 +82,8 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(Footer);
-
 Footer.propTypes = {
 	isLoggedIn: PropTypes.bool.isRequired
 };
+
+export default connect(mapStateToProps)(Footer);
