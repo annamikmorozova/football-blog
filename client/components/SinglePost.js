@@ -6,6 +6,7 @@ import LikePost from "./LikePost";
 import {Badge} from "reactstrap";
 import ShareButton from "./ShareButton";
 import {HiOutlineShare} from "react-icons/hi";
+import {IoMdShareAlt} from "react-icons/io";
 
 class SinglePost extends Component {
 	componentWillMount() {
@@ -30,8 +31,21 @@ class SinglePost extends Component {
 						))}
 					</div>
 					<div className="single-post-share">
+						<div>Share</div>
+						<IoMdShareAlt size={22} />
 						<HiOutlineShare size={22} />
 						<ShareButton />
+						<a
+							href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://localhost:8080/posts."
+							title="Share by Email"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<img
+								className="share-image"
+								src="http://png-2.findicons.com/files/icons/573/must_have/48/mail.png"
+							/>
+						</a>
 					</div>
 					<div className="single-post-title">{post.title}</div>
 					<div className="single-post-date">
