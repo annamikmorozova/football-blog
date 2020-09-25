@@ -47,6 +47,9 @@ class SinglePost extends Component {
 							/>
 						</a>
 					</div>
+					<div className="single-post-share">
+						<LikePost id={post.id} />
+					</div>
 					<div className="single-post-title">{post.title}</div>
 					<div className="single-post-date">
 						By{" "}
@@ -60,7 +63,6 @@ class SinglePost extends Component {
 						<div className="single-post-description">{post.description}</div>
 						<img className="single-post-image" src={`/${post.imageName}`} />
 					</div>
-					<LikePost id={post.id} />
 				</div>
 				<div className="comment-align">
 					<FacebookComments id={post.id} />

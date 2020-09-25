@@ -12,7 +12,13 @@ class Library extends Component {
 		const {posts} = this.props;
 		return (
 			<div>
-				<h1 className="library-title">Library</h1>
+				<h1 className="library-title">Gallery</h1>
+				<ol className="menu-tags-gallery ">
+					<div>Tag</div>
+					<div>Tag</div>
+					<div>Tag</div>
+					<div>Tag</div>
+				</ol>
 				<div className="library-layout">
 					<div className="folder">
 						<div className="library-folders">Shinnik 1900</div>

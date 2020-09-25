@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {GiSoccerBall} from "react-icons/gi";
 
 export default class About extends Component {
 	render() {
