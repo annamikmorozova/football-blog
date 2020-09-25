@@ -57,7 +57,8 @@ class SinglePost extends Component {
 							{" "}
 							Mikhail Morozov
 						</a>
-						| {post.date}
+						| {post.date.slice(0, 10)}
+						<p className="date-format">{post.date.slice(11, 16)}</p>
 					</div>
 					<div className="post-layout">
 						<div className="single-post-description">{post.description}</div>
