@@ -1,10 +1,15 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {getSinglePost} from "../store/post";
+import {getSinglePost, updatePostThunk} from "../store/post";
 
 class UpdatePost extends Component {
 	componentWillMount() {
 		this.props.getSinglePost(this.props.match.params.id);
+	}
+
+	handleUpdate(id) {
+		event.preventDefault();
+		this.props.updatePostThunk(id);
 	}
 
 	render() {
@@ -44,7 +49,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		getSinglePost: postId => dispatch(getSinglePost(postId))
+		getSinglePost: postId => dispatch(getSinglePost(postId)),
+		updatePostThunk: id => dispatch(updatePostThunk(id))
 	};
 };
 

@@ -33,6 +33,31 @@ export const updatePost = updatedPost => {
 	};
 };
 
+export const updatePostThunk = (postId, updatedPost) => {
+	return async dispatch => {
+		try {
+			const updatedData = {};
+
+			if (updatedPost.title) {
+				updatedData.title = updatedPost.title;
+			}
+
+			if (updatedPost.description.length !== 0) {
+				updatedData.description = updatedPost.description;
+			}
+
+			if (updatedPost.credits.length !== 0) {
+				updatedData.credits = updatedPost.credits;
+			}
+
+			const {data} = await axios.put(`/api/posts/${postId}`, updatedData);
+			dispatch(updatePost(data));
+		} catch (error) {
+			console.log(error);
+		}
+	};
+};
+
 export const fetchPosts = () => {
 	return async dispatch => {
 		try {

@@ -74,7 +74,7 @@ class AllPosts extends React.Component {
 										<Col>
 											<div className="button-update">
 												<form>
-													<Link to="/update-post">
+													<Link to={`/posts/${post.id}`}>
 														<Button color="warning" type="submit">
 															Update
 														</Button>
