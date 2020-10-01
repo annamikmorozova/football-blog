@@ -12,5 +12,4 @@ export {default as Footer} from "./Footer";
 export {default as AdminDashboard} from "./AdminDashboard";
 export {default as Newsletters} from "./Newsletters";
 export {default as Submitted} from "./Submitted";
-export {default as updatePost} from "./updatePost";
 export {default as ShareButton} from "./ShareButton";

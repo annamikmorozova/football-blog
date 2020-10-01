@@ -29,12 +29,12 @@ class Routes extends Component {
 				<Route exact path="/posts" component={AllPosts} />
 				<Route path="/login" component={Login} />
 				<Route path="/new_post" component={NewPostForm} />
+				<Route path="/update-post/:id" component={NewPostForm} />
 				<Route path="/about" component={About} />
 				<Route path="/gallery" component={Gallery} />
 				<Route path="/posts/:id" component={SinglePost} />
 				<Route path="/newletters" component={Newsletters} />
 				<Route path="/submitted" component={Submitted} />
-				<Route path="/update-post" component={updatePost} />
 				{isLoggedIn && (
 					<Switch>
 						<Route path="/home" component={UserHome} />

@@ -2,13 +2,21 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {Button} from "reactstrap";
 import {Form} from "react-bootstrap";
-import {newPostThunk} from "../store/post";
+import {getSinglePost, newPostThunk, updatePostThunk} from "../store/post";
 import axios from "axios";
 import ReactTags from "react-tag-autocomplete";
 
 class NewPostForm extends Component {
-	constructor() {
-		super();
+	componentWillMount() {
+		if (this.props.match.params.id) {
+			this.props.getSinglePost(this.props.match.params.id).then(() => {
+				this.setState({...this.props.post});
+			});
+		}
+	}
+
+	constructor(props) {
+		super(props);
 		this.state = {
 			title: "",
 			description: "",
@@ -18,9 +26,11 @@ class NewPostForm extends Component {
 			pictureDescription: "",
 			tags: []
 		};
+
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleFileChange = this.handleFileChange.bind(this);
+		this.isUpdate = this.isUpdate.bind(this);
 		axios.get("/api/tags").then(tags => {
 			const suggestions = tags.data.map(tagObj => {
 				return {
@@ -31,6 +41,10 @@ class NewPostForm extends Component {
 			this.setState({suggestions});
 		});
 		this.reactTags = React.createRef();
+	}
+
+	isUpdate() {
+		return !!this.props.match.params.id;
 	}
 
 	onDelete(i) {
@@ -54,8 +68,13 @@ class NewPostForm extends Component {
 		form.append("tags", JSON.stringify(this.state.tags));
 		form.append("credits", this.state.credits);
 		form.append("pictureDescription", this.state.pictureDescription);
-		this.props.newPostThunk(form);
-		this.props.history.push("/posts");
+		if (this.isUpdate()) {
+			this.props.updatePostThunk(form);
+			this.props.history.push("/posts");
+		} else {
+			this.props.newPostThunk(form);
+			this.props.history.push("/posts");
+		}
 	}
 
 	handleInputChange(event) {
@@ -169,9 +188,15 @@ class NewPostForm extends Component {
 					/>
 				</div>
 
-				<Button variant="outline-primary" size="lg" type="submit">
-					Create
-				</Button>
+				{this.isUpdate() ? (
+					<Button variant="outline-primary" size="lg" type="submit">
+						Update
+					</Button>
+				) : (
+					<Button variant="outline-primary" size="lg" type="submit">
+						Create
+					</Button>
+				)}
 			</Form>
 		);
 	}
@@ -179,8 +204,16 @@ class NewPostForm extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		newPostThunk: data => dispatch(newPostThunk(data))
+		newPostThunk: data => dispatch(newPostThunk(data)),
+		getSinglePost: postId => dispatch(getSinglePost(postId)),
+		updatePostThunk: id => dispatch(updatePostThunk(id))
 	};
 };
 
-export default connect(null, mapDispatchToProps)(NewPostForm);
+const mapStateToProps = state => {
+	return {
+		post: state.post.singlePost
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewPostForm);
