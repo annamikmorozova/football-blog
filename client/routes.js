@@ -11,8 +11,7 @@ import {
 	About,
 	Gallery,
 	Newsletters,
-	Submitted,
-	updatePost
+	Submitted
 } from "./components";
 import {me} from "./store";
 
@@ -40,7 +39,7 @@ class Routes extends Component {
 						<Route path="/home" component={UserHome} />
 					</Switch>
 				)}
-				<Route exact path="/posts" component={AllPosts} />
+				<Route exact path="/" component={AllPosts} />
 			</Switch>
 		);
 	}

@@ -5,6 +5,7 @@ import {Form} from "react-bootstrap";
 import {getSinglePost, newPostThunk, updatePostThunk} from "../store/post";
 import axios from "axios";
 import ReactTags from "react-tag-autocomplete";
+import {Redirect} from "react-router-dom";
 
 class NewPostForm extends Component {
 	componentWillMount() {
@@ -24,7 +25,8 @@ class NewPostForm extends Component {
 			imageTitle: "",
 			credits: "",
 			pictureDescription: "",
-			tags: []
+			tags: [],
+			redirect: false
 		};
 
 		this.handleInputChange = this.handleInputChange.bind(this);
@@ -60,7 +62,7 @@ class NewPostForm extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		const form = new FormData();
+		let form = new FormData();
 		form.append("image", this.state.image);
 		form.append("title", this.state.title);
 		form.append("description", this.state.description);
@@ -68,13 +70,16 @@ class NewPostForm extends Component {
 		form.append("tags", JSON.stringify(this.state.tags));
 		form.append("credits", this.state.credits);
 		form.append("pictureDescription", this.state.pictureDescription);
+
 		if (this.isUpdate()) {
-			this.props.updatePostThunk(form);
-			this.props.history.push("/posts");
+			this.props.updatePostThunk(this.props.match.params.id, form);
+			this.setState({
+				redirect: true
+			});
 		} else {
 			this.props.newPostThunk(form);
-			this.props.history.push("/posts");
 		}
+		this.props.history.push("/posts");
 	}
 
 	handleInputChange(event) {
@@ -88,6 +93,10 @@ class NewPostForm extends Component {
 	}
 
 	render() {
+		if (this.state.redirect) {
+			return <Redirect to={`/posts/${this.props.match.params.id}`} />;
+		}
+
 		return (
 			<Form className="form-style" onSubmit={this.handleSubmit}>
 				<h1> Add a new post </h1>
@@ -206,7 +215,7 @@ const mapDispatchToProps = dispatch => {
 	return {
 		newPostThunk: data => dispatch(newPostThunk(data)),
 		getSinglePost: postId => dispatch(getSinglePost(postId)),
-		updatePostThunk: id => dispatch(updatePostThunk(id))
+		updatePostThunk: (id, data) => dispatch(updatePostThunk(id, data))
 	};
 };
 

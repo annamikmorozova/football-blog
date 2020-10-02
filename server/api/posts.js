@@ -54,41 +54,10 @@ router.get("/:postId", async (req, res, next) => {
 	}
 });
 
-router.post("/", upload.single("image"), async (req, res, next) => {
-	try {
-		const path = req.file.path.slice(8);
-		const {
-			title,
-			description,
-			date,
-			imageTitle,
-			credits,
-			pictureDescription
-		} = req.body;
-		const entry = await Post.create({
-			title,
-			description,
-			date,
-			imageTitle,
-			credits,
-			pictureDescription,
-			imageName: path
-		});
-
-		const tagIds = JSON.parse(req.body.tags).map(tag => tag.id);
-		await entry.setTags(tagIds);
-
-		res.json(entry);
-	} catch (err) {
-		next(err);
-	}
-});
-
-router.put("/", upload.single("image"), async (req, res, next) => {
+router.post("/:id", upload.single("image"), async (req, res, next) => {
 	try {
 		const path = req.file && req.file.path;
 		const {
-			id,
 			title,
 			description,
 			date,
@@ -119,15 +88,42 @@ router.put("/", upload.single("image"), async (req, res, next) => {
 		}
 		const post = await Post.update(params, {
 			where: {
-				id
+				id: req.params.id
 			}
 		});
-		const tagIds = JSON.parse(req.body.tags).map(tag => tag.id);
-		await post.setTags(tagIds);
-
 		res.json(post);
 	} catch (error) {
 		next(error);
+	}
+});
+
+router.post("/", upload.single("image"), async (req, res, next) => {
+	try {
+		const path = req.file.path.slice(8);
+		const {
+			title,
+			description,
+			date,
+			imageTitle,
+			credits,
+			pictureDescription
+		} = req.body;
+		const entry = await Post.create({
+			title,
+			description,
+			date,
+			imageTitle,
+			credits,
+			pictureDescription,
+			imageName: path
+		});
+
+		const tagIds = JSON.parse(req.body.tags).map(tag => tag.id);
+		await entry.setTags(tagIds);
+
+		res.json(entry);
+	} catch (err) {
+		next(err);
 	}
 });
 
