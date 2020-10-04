@@ -91,6 +91,7 @@ router.post("/:id", upload.single("image"), async (req, res, next) => {
 				id: req.params.id
 			}
 		});
+
 		res.json(post);
 	} catch (error) {
 		next(error);

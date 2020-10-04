@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {fetchPosts} from "../store";
-import {FcFolder} from "react-icons/fc";
 import {Container, Row, Col} from "reactstrap";
 import axios from "axios";
+import {Lightbox} from "react-modal-image";
 
 class Library extends Component {
 	componentWillMount() {
@@ -26,8 +26,14 @@ class Library extends Component {
 
 		this.state = {
 			tagMap: {},
-			filterTag: null
+			filterTag: null,
+			modalImage: null
 		};
+		this.closeLightbox = this.closeLightbox.bind(this);
+	}
+
+	closeLightbox() {
+		this.setState({modalImage: null});
 	}
 
 	render() {
@@ -41,14 +47,24 @@ class Library extends Component {
 		return (
 			<div>
 				<h1 className="library-title">Gallery</h1>
+				{this.state.modalImage !== null ? (
+					<Lightbox
+						large={this.state.modalImage}
+						onClose={this.closeLightbox}
+					/>
+				) : (
+					""
+				)}
+
 				<Container>
-					<Row>
+					<Row className="gallery-grid">
 						<Col xs={3}>
 							{Object.keys(this.state.tagMap || {}).map(category => (
 								<div key={category}>
-									<p>{category}</p>
+									<p className="category-font">{category}</p>
 									{this.state.tagMap[category].map(tag => (
 										<p
+											className="tags-font"
 											onClick={() => {
 												this.setState({filterTag: tag});
 											}}
@@ -62,9 +78,15 @@ class Library extends Component {
 						</Col>
 						<Col className="library-layout">
 							{shownPosts.map(post => (
-								<div key={post.id}>
+								<div className="image-margin" key={post.id}>
 									<div>{post.imageTitle}</div>
-									<img className="library-images" src={`/${post.imageName}`} />
+									<img
+										onClick={() => {
+											this.setState({modalImage: `/${post.imageName}`});
+										}}
+										className="library-images"
+										src={`/${post.imageName}`}
+									/>
 								</div>
 							))}
 						</Col>
