@@ -367,6 +367,11 @@ form div {
 	text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7);
 }
 
+.post-font:hover {
+	font-weight: bolder;
+	text-shadow: none;
+}
+
 .post-text {
 	font-size: 18px;
 	color: black;
@@ -432,12 +437,11 @@ form div {
 	-webkit-box-shadow: 0 8px 6px -6px black;
 	-moz-box-shadow: 0 8px 6px -6px black;
 	box-shadow: 0 8px 6px -6px black;
-	/* box-shadow: 0 10px 15px 9px rgba(0, 0, 0, 0.2),
-		0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+	border: 2px solid;
 }
 
 .post-box:hover {
-	background-color: #d0d373;
+	background-color: red;
 	-webkit-box-shadow: 0 8px 6px -6px #77bfa3;
 	-moz-box-shadow: 0 8px 6px -6px #77bfa3;
 	box-shadow: 0 8px 6px -6px #77bfa3;
@@ -458,8 +462,8 @@ form div {
 }
 
 .explore-button:hover {
-	background: cadetblue;
-	color: black;
+	background: navy;
+	color: white;
 }
 
 .button-delete {
@@ -576,13 +580,13 @@ form div {
 	margin: 20px;
 	padding: 30px;
 	width: 300px;
-	border: 2px solid darkgoldenrod;
+	border: 2px solid;
 	font-weight: 700;
 }
 
 .admin-options:hover {
-	background-color: gold;
-	border: 2px solid black;
+	background-color: red;
+	border: 2px solid;
 }
 
 .submitted {
