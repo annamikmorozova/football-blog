@@ -13,11 +13,11 @@ class MainNavbar extends React.Component {
 	render() {
 		return (
 			<div className="navbar-container">
-				<img src="/header.png" alt="header" className="header-image" />
+				<img src="/header7.png" alt="header" className="header-image" />
 				<Col className="navbar-title-and-menu">
 					{this.props.isLoggedIn ? (
 						<div className="navbar-text">
-							<h1 className="website-name">MKM76</h1>
+							<h1 className="website-name">MKM Football</h1>
 							<Row className="navbar-row">
 								<Link className="nav-admin-color" to="/home">
 									Admin
