@@ -684,13 +684,22 @@ form div {
 }
 
 .image-margin {
-	margin: 10px;
+	margin: 20px;
 }
 
 .category-font {
 	letter-spacing: 1px;
 	font-size: 22px;
 	font-family: "Merriweather", regular;
+}
+
+.category-font:hover,
+.tags:hover {
+	background-color: lightyellow;
+	width: fit-content;
+	padding-right: 10px;
+	padding-left: 10px;
+	border-radius: 50%;
 }
 
 .tags-font {
