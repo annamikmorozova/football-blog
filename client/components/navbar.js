@@ -13,7 +13,7 @@ class MainNavbar extends React.Component {
 	render() {
 		return (
 			<div className="navbar-container">
-				<img src="/header7.png" alt="header" className="header-image" />
+				<img src="/header12.png" alt="header" className="header-image" />
 				<Col className="navbar-title-and-menu">
 					{this.props.isLoggedIn ? (
 						<div className="navbar-text">

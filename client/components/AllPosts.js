@@ -48,11 +48,6 @@ class AllPosts extends React.Component {
 									</Button>
 								</Link>
 							</div>
-							{/* <Row className="row-all-posts">
-								<div className="likes">
-									<LikePost id={post.id} />
-								</div>
-							</Row> */}
 							<div className="buttons-align">
 								<Row>
 									{this.props.isAdmin ? (

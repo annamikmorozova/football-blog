@@ -73,8 +73,6 @@ const createApp = () => {
 		res.sendFile(path.join(__dirname, "..", "public/index.html"));
 	});
 
-	app.use(express.static(path.join(__dirname, "uploads")));
-
 	app.use((err, req, res, next) => {
 		console.error(err);
 		console.error(err.stack);
