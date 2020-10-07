@@ -2,26 +2,9 @@ import Autosuggest from "react-autosuggest";
 import React from "react";
 import {connect} from "react-redux";
 
-const getSuggestions = value => {
-	console.log(this.state, this.props);
-	const inputValue = value.trim().toLowerCase();
-	const inputLength = inputValue.length;
-
-	return inputLength === 0
-		? []
-		: this.props.posts.filter(
-				post =>
-					post.description.toLowerCase().slice(0, inputLength) === inputValue
-		  );
-};
-
-const getSuggestionValue = suggestion => suggestion.name;
-
-const renderSuggestion = suggestion => <div>{suggestion.description}</div>;
-
 class SearcInPosts extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			value: "",
 			suggestions: []
@@ -33,7 +16,27 @@ class SearcInPosts extends React.Component {
 		this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(
 			this
 		);
+		this.getSuggestionValue = this.getSuggestionValue.bind(this);
+		this.renderSuggestion = this.renderSuggestion.bind(this);
+		this.getSuggestions = this.getSuggestions.bind(this);
 	}
+
+	getSuggestions(value) {
+		console.log(this.state, this.props);
+		const inputValue = value.trim().toLowerCase();
+		const inputLength = inputValue.length;
+
+		return inputLength === 0
+			? []
+			: this.props.posts.filter(
+					post =>
+						post.description.toLowerCase().slice(0, inputLength) === inputValue
+			  );
+	}
+
+	getSuggestionValue = suggestion => suggestion.name;
+
+	renderSuggestion = suggestion => <div>{suggestion.description}</div>;
 
 	onChange = (event, {newValue}) => {
 		this.setState({
@@ -43,7 +46,7 @@ class SearcInPosts extends React.Component {
 
 	onSuggestionsFetchRequested = ({value}) => {
 		this.setState({
-			suggestions: getSuggestions(value)
+			suggestions: this.getSuggestions(value)
 		});
 	};
 
@@ -67,8 +70,8 @@ class SearcInPosts extends React.Component {
 				suggestions={suggestions}
 				onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
 				onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-				getSuggestionValue={getSuggestionValue}
-				renderSuggestion={renderSuggestion}
+				getSuggestionValue={this.getSuggestionValue}
+				renderSuggestion={this.renderSuggestion}
 				inputProps={inputProps}
 			/>
 		);
