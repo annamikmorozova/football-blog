@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {Col, Row, Badge, Button} from "reactstrap";
 import {fetchPosts, deletePostThunk} from "../store/post";
-import LikePost from "./LikePost";
+import SearchInPosts from "./SearchInPosts";
 
 class AllPosts extends React.Component {
 	constructor() {
@@ -25,6 +25,9 @@ class AllPosts extends React.Component {
 
 		return (
 			<div>
+				<div className="search-bar">
+					<SearchInPosts />
+				</div>
 				<div className="all-posts-boxes">
 					{posts.map(post => (
 						<div className="post-box" key={post.id}>

@@ -13,3 +13,4 @@ export {default as AdminDashboard} from "./AdminDashboard";
 export {default as Newsletters} from "./Newsletters";
 export {default as Submitted} from "./Submitted";
 export {default as ShareButton} from "./ShareButton";
+export {default as SearchInPosts} from "./SearchInPosts";
