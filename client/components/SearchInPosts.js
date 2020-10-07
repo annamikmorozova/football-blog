@@ -22,7 +22,6 @@ class SearcInPosts extends React.Component {
 	}
 
 	getSuggestions(value) {
-		console.log(this.state, this.props);
 		const inputValue = value.trim().toLowerCase();
 		const inputLength = inputValue.length;
 
@@ -30,13 +29,17 @@ class SearcInPosts extends React.Component {
 			? []
 			: this.props.posts.filter(
 					post =>
-						post.description.toLowerCase().slice(0, inputLength) === inputValue
+						post.description.toLowerCase().slice(0, inputLength) ===
+							inputValue ||
+						post.title.toLowerCase().slice(0, inputLength) === inputValue
 			  );
 	}
 
-	getSuggestionValue = suggestion => suggestion.name;
+	getSuggestionValue = suggestion => suggestion.name || suggestion.name;
 
-	renderSuggestion = suggestion => <div>{suggestion.description}</div>;
+	renderSuggestion = suggestion => (
+		<div>{suggestion.description || suggestion.title}</div>
+	);
 
 	onChange = (event, {newValue}) => {
 		this.setState({

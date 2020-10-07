@@ -461,6 +461,10 @@ form div {
 	padding-left: 10px;
 }
 
+.search-bar {
+	margin: 20px;
+}
+
 .explore-button:hover {
 	background: navy;
 	color: white;
