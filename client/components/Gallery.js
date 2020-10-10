@@ -79,7 +79,7 @@ class Library extends Component {
 						<Col className="library-layout">
 							{shownPosts.map(post => (
 								<div className="image-margin" key={post.id}>
-									<div>{post.imageTitle}</div>
+									<div className="image-title-gallery">{post.imageTitle}</div>
 									<img
 										onClick={() => {
 											this.setState({modalImage: `/${post.imageName}`});

@@ -714,3 +714,10 @@ form div {
 	letter-spacing: 2px;
 	font-family: "Merriweather", regular;
 }
+
+.image-title-gallery {
+	text-align: center;
+	letter-spacing: 1px;
+	font-family: "Merriweather", regular;
+	margin-bottom: 10px;
+}
