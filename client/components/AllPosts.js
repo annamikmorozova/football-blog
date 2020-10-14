@@ -44,10 +44,10 @@ class AllPosts extends React.Component {
 								<Link to={`/posts/${post.id}`}>
 									<Button
 										color="secondary"
-										className="explore-button"
+										className="explore-button custom-btn btn-3"
 										type="submit"
 									>
-										Read more
+										<span className="read-more">Read more</span>
 									</Button>
 								</Link>
 							</div>

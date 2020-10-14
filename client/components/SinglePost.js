@@ -4,7 +4,6 @@ import {getSinglePost} from "../store/post";
 import FacebookComments from "./FacebookComments";
 import LikePost from "./LikePost";
 import {Badge} from "reactstrap";
-import ShareButton from "./ShareButton";
 import {HiOutlineShare} from "react-icons/hi";
 import {IoMdShareAlt} from "react-icons/io";
 
@@ -33,8 +32,6 @@ class SinglePost extends Component {
 					<div className="single-post-share">
 						<div>Share</div>
 						<IoMdShareAlt size={22} />
-						<HiOutlineShare size={22} />
-						<ShareButton />
 						<a
 							href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://localhost:8080/posts."
 							title="Share by Email"
