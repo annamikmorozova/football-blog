@@ -1,12 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {logout, fetchPosts} from "../store";
-import {Row, Col} from "react-bootstrap";
-import {Navbar} from "reactstrap";
 
 class MainNavbar extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			active: true
+		};
+	}
 	componentDidMount() {
 		this.props.allPosts();
 	}
@@ -18,37 +22,45 @@ class MainNavbar extends React.Component {
 
 				{this.props.isLoggedIn ? (
 					<div className="nav__list">
-						<Link className="nav__item" to="/home">
+						<NavLink
+							activeClassName="active"
+							className="nav__item grow"
+							to="/home"
+						>
 							Admin
-						</Link>
-						<Link className="nav__item" to="/about">
+						</NavLink>
+						<NavLink className="nav__item grow" to="/about">
 							About
-						</Link>
-						<Link className="nav__item" to="/posts">
+						</NavLink>
+						<NavLink className="nav__item grow" to="/posts">
 							Posts
-						</Link>
-						<Link className="nav__item" to="/gallery">
+						</NavLink>
+						<NavLink className="nav__item grow" to="/gallery">
 							Gallery
-						</Link>
-						<Link
-							className="nav__item"
+						</NavLink>
+						<NavLink
+							className="nav__item grow"
 							href="/posts"
 							onClick={this.props.handleClick}
 						>
 							Logout
-						</Link>
+						</NavLink>
 					</div>
 				) : (
 					<div className="nav__list">
-						<Link className="nav__item" to="/about">
+						<NavLink
+							activeClassName="active"
+							className="nav__item grow"
+							to="/about"
+						>
 							About
-						</Link>
-						<Link className="nav__item" to="/posts">
+						</NavLink>
+						<NavLink className="nav__item grow" to="/posts">
 							Posts
-						</Link>
-						<Link className="nav__item" to="/gallery">
+						</NavLink>
+						<NavLink className="nav__item grow" to="/gallery">
 							Gallery
-						</Link>
+						</NavLink>
 					</div>
 				)}
 			</nav>

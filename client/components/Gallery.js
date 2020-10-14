@@ -27,7 +27,8 @@ class Library extends Component {
 		this.state = {
 			tagMap: {},
 			filterTag: null,
-			modalImage: null
+			modalImage: null,
+			modalDescription: null
 		};
 		this.closeLightbox = this.closeLightbox.bind(this);
 	}
@@ -51,6 +52,7 @@ class Library extends Component {
 					<Lightbox
 						large={this.state.modalImage}
 						onClose={this.closeLightbox}
+						alt={this.state.modalDescription}
 					/>
 				) : (
 					""
@@ -82,7 +84,10 @@ class Library extends Component {
 									<div className="image-title-gallery">{post.imageTitle}</div>
 									<img
 										onClick={() => {
-											this.setState({modalImage: `/${post.imageName}`});
+											this.setState({
+												modalImage: `/${post.imageName}`,
+												modalDescription: post.pictureDescription
+											});
 										}}
 										className="library-images"
 										src={`/${post.imageName}`}

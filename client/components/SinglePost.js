@@ -4,7 +4,6 @@ import {getSinglePost} from "../store/post";
 import FacebookComments from "./FacebookComments";
 import LikePost from "./LikePost";
 import {Badge} from "reactstrap";
-import {HiOutlineShare} from "react-icons/hi";
 import {IoMdShareAlt} from "react-icons/io";
 
 class SinglePost extends Component {
