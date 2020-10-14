@@ -197,15 +197,9 @@ class NewPostForm extends Component {
 					/>
 				</div>
 
-				{this.isUpdate() ? (
-					<Button variant="outline-primary" size="lg" type="submit">
-						Update
-					</Button>
-				) : (
-					<Button variant="outline-primary" size="lg" type="submit">
-						Create
-					</Button>
-				)}
+				<Button variant="outline-primary" size="lg" type="submit">
+					{this.isUpdate() ? "Update" : "Create"}
+				</Button>
 			</Form>
 		);
 	}
