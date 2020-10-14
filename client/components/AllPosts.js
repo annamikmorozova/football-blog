@@ -31,7 +31,9 @@ class AllPosts extends React.Component {
 				<div className="all-posts-boxes">
 					{posts.map(post => (
 						<div className="post-box" key={post.id}>
-							<img className="posts-images" src={`/${post.imageName}`} />
+							<Link to={`/posts/${post.id}`}>
+								<img className="posts-images" src={`/${post.imageName}`} />
+							</Link>
 							<Row className="tags-all-posts">
 								{post.tags.map(tag => (
 									<Badge className="each-tag" variant="primary" key={tag.id}>
@@ -40,17 +42,6 @@ class AllPosts extends React.Component {
 								))}
 							</Row>
 							<p className="post-font">{post.title}</p>
-							<div className="button-explore">
-								<Link to={`/posts/${post.id}`}>
-									<Button
-										color="secondary"
-										className="explore-button custom-btn btn-3"
-										type="submit"
-									>
-										<span className="read-more">Read more</span>
-									</Button>
-								</Link>
-							</div>
 							<div className="buttons-align">
 								<Row>
 									{this.props.isAdmin ? (

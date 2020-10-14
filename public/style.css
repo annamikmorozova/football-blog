@@ -106,7 +106,7 @@ form div {
 	text-align: center;
 	padding: 1em;
 	margin: 1em;
-	border: solid 3px #77bfa3;
+	border: solid 3px #1a74e2;
 	background-color: lightgray;
 	border-radius: 50% 20% / 10% 40%;
 	vertical-align: middle;
@@ -441,7 +441,6 @@ form div {
 
 .post-box:hover {
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-	color: white;
 	border: 1px solid #1a74e2;
 }
 
@@ -591,8 +590,9 @@ form div {
 }
 
 .admin-options:hover {
-	background-color: red;
+	background-color: #1a74e2;
 	border: 2px solid;
+	color: white;
 }
 
 .submitted {

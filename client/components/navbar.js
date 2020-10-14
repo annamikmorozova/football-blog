@@ -5,12 +5,6 @@ import {NavLink} from "react-router-dom";
 import {logout, fetchPosts} from "../store";
 
 class MainNavbar extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			active: true
-		};
-	}
 	componentDidMount() {
 		this.props.allPosts();
 	}
@@ -38,13 +32,13 @@ class MainNavbar extends React.Component {
 						<NavLink className="nav__item grow" to="/gallery">
 							Gallery
 						</NavLink>
-						<NavLink
+						<a
 							className="nav__item grow"
 							href="/posts"
 							onClick={this.props.handleClick}
 						>
 							Logout
-						</NavLink>
+						</a>
 					</div>
 				) : (
 					<div className="nav__list">
