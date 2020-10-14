@@ -56,7 +56,6 @@ router.get("/:postId", async (req, res, next) => {
 
 router.post("/:id", upload.single("image"), async (req, res, next) => {
 	try {
-		const path = req.file && req.file.path;
 		const {
 			title,
 			description,
@@ -65,27 +64,20 @@ router.post("/:id", upload.single("image"), async (req, res, next) => {
 			credits,
 			pictureDescription
 		} = req.body;
-		let params = {};
-		if (path) {
-			params = {
-				title,
-				description,
-				date,
-				imageTitle,
-				credits,
-				pictureDescription,
-				imageName: path
-			};
-		} else {
-			params = {
-				title,
-				description,
-				date,
-				credits,
-				pictureDescription,
-				imageTitle
-			};
+
+		let params = {
+			title,
+			description,
+			date,
+			imageTitle,
+			credits,
+			pictureDescription
+		};
+
+		if (req.file && req.file.path) {
+			params.imageName = req.file.path.slice(8);
 		}
+
 		const post = await Post.update(params, {
 			where: {
 				id: req.params.id
