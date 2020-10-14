@@ -6,6 +6,7 @@ import {getSinglePost, newPostThunk, updatePostThunk} from "../store/post";
 import axios from "axios";
 import ReactTags from "react-tag-autocomplete";
 import {Redirect} from "react-router-dom";
+import {Modal} from "./Modal.js";
 
 class NewPostForm extends Component {
 	componentWillMount() {
@@ -26,9 +27,15 @@ class NewPostForm extends Component {
 			credits: "",
 			pictureDescription: "",
 			tags: [],
-			redirect: false
+			newCategory: "",
+			newTag: "",
+			redirect: false,
+			show: false
 		};
 
+		this.hideModal = this.hideModal.bind(this);
+		this.showModal = this.showModal.bind(this);
+		this.addTagAndCategory = this.addTagAndCategory.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleFileChange = this.handleFileChange.bind(this);
@@ -43,6 +50,20 @@ class NewPostForm extends Component {
 			this.setState({suggestions});
 		});
 		this.reactTags = React.createRef();
+	}
+
+	addTagAndCategory() {
+		axios.post("/api/tags").then(newTag => {
+			this.setState({tags: [...newTag]});
+		});
+	}
+
+	showModal() {
+		this.setState({show: true});
+	}
+
+	hideModal() {
+		this.setState({show: false});
 	}
 
 	isUpdate() {
@@ -70,6 +91,7 @@ class NewPostForm extends Component {
 		form.append("tags", JSON.stringify(this.state.tags));
 		form.append("credits", this.state.credits);
 		form.append("pictureDescription", this.state.pictureDescription);
+		form.append("newCategory", this.state.newCategory);
 
 		if (this.isUpdate()) {
 			this.props.updatePostThunk(this.props.match.params.id, form);
@@ -167,6 +189,48 @@ class NewPostForm extends Component {
 						onDelete={this.onDelete.bind(this)}
 						onAddition={this.onAddition.bind(this)}
 					/>
+
+					<Modal show={this.state.show} handleClose={this.hideModal}>
+						<form
+							className="form-new-category"
+							onSubmit={this.addTagAndCategory}
+						>
+							<label htmlFor="newCategory">New Category</label>
+							<input
+								type="text"
+								name="newCategory"
+								className="form-control category-input"
+								id="newCategory"
+								placeholder="New Category"
+								required=""
+								value={this.state.newCategory}
+								onChange={this.handleInputChange}
+							/>
+
+							<label htmlFor="newTag">New Tag</label>
+							<input
+								type="text"
+								name="newTag"
+								className="form-control category-input"
+								id="newTag"
+								placeholder="New Tag"
+								required=""
+								value={this.state.newTag}
+								onChange={this.handleInputChange}
+							/>
+							<Button type="submit">Add</Button>
+						</form>
+					</Modal>
+
+					<Button
+						onClick={this.showModal}
+						className="category-button"
+						variant="outline-primary"
+						size="sm"
+						type="button"
+					>
+						New Category
+					</Button>
 				</div>
 
 				<div className="col-md-6 form-labels-style">
