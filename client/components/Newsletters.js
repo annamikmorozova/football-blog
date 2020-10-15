@@ -44,7 +44,7 @@ export default class Newsletters extends React.Component {
 
 		return (
 			<Form className="form-style" onSubmit={this.handleSubmit}>
-				<h1 className="newsletter"> Подисаться на новости </h1>
+				<h1 className="newsletter"> Подписаться на новости </h1>
 
 				<div className="col-md-6 form-labels-style">
 					<label htmlFor="firstName">Имя</label>

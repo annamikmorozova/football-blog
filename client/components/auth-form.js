@@ -36,7 +36,7 @@ const AuthForm = props => {
 									name="lastName"
 									type="text"
 									className="form-control input-style"
-									placeholder="Enter first name"
+									placeholder="Введите фамилию"
 								/>
 							</FormGroup>
 						</Col>
@@ -51,7 +51,7 @@ const AuthForm = props => {
 							name="email"
 							type="text"
 							className="form-control input-style"
-							placeholder="Enter email"
+							placeholder="Введите имейл"
 						/>
 					</FormGroup>
 				</Col>
