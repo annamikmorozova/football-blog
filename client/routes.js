@@ -39,7 +39,7 @@ class Routes extends Component {
 						<Route path="/home" component={UserHome} />
 					</Switch>
 				)}
-				<Route exact path="/" component={AllPosts} />
+				<Route exact path="/home" component={AllPosts} />
 			</Switch>
 		);
 	}
