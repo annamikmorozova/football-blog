@@ -19,10 +19,18 @@ export default class Newsletters extends React.Component {
 
 	async handleSubmit(event) {
 		event.preventDefault();
-		await axios.post("/api/admin/users", this.state);
-		this.setState({
-			redirect: true
-		});
+		if (
+			!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+				this.state.email
+			)
+		) {
+			alert("You have entered an invalid email address!");
+		} else {
+			await axios.post("/api/admin/users", this.state);
+			this.setState({
+				redirect: true
+			});
+		}
 	}
 
 	handleInputChange(event) {
