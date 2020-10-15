@@ -959,13 +959,16 @@ a.see-all {
 	}
 	.see-all {
 		letter-spacing: 1px;
-		font-weight: bolder;
-		font-size: 18px;
+		font-size: 21px;
+		text-decoration-style: double;
+		text-decoration: underline;
 	}
 }
 
 .see-all {
 	font-weight: bolder;
+	text-decoration-style: double;
+	text-decoration: underline;
 }
 
 .posts-category {
