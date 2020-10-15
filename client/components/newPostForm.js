@@ -59,7 +59,6 @@ class NewPostForm extends Component {
 	}
 
 	hideModal(newTag) {
-		console.log(newTag);
 		if (newTag === undefined) {
 			this.setState({
 				show: false

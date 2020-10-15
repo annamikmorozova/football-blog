@@ -22,7 +22,6 @@ export default class Modal extends React.Component {
 	}
 
 	handleModalClose() {
-		console.log("HI");
 		this.props.handleClose();
 	}
 

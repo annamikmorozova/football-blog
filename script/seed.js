@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== "production") require("../secrets");
 
 const db = require("../server/db");
 const {User, Post, Tag} = require("../server/db/models");
-const {admins, posts, users, tags, postTags} = require("./seedData");
+const {admins, posts, tags, postTags} = require("./seedData");
 
 async function seed() {
 	try {
@@ -13,7 +13,7 @@ async function seed() {
 		});
 		console.log("db synced!");
 
-		const allUsers = [...admins, ...users];
+		const allUsers = [...admins];
 
 		await Promise.all(
 			allUsers.map(user => {
@@ -43,7 +43,6 @@ async function seed() {
 			})
 		);
 
-		console.log(`seeded ${users.length} users`);
 		console.log(`seeded successfully`);
 	} catch (error) {
 		console.log(error);

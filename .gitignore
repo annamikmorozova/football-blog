@@ -9,3 +9,4 @@ script/seed.js
 script/seed.spec.js
 uploads
 .env
+script/seedData.js
