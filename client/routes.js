@@ -25,7 +25,8 @@ class Routes extends Component {
 
 		return (
 			<Switch>
-				<Route exact path="/posts" component={AllPosts} />
+				<Route exact path="/" component={AllPosts} />
+				<Route path="/posts" component={AllPosts} />
 				<Route path="/login" component={Login} />
 				<Route path="/new_post" component={NewPostForm} />
 				<Route path="/update-post/:id" component={NewPostForm} />
@@ -39,7 +40,7 @@ class Routes extends Component {
 						<Route path="/home" component={UserHome} />
 					</Switch>
 				)}
-				<Route exact path="/home" component={AllPosts} />
+				<Route exact path="/" component={AllPosts} />
 			</Switch>
 		);
 	}
