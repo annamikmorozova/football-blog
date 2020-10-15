@@ -46,6 +46,14 @@ class AllPosts extends React.Component {
 		return (
 			<div>
 				<div className="posts-tags">
+					<div
+						className="see-all"
+						onClick={() => {
+							this.setState({filterTag: null});
+						}}
+					>
+						SEE ALL
+					</div>
 					{Object.keys(this.state.tagMap || {}).map(category => (
 						<div className="posts-category" key={category}>
 							<p className="category-font-2">{category}:</p>

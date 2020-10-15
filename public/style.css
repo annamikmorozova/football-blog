@@ -706,10 +706,20 @@ form div {
 	font-family: "Merriweather", regular;
 }
 
-.category-font-2 {
+.category-font-2,
+.see-all {
 	letter-spacing: 1px;
 	font-family: "Merriweather", regular;
 	font-weight: bolder;
+}
+
+.see-all:hover {
+	cursor: pointer;
+	color: #167bff;
+}
+
+a.see-all {
+	color: black;
 }
 
 .category-font:hover,
