@@ -432,8 +432,14 @@ form div {
 	}
 }
 
+@media (min-width: 880px) {
+	.p-margin {
+		margin-right: 30px;
+	}
+}
+
 .p-margin {
-	margin-right: 30px;
+	margin-right: 12px;
 }
 
 .post-box {
@@ -609,7 +615,8 @@ form div {
 	margin-bottom: 110px;
 }
 
-.admin-options:hover {
+.admin-options:hover,
+.admin-options-2:hover {
 	background-color: #1a74e2;
 	border: 2px solid;
 	color: white;
@@ -765,7 +772,7 @@ a.see-all {
 
 @media (min-width: 650px) {
 	.tags-font {
-		font-size: 20px;
+		font-size: 18px;
 	}
 }
 
@@ -944,16 +951,16 @@ a.see-all {
 	.category-font-2 {
 		letter-spacing: 1px;
 		font-weight: bolder;
-		font-size: 20px;
+		font-size: 18px;
 	}
 	.tags-font-2 {
 		letter-spacing: 2px;
-		font-size: 20px;
+		font-size: 18px;
 	}
 	.see-all {
 		letter-spacing: 1px;
 		font-weight: bolder;
-		font-size: 20px;
+		font-size: 18px;
 	}
 }
 
