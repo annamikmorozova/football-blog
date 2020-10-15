@@ -1,5 +1,4 @@
 import React from "react";
-import {Button} from "reactstrap";
 import {Form} from "react-bootstrap";
 import axios from "axios";
 import {Redirect} from "react-router-dom";
@@ -45,7 +44,7 @@ export default class Newsletters extends React.Component {
 
 		return (
 			<Form className="form-style" onSubmit={this.handleSubmit}>
-				<h1> Подисаться на новости </h1>
+				<h1 className="newsletter"> Подисаться на новости </h1>
 
 				<div className="col-md-6 form-labels-style">
 					<label htmlFor="firstName">Имя</label>

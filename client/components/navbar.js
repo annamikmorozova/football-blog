@@ -12,7 +12,9 @@ class MainNavbar extends React.Component {
 	render() {
 		return (
 			<nav className="nav">
-				<div className="nav__title">MKM Football</div>
+				<NavLink to="/posts" className="nav__title">
+					MKM Football
+				</NavLink>
 
 				{this.props.isLoggedIn ? (
 					<div className="nav__list">

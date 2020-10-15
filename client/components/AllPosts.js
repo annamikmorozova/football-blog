@@ -52,7 +52,7 @@ class AllPosts extends React.Component {
 							this.setState({filterTag: null});
 						}}
 					>
-						Все
+						ВCE
 					</div>
 					{Object.keys(this.state.tagMap || {}).map(category => (
 						<div className="posts-category" key={category}>

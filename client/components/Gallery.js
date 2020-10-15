@@ -47,7 +47,7 @@ class Library extends Component {
 		});
 		return (
 			<div>
-				<h1 className="library-title">Gallery</h1>
+				<h1 className="library-title">Галерея</h1>
 				{this.state.modalImage !== null ? (
 					<Lightbox
 						large={this.state.modalImage}
@@ -61,6 +61,14 @@ class Library extends Component {
 				<Container>
 					<Row className="gallery-grid">
 						<Col xs={3}>
+							<div
+								className="see-all"
+								onClick={() => {
+									this.setState({filterTag: null});
+								}}
+							>
+								ВCE
+							</div>
 							{Object.keys(this.state.tagMap || {}).map(category => (
 								<div key={category}>
 									<p className="category-font">{category}</p>
