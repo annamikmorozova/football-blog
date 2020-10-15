@@ -6,7 +6,7 @@ export default class Modal extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			category: "",
+			category: "year",
 			text: ""
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
@@ -21,8 +21,9 @@ export default class Modal extends React.Component {
 		});
 	}
 
-	handleModalClose(data) {
-		this.props.handleClose(data);
+	handleModalClose() {
+		console.log("HI");
+		this.props.handleClose();
 	}
 
 	handleInputChange(event) {
@@ -67,14 +68,13 @@ export default class Modal extends React.Component {
 							className="add-close"
 							variant="outline-primary"
 							type="submit"
-							onClick={this.props.addTagAndCategory}
 						>
 							Add
 						</Button>
 						<Button
 							className="add-close"
 							variant="outline-primary"
-							type="submit"
+							type="button"
 							onClick={this.handleModalClose}
 						>
 							Close

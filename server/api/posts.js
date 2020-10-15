@@ -78,13 +78,22 @@ router.post("/:id", upload.single("image"), async (req, res, next) => {
 			params.imageName = req.file.path.slice(8);
 		}
 
-		const post = await Post.update(params, {
+		await Post.update(params, {
 			where: {
 				id: req.params.id
 			}
 		});
 
-		res.json(post);
+		const existingPost = await Post.findOne({
+			where: {
+				id: req.params.id
+			}
+		});
+
+		const tagIds = JSON.parse(req.body.tags).map(tag => tag.id);
+		await existingPost.setTags(tagIds);
+
+		res.json(existingPost);
 	} catch (error) {
 		next(error);
 	}

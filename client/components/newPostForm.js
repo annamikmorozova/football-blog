@@ -36,6 +36,7 @@ class NewPostForm extends Component {
 			show: false
 		};
 
+		this.handleInputChange = this.handleInputChange.bind(this);
 		this.hideModal = this.hideModal.bind(this);
 		this.showModal = this.showModal.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -58,9 +59,9 @@ class NewPostForm extends Component {
 	}
 
 	hideModal(newTag) {
-		if (!newTag.id && !newTag.text) {
+		console.log(newTag);
+		if (newTag === undefined) {
 			this.setState({
-				tags: [...this.state.tags],
 				show: false
 			});
 		} else {
@@ -69,6 +70,11 @@ class NewPostForm extends Component {
 				show: false
 			});
 		}
+	}
+
+	handleInputChange(event) {
+		event.preventDefault();
+		this.setState({[event.target.name]: event.target.value});
 	}
 
 	isUpdate() {
@@ -99,14 +105,14 @@ class NewPostForm extends Component {
 		form.append("newCategory", this.state.newCategory);
 
 		if (this.isUpdate()) {
-			this.props.updatePostThunk(this.props.match.params.id, form);
-			this.setState({
-				redirect: true
-			});
+			this.props.updatePostThunk(this.props.match.params.id, form).then(() =>
+				this.setState({
+					redirect: true
+				})
+			);
 		} else {
 			this.props.newPostThunk(form);
 		}
-		this.props.history.push("/posts");
 	}
 
 	handleFileChange(event) {
