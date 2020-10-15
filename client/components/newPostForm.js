@@ -58,10 +58,17 @@ class NewPostForm extends Component {
 	}
 
 	hideModal(newTag) {
-		this.setState({
-			tags: [...this.state.tags, {id: newTag.id, name: newTag.text}],
-			show: false
-		});
+		if (!newTag.id && !newTag.text) {
+			this.setState({
+				tags: [...this.state.tags],
+				show: false
+			});
+		} else {
+			this.setState({
+				tags: [...this.state.tags, {id: newTag.id, name: newTag.text}],
+				show: false
+			});
+		}
 	}
 
 	isUpdate() {

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import {Button} from "react-bootstrap";
 
 export default class Modal extends React.Component {
 	constructor(props) {
@@ -10,6 +11,7 @@ export default class Modal extends React.Component {
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.addTagAndCategory = this.addTagAndCategory.bind(this);
+		this.handleModalClose = this.handleModalClose.bind(this);
 	}
 
 	addTagAndCategory(event) {
@@ -17,6 +19,10 @@ export default class Modal extends React.Component {
 		axios.post("/api/tags", this.state).then(res => {
 			this.props.handleClose(res.data);
 		});
+	}
+
+	handleModalClose(data) {
+		this.props.handleClose(data);
 	}
 
 	handleInputChange(event) {
@@ -57,9 +63,22 @@ export default class Modal extends React.Component {
 							value={this.state.text}
 							onChange={this.handleInputChange}
 						/>
-						<button type="submit" onClick={this.props.addTagAndCategory}>
+						<Button
+							className="add-close"
+							variant="outline-primary"
+							type="submit"
+							onClick={this.props.addTagAndCategory}
+						>
 							Add
-						</button>
+						</Button>
+						<Button
+							className="add-close"
+							variant="outline-primary"
+							type="submit"
+							onClick={this.handleModalClose}
+						>
+							Close
+						</Button>
 					</form>
 				</section>
 			</div>

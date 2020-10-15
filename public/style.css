@@ -458,10 +458,6 @@ form div {
 	padding-left: 10px;
 }
 
-.search-bar {
-	margin: 20px;
-}
-
 .explore-button:hover {
 	background: navy;
 	color: white;
@@ -496,7 +492,7 @@ form div {
 	background-color: #101727;
 	height: 200px;
 	margin-bottom: 0px;
-	margin-top: 350px;
+	margin-top: 50px;
 }
 
 .footer-col {
@@ -578,7 +574,8 @@ form div {
 	padding-top: 30px;
 }
 
-.admin-options {
+.admin-options,
+.admin-options-2 {
 	background-color: gainsboro;
 	box-shadow: 0 10px 15px 9px rgba(0, 0, 0, 0.2),
 		0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -587,6 +584,10 @@ form div {
 	width: 300px;
 	border: 2px solid;
 	font-weight: 700;
+}
+
+.admin-options-2 {
+	margin-bottom: 110px;
 }
 
 .admin-options:hover {
@@ -705,6 +706,12 @@ form div {
 	font-family: "Merriweather", regular;
 }
 
+.category-font-2 {
+	letter-spacing: 1px;
+	font-family: "Merriweather", regular;
+	font-weight: bolder;
+}
+
 .category-font:hover,
 .tags:hover {
 	background-color: lightyellow;
@@ -717,6 +724,16 @@ form div {
 .tags-font {
 	letter-spacing: 2px;
 	font-family: "Merriweather", regular;
+}
+
+.tags-font-2 {
+	letter-spacing: 2px;
+	font-family: "Merriweather", regular;
+}
+
+.tags-font-2:hover {
+	color: #1a74e2;
+	cursor: pointer;
 }
 
 .image-title-gallery {
@@ -920,4 +937,21 @@ form div {
 .nav__item:hover {
 	color: #101727;
 	text-decoration: none;
+}
+
+.add-close {
+	margin: 5px;
+}
+
+.posts-tags {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+	align-items: center;
+}
+
+.posts-category {
+	display: flex;
+	flex-direction: row;
+	margin-left: 30px;
 }

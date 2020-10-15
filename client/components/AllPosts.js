@@ -3,16 +3,31 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {Col, Row, Badge, Button} from "reactstrap";
 import {fetchPosts, deletePostThunk} from "../store/post";
-import SearchInPosts from "./SearchInPosts";
+import axios from "axios";
 
 class AllPosts extends React.Component {
 	constructor() {
 		super();
+		this.state = {
+			tagMap: {},
+			filterTag: null
+		};
 		this.handleDelete = this.handleDelete.bind(this);
 	}
 
 	componentWillMount() {
 		this.props.allPosts();
+		axios.get("/api/tags").then(resp => {
+			const tagMap = resp.data.reduce((acc, tag) => {
+				if (acc.hasOwnProperty(tag.category)) {
+					acc[tag.category].push(tag.text);
+				} else {
+					acc[tag.category] = [tag.text];
+				}
+				return acc;
+			}, {});
+			this.setState({tagMap});
+		});
 	}
 
 	handleDelete(event, id) {
@@ -22,14 +37,35 @@ class AllPosts extends React.Component {
 
 	render() {
 		const {posts} = this.props;
-
+		const shownPosts = posts.filter(post => {
+			return (
+				!this.state.filterTag ||
+				post.tags.some(tag => tag.text === this.state.filterTag)
+			);
+		});
 		return (
 			<div>
-				<div className="search-bar">
-					<SearchInPosts />
+				<div className="posts-tags">
+					{Object.keys(this.state.tagMap || {}).map(category => (
+						<div className="posts-category" key={category}>
+							<p className="category-font-2">{category}:</p>
+							{this.state.tagMap[category].map(tag => (
+								<p
+									className="tags-font-2"
+									onClick={() => {
+										this.setState({filterTag: tag});
+									}}
+									key={tag}
+								>
+									&emsp;{tag} |
+								</p>
+							))}
+						</div>
+					))}
 				</div>
+
 				<div className="all-posts-boxes">
-					{posts.map(post => (
+					{shownPosts.map(post => (
 						<div className="post-box" key={post.id}>
 							<Link to={`/posts/${post.id}`}>
 								<img className="posts-images" src={`/${post.imageName}`} />
