@@ -32,7 +32,7 @@ class SinglePost extends Component {
 						<div>Share</div>
 						<IoMdShareAlt size={22} />
 						<a
-							href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://localhost:8080/posts."
+							href="mailto:?subject=Почитай эту статью&amp;body=Это на сайте Михаила Морозова https://football-blog.herokuapp.com"
 							title="Share by Email"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -48,13 +48,17 @@ class SinglePost extends Component {
 					</div>
 					<div className="single-post-title">{post.title}</div>
 					<div className="single-post-date">
-						By{" "}
-						<a className="author-link" href="/about">
-							{" "}
-							Михаил Морозов
-						</a>
-						| {post.date.slice(0, 10)}
-						<p className="date-format">{post.date.slice(11, 16)}</p>
+						<p>
+							Статья{" "}
+							<a className="author-link" href="/about">
+								{" "}
+								Михаила Морозова
+							</a>
+						</p>
+						<p className="row-date">
+							{post.date.slice(0, 10)}
+							<p className="date-format">{post.date.slice(11, 16)}</p>
+						</p>
 					</div>
 					<div className="post-layout">
 						<div className="single-post-description">{post.description}</div>

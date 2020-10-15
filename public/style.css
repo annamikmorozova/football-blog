@@ -265,7 +265,20 @@ form div {
 	font-size: 16px;
 }
 
+@media (min-width: 650px) {
+	.single-post-date {
+		display: flex;
+		margin-left: 50px;
+		margin-right: 50px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		color: darkgray;
+		font-size: 16px;
+	}
+}
+
 .single-post-date {
+	flex-direction: column;
 	display: flex;
 	margin-left: 50px;
 	margin-right: 50px;
@@ -953,4 +966,9 @@ a.see-all {
 	flex-direction: row;
 	margin-left: 30px;
 	flex-wrap: wrap;
+}
+
+.row-date {
+	flex-direction: row;
+	display: flex;
 }
