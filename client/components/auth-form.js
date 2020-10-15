@@ -62,9 +62,10 @@ const AuthForm = props => {
 						</Label>
 						<Input
 							htmlFor="password"
+							type="password"
 							name="password"
 							className="form-control input-style"
-							placeholder="**********"
+							placeholder="Пароль"
 						/>
 					</FormGroup>
 				</Col>
