@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const {User, Post} = require("../db/models");
+const {User, Post, SignedUser} = require("../db/models");
 
 function adminOnly(req, res, next) {
 	if (req.user.role === "admin") {
@@ -40,7 +40,11 @@ router.post("/", adminOnly, async (req, res, next) => {
 
 router.post("/users", async (req, res, next) => {
 	try {
-		const user = await User.create(req.body);
+		const user = await SignedUser.create({
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			email: req.body.email
+		});
 		res.json(user);
 	} catch (error) {
 		next(error);

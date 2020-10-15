@@ -298,13 +298,13 @@ form div {
 
 .single-post {
 	padding: 20px;
-	/* box-shadow: 0 10px 15px 9px rgba(0, 0, 0, 0.2),
-		0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .posts-images {
-	height: auto;
-	width: 100%;
+	width: auto;
+	max-width: 398px;
+	height: 300px;
+	object-fit: cover;
 }
 
 .header-image {
