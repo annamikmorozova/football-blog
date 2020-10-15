@@ -33,17 +33,18 @@ export default class Modal extends React.Component {
 			<div className={showHideClassName}>
 				<section className="modal-main">
 					<form className="form-new-category" onSubmit={this.addTagAndCategory}>
-						<label htmlFor="newCategory">New Category</label>
-						<input
-							type="text"
-							name="category"
-							className="form-control category-input"
+						<label htmlFor="newCategory">Choose Category</label>
+						<select
 							id="category"
-							placeholder="New Category"
-							required=""
+							name="category"
 							value={this.state.category}
 							onChange={this.handleInputChange}
-						/>
+						>
+							<option value="year">year</option>
+							<option value="team">team</option>
+							<option value="league">league</option>
+							<option value="other">other</option>
+						</select>
 
 						<label htmlFor="newTag">New Tag</label>
 						<input

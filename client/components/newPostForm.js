@@ -12,7 +12,11 @@ class NewPostForm extends Component {
 	componentWillMount() {
 		if (this.props.match.params.id) {
 			this.props.getSinglePost(this.props.match.params.id).then(() => {
-				this.setState({...this.props.post});
+				const existingTags = this.props.post.tags.map(item => ({
+					id: item.id,
+					name: item.text
+				}));
+				this.setState({...this.props.post, tags: existingTags});
 			});
 		}
 	}
@@ -112,7 +116,7 @@ class NewPostForm extends Component {
 			<div>
 				<Modal show={this.state.show} handleClose={this.hideModal} />
 				<Form className="form-style" onSubmit={this.handleSubmit}>
-					<h1> Add a new post </h1>
+					<h1>{this.isUpdate() ? "Update the post" : "Add a new post"}</h1>
 					<div className="col-md-6 form-labels-style">
 						<label className="form-title" htmlFor="title">
 							Title
