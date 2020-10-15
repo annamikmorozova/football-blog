@@ -14,7 +14,7 @@ router.post("/", async (req, res, next) => {
 	try {
 		const newTag = await Tag.create({
 			category: req.body.category,
-			text: req.bost.text
+			text: req.body.text
 		});
 		res.json(newTag);
 	} catch (error) {

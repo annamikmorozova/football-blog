@@ -6,7 +6,7 @@ import {getSinglePost, newPostThunk, updatePostThunk} from "../store/post";
 import axios from "axios";
 import ReactTags from "react-tag-autocomplete";
 import {Redirect} from "react-router-dom";
-import {Modal} from "./Modal.js";
+import Modal from "./Modal.js";
 
 class NewPostForm extends Component {
 	componentWillMount() {
@@ -28,15 +28,12 @@ class NewPostForm extends Component {
 			pictureDescription: "",
 			tags: [],
 			newCategory: "",
-			newTag: "",
 			redirect: false,
 			show: false
 		};
 
 		this.hideModal = this.hideModal.bind(this);
 		this.showModal = this.showModal.bind(this);
-		this.addTagAndCategory = this.addTagAndCategory.bind(this);
-		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleFileChange = this.handleFileChange.bind(this);
 		this.isUpdate = this.isUpdate.bind(this);
@@ -52,18 +49,15 @@ class NewPostForm extends Component {
 		this.reactTags = React.createRef();
 	}
 
-	addTagAndCategory() {
-		axios.post("/api/tags").then(newTag => {
-			this.setState({tags: [...newTag]});
-		});
-	}
-
 	showModal() {
 		this.setState({show: true});
 	}
 
-	hideModal() {
-		this.setState({show: false});
+	hideModal(newTag) {
+		this.setState({
+			tags: [...this.state.tags, {id: newTag.id, name: newTag.text}],
+			show: false
+		});
 	}
 
 	isUpdate() {
@@ -104,11 +98,6 @@ class NewPostForm extends Component {
 		this.props.history.push("/posts");
 	}
 
-	handleInputChange(event) {
-		event.preventDefault();
-		this.setState({[event.target.name]: event.target.value});
-	}
-
 	handleFileChange(event) {
 		event.preventDefault();
 		this.setState({image: event.target.files[0]});
@@ -120,151 +109,122 @@ class NewPostForm extends Component {
 		}
 
 		return (
-			<Form className="form-style" onSubmit={this.handleSubmit}>
-				<h1> Add a new post </h1>
-				<div className="col-md-6 form-labels-style">
-					<label className="form-title" htmlFor="title">
-						Title
-					</label>
-					<input
-						type="text"
-						name="title"
-						className="form-control"
-						id="title"
-						placeholder="Title"
-						required=""
-						value={this.state.title}
-						onChange={this.handleInputChange}
-					/>
-				</div>
+			<div>
+				<Modal show={this.state.show} handleClose={this.hideModal} />
+				<Form className="form-style" onSubmit={this.handleSubmit}>
+					<h1> Add a new post </h1>
+					<div className="col-md-6 form-labels-style">
+						<label className="form-title" htmlFor="title">
+							Title
+						</label>
+						<input
+							type="text"
+							name="title"
+							className="form-control"
+							id="title"
+							placeholder="Title"
+							required=""
+							value={this.state.title}
+							onChange={this.handleInputChange}
+						/>
+					</div>
 
-				<div className="col-md-6 form-labels-style">
-					<label htmlFor="description">Description</label>
-					<textarea
-						type="text"
-						name="description"
-						className="form-control description-blog"
-						id="description"
-						placeholder="description"
-						required=""
-						value={this.state.description}
-						onChange={this.handleInputChange}
-					/>
-				</div>
+					<div className="col-md-6 form-labels-style">
+						<label htmlFor="description">Description</label>
+						<textarea
+							type="text"
+							name="description"
+							className="form-control description-blog"
+							id="description"
+							placeholder="description"
+							required=""
+							value={this.state.description}
+							onChange={this.handleInputChange}
+						/>
+					</div>
 
-				<div className="col-md-6 form-labels-style">
-					<label htmlFor="imageTitle">Image title</label>
-					<input
-						type="text"
-						name="imageTitle"
-						className="form-control"
-						id="imageTitle"
-						placeholder="image title"
-						required=""
-						value={this.state.imageTitle}
-						onChange={this.handleInputChange}
-					/>
-				</div>
+					<div className="col-md-6 form-labels-style">
+						<label htmlFor="imageTitle">Image title</label>
+						<input
+							type="text"
+							name="imageTitle"
+							className="form-control"
+							id="imageTitle"
+							placeholder="image title"
+							required=""
+							value={this.state.imageTitle}
+							onChange={this.handleInputChange}
+						/>
+					</div>
 
-				<div className="col-md-6 form-labels-style">
-					<label htmlFor="img">Select Image</label>
-					<input
-						type="file"
-						name="image"
-						className="form-control"
-						id="image"
-						accept="image/*"
-						placeholder="image"
-						required=""
-						onChange={this.handleFileChange}
-					/>
-				</div>
+					<div className="col-md-6 form-labels-style">
+						<label htmlFor="img">Select Image</label>
+						<input
+							type="file"
+							name="image"
+							className="form-control"
+							id="image"
+							accept="image/*"
+							placeholder="image"
+							required=""
+							onChange={this.handleFileChange}
+						/>
+					</div>
 
-				<div className="col-md-6 form-labels-style">
-					<label htmlFor="img">Select Tags</label>
-					<ReactTags
-						ref={this.reactTags}
-						tags={this.state.tags}
-						suggestions={this.state.suggestions}
-						onDelete={this.onDelete.bind(this)}
-						onAddition={this.onAddition.bind(this)}
-					/>
+					<div className="col-md-6 form-labels-style">
+						<label htmlFor="img">Select Tags</label>
+						<ReactTags
+							ref={this.reactTags}
+							tags={this.state.tags}
+							suggestions={this.state.suggestions}
+							onDelete={this.onDelete.bind(this)}
+							onAddition={this.onAddition.bind(this)}
+						/>
 
-					<Modal show={this.state.show} handleClose={this.hideModal}>
-						<form
-							className="form-new-category"
-							onSubmit={this.addTagAndCategory}
+						<Button
+							onClick={this.showModal}
+							className="category-button"
+							variant="outline-primary"
+							size="sm"
+							type="button"
 						>
-							<label htmlFor="newCategory">New Category</label>
-							<input
-								type="text"
-								name="newCategory"
-								className="form-control category-input"
-								id="newCategory"
-								placeholder="New Category"
-								required=""
-								value={this.state.newCategory}
-								onChange={this.handleInputChange}
-							/>
+							New Category
+						</Button>
+					</div>
 
-							<label htmlFor="newTag">New Tag</label>
-							<input
-								type="text"
-								name="newTag"
-								className="form-control category-input"
-								id="newTag"
-								placeholder="New Tag"
-								required=""
-								value={this.state.newTag}
-								onChange={this.handleInputChange}
-							/>
-							<Button type="submit">Add</Button>
-						</form>
-					</Modal>
+					<div className="col-md-6 form-labels-style">
+						<label htmlFor="credits">Credits</label>
+						<input
+							type="text"
+							name="credits"
+							className="form-control"
+							id="credits"
+							placeholder="Credits"
+							required=""
+							value={this.state.credits}
+							onChange={this.handleInputChange}
+						/>
+					</div>
 
-					<Button
-						onClick={this.showModal}
-						className="category-button"
-						variant="outline-primary"
-						size="sm"
-						type="button"
-					>
-						New Category
+					<div className="col-md-6 form-labels-style">
+						<label htmlFor="pictureDescription">Picture Description</label>
+						<input
+							type="text"
+							name="pictureDescription"
+							className="form-control"
+							id="pictureDescription"
+							placeholder="Picture Description"
+							required=""
+							value={this.state.pictureDescription}
+							onChange={this.handleInputChange}
+						/>
+					</div>
+
+					<Button variant="outline-primary" size="lg" type="submit">
+						{this.isUpdate() ? "Update" : "Create"}
 					</Button>
-				</div>
-
-				<div className="col-md-6 form-labels-style">
-					<label htmlFor="credits">Credits</label>
-					<input
-						type="text"
-						name="credits"
-						className="form-control"
-						id="credits"
-						placeholder="Credits"
-						required=""
-						value={this.state.credits}
-						onChange={this.handleInputChange}
-					/>
-				</div>
-
-				<div className="col-md-6 form-labels-style">
-					<label htmlFor="pictureDescription">Picture Description</label>
-					<input
-						type="text"
-						name="pictureDescription"
-						className="form-control"
-						id="pictureDescription"
-						placeholder="Picture Description"
-						required=""
-						value={this.state.pictureDescription}
-						onChange={this.handleInputChange}
-					/>
-				</div>
-
-				<Button variant="outline-primary" size="lg" type="submit">
-					{this.isUpdate() ? "Update" : "Create"}
-				</Button>
-			</Form>
+				</Form>
+			</div>
 		);
 	}
 }
