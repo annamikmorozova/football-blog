@@ -21,23 +21,23 @@ class MainNavbar extends React.Component {
 							className="nav__item grow"
 							to="/home"
 						>
-							Admin
+							Админ
 						</NavLink>
 						<NavLink className="nav__item grow" to="/about">
-							About
+							Главная
 						</NavLink>
 						<NavLink className="nav__item grow" to="/posts">
-							Posts
+							Статьи
 						</NavLink>
 						<NavLink className="nav__item grow" to="/gallery">
-							Gallery
+							Галерея
 						</NavLink>
 						<a
 							className="nav__item grow"
 							href="/posts"
 							onClick={this.props.handleClick}
 						>
-							Logout
+							Выйти
 						</a>
 					</div>
 				) : (
@@ -47,13 +47,13 @@ class MainNavbar extends React.Component {
 							className="nav__item grow"
 							to="/about"
 						>
-							About
+							Главная
 						</NavLink>
 						<NavLink className="nav__item grow" to="/posts">
-							Posts
+							Статьи
 						</NavLink>
 						<NavLink className="nav__item grow" to="/gallery">
-							Gallery
+							Галерея
 						</NavLink>
 					</div>
 				)}

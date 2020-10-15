@@ -6,7 +6,7 @@ export default class Modal extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			category: "year",
+			category: "год",
 			text: ""
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
@@ -39,26 +39,26 @@ export default class Modal extends React.Component {
 			<div className={showHideClassName}>
 				<section className="modal-main">
 					<form className="form-new-category" onSubmit={this.addTagAndCategory}>
-						<label htmlFor="newCategory">Choose Category</label>
+						<label htmlFor="newCategory">Выберите категорию</label>
 						<select
 							id="category"
 							name="category"
 							value={this.state.category}
 							onChange={this.handleInputChange}
 						>
-							<option value="year">year</option>
-							<option value="team">team</option>
-							<option value="league">league</option>
-							<option value="other">other</option>
+							<option value="год">год</option>
+							<option value="команда">команда</option>
+							<option value="дивизион">дивизион</option>
+							<option value="другие">другие</option>
 						</select>
 
-						<label htmlFor="newTag">New Tag</label>
+						<label htmlFor="newTag">Новый тэг</label>
 						<input
 							type="text"
 							name="text"
 							className="form-control category-input"
 							id="text"
-							placeholder="New Tag"
+							placeholder="Введите новый тэг"
 							required=""
 							value={this.state.text}
 							onChange={this.handleInputChange}
@@ -68,7 +68,7 @@ export default class Modal extends React.Component {
 							variant="outline-primary"
 							type="submit"
 						>
-							Add
+							Добавить
 						</Button>
 						<Button
 							className="add-close"

@@ -11,7 +11,7 @@ class Footer extends React.Component {
 			<div className="footer">
 				<div className="footer-col">
 					<div className="footer-inside-col">
-						<div className="footer-text">Football76</div>
+						<div className="footer-text">MKM Football</div>
 						<p className="footer-description">
 							На этой странице пишу о футболе, о людях, связанных с историей
 							футбольного клуба «Шинник».
@@ -19,18 +19,26 @@ class Footer extends React.Component {
 					</div>
 
 					<div className="footer-inside-col">
-						<div className="footer-text">Resources</div>
+						<div className="footer-text">Ресурсы</div>
 						{this.props.isLoggedIn ? (
 							<a className="admin-login" href="/home">
-								Admin Login
+								Администратор
 							</a>
 						) : (
 							<a className="admin-login" href="/login">
-								Admin Login
+								Администратор
 							</a>
 						)}
 						<a className="signup-newsletters" href="/newletters">
-							Signup for Newsletters
+							Подписаться на новости
+						</a>
+						<a
+							className="signup-newsletters"
+							rel="noopener noreferrer"
+							target="_blank"
+							href="mailto:m.k.morozov@gmail.com"
+						>
+							Контакт информация
 						</a>
 					</div>
 				</div>

@@ -128,17 +128,17 @@ class NewPostForm extends Component {
 			<div>
 				<Modal show={this.state.show} handleClose={this.hideModal} />
 				<Form className="form-style" onSubmit={this.handleSubmit}>
-					<h1>{this.isUpdate() ? "Update the post" : "Add a new post"}</h1>
+					<h1>{this.isUpdate() ? "Изменить статью" : "Новая статья"}</h1>
 					<div className="col-md-6 form-labels-style">
 						<label className="form-title" htmlFor="title">
-							Title
+							Название
 						</label>
 						<input
 							type="text"
 							name="title"
 							className="form-control"
 							id="title"
-							placeholder="Title"
+							placeholder="Введите название"
 							required=""
 							value={this.state.title}
 							onChange={this.handleInputChange}
@@ -146,13 +146,13 @@ class NewPostForm extends Component {
 					</div>
 
 					<div className="col-md-6 form-labels-style">
-						<label htmlFor="description">Description</label>
+						<label htmlFor="description">Статья</label>
 						<textarea
 							type="text"
 							name="description"
 							className="form-control description-blog"
 							id="description"
-							placeholder="description"
+							placeholder="Текст статьи"
 							required=""
 							value={this.state.description}
 							onChange={this.handleInputChange}
@@ -160,13 +160,13 @@ class NewPostForm extends Component {
 					</div>
 
 					<div className="col-md-6 form-labels-style">
-						<label htmlFor="imageTitle">Image title</label>
+						<label htmlFor="imageTitle">Название фото</label>
 						<input
 							type="text"
 							name="imageTitle"
 							className="form-control"
 							id="imageTitle"
-							placeholder="image title"
+							placeholder="1 короткое предложение"
 							required=""
 							value={this.state.imageTitle}
 							onChange={this.handleInputChange}
@@ -174,7 +174,7 @@ class NewPostForm extends Component {
 					</div>
 
 					<div className="col-md-6 form-labels-style">
-						<label htmlFor="img">Select Image</label>
+						<label htmlFor="img">Выберете фото</label>
 						<input
 							type="file"
 							name="image"
@@ -188,7 +188,7 @@ class NewPostForm extends Component {
 					</div>
 
 					<div className="col-md-6 form-labels-style">
-						<label htmlFor="img">Select Tags</label>
+						<label htmlFor="img">Выбрать тэг</label>
 						<ReactTags
 							ref={this.reactTags}
 							tags={this.state.tags}
@@ -204,18 +204,18 @@ class NewPostForm extends Component {
 							size="sm"
 							type="button"
 						>
-							New Category
+							Новый тэг
 						</Button>
 					</div>
 
 					<div className="col-md-6 form-labels-style">
-						<label htmlFor="credits">Credits</label>
+						<label htmlFor="credits">Чья фото</label>
 						<input
 							type="text"
 							name="credits"
 							className="form-control"
 							id="credits"
-							placeholder="Credits"
+							placeholder="Кого благодарю за фото"
 							required=""
 							value={this.state.credits}
 							onChange={this.handleInputChange}
@@ -223,13 +223,13 @@ class NewPostForm extends Component {
 					</div>
 
 					<div className="col-md-6 form-labels-style">
-						<label htmlFor="pictureDescription">Picture Description</label>
+						<label htmlFor="pictureDescription">Описание фото</label>
 						<input
 							type="text"
 							name="pictureDescription"
 							className="form-control"
 							id="pictureDescription"
-							placeholder="Picture Description"
+							placeholder="Описание фото"
 							required=""
 							value={this.state.pictureDescription}
 							onChange={this.handleInputChange}
@@ -237,7 +237,7 @@ class NewPostForm extends Component {
 					</div>
 
 					<Button variant="outline-primary" size="lg" type="submit">
-						{this.isUpdate() ? "Update" : "Create"}
+						{this.isUpdate() ? "Изменить статью" : "Новая статья"}
 					</Button>
 				</Form>
 			</div>

@@ -17,20 +17,20 @@ const AuthForm = props => {
 						<Col>
 							<FormGroup>
 								<Label for="exampleFName" className="label-style">
-									First Name
+									Имя
 								</Label>
 								<Input
 									name="firstName"
 									type="text"
 									className="input-style"
-									placeholder="Enter first name"
+									placeholder="Введите первое имя"
 								/>
 							</FormGroup>
 						</Col>
 						<Col>
 							<FormGroup>
 								<Label for="exampleLName" className="label-style">
-									Last Name
+									Фамилия
 								</Label>
 								<Input
 									name="lastName"
@@ -45,7 +45,7 @@ const AuthForm = props => {
 				<Col>
 					<FormGroup>
 						<Label for="exampleEmail" className="label-style">
-							Email
+							Имейл
 						</Label>
 						<Input
 							name="email"
@@ -58,7 +58,7 @@ const AuthForm = props => {
 				<Col>
 					<FormGroup>
 						<Label for="examplePassword" className="label-style">
-							Password
+							Пароль
 						</Label>
 						<Input
 							htmlFor="password"

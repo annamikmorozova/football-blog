@@ -10,7 +10,7 @@ export const UserHome = props => {
 	return (
 		<div>
 			<h3 className="welcome-admin">
-				Welcome, {firstName} <GrEmoji />
+				Привет, {firstName} <GrEmoji />
 			</h3>
 
 			<AdminDashboard />

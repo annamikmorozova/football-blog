@@ -1,11 +1,10 @@
 import React, {Component} from "react";
-import {GiSoccerBall} from "react-icons/gi";
 
 export default class About extends Component {
 	render() {
 		return (
 			<div>
-				<h1 className="about-title">Mikhail Morozov</h1>
+				<h1 className="about-title">Михаил Морозов</h1>
 				<div className="about-row">
 					<div className="all-body-text">
 						<p className="p-margin">

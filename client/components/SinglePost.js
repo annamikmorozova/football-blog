@@ -51,7 +51,7 @@ class SinglePost extends Component {
 						By{" "}
 						<a className="author-link" href="/about">
 							{" "}
-							Mikhail Morozov
+							михаил Морозов
 						</a>
 						| {post.date.slice(0, 10)}
 						<p className="date-format">{post.date.slice(11, 16)}</p>

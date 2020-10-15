@@ -3,8 +3,8 @@ const db = require("../db");
 
 const Tag = db.define("tag", {
 	category: {
-		type: Sequelize.ENUM("year", "team", "league", "other"),
-		defaultValue: "other"
+		type: Sequelize.ENUM("год", "команда", "дивизион", "другие"),
+		defaultValue: "другие"
 	},
 	text: {
 		type: Sequelize.STRING

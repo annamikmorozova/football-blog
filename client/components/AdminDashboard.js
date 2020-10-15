@@ -7,12 +7,12 @@ export default class AdminDashboard extends React.Component {
 			<div className="admin-dashboard">
 				<Link to="/new_post">
 					<button type="button" className="admin-options">
-						Make a post
+						Новая статья
 					</button>
 				</Link>
 				<Link to="/posts">
 					<button href="posts" type="button" className="admin-options-2">
-						Manage Posts
+						Изменить статью
 					</button>
 				</Link>
 			</div>

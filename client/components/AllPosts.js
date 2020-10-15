@@ -52,7 +52,7 @@ class AllPosts extends React.Component {
 							this.setState({filterTag: null});
 						}}
 					>
-						SEE ALL
+						Все
 					</div>
 					{Object.keys(this.state.tagMap || {}).map(category => (
 						<div className="posts-category" key={category}>
@@ -95,7 +95,7 @@ class AllPosts extends React.Component {
 													onSubmit={event => this.handleDelete(event, post.id)}
 												>
 													<Button color="danger" type="submit">
-														Delete
+														Удалить
 													</Button>
 												</form>
 											</div>
@@ -109,7 +109,7 @@ class AllPosts extends React.Component {
 												<form>
 													<Link to={`/update-post/${post.id}`}>
 														<Button color="warning" type="submit">
-															Update
+															Отредактировать
 														</Button>
 													</Link>
 												</form>

@@ -45,16 +45,16 @@ export default class Newsletters extends React.Component {
 
 		return (
 			<Form className="form-style" onSubmit={this.handleSubmit}>
-				<h1> Sign up for Newsletters </h1>
+				<h1> Подисаться на новости </h1>
 
 				<div className="col-md-6 form-labels-style">
-					<label htmlFor="firstName">First Name</label>
+					<label htmlFor="firstName">Имя</label>
 					<input
 						type="text"
 						name="firstName"
 						className="form-control"
 						id="firstName"
-						placeholder="First Name"
+						placeholder="Введите Ваше имя"
 						required=""
 						value={this.state.firstName}
 						onChange={this.handleInputChange}
@@ -63,14 +63,14 @@ export default class Newsletters extends React.Component {
 
 				<div className="col-md-6 form-labels-style">
 					<label className="form-title" htmlFor="lastName">
-						Last Name
+						Фамилия
 					</label>
 					<input
 						type="text"
 						name="lastName"
 						className="form-control"
 						id="lastName"
-						placeholder="Last Name"
+						placeholder="Введите Вашу фамилию"
 						required=""
 						value={this.state.lastName}
 						onChange={this.handleInputChange}
@@ -78,27 +78,22 @@ export default class Newsletters extends React.Component {
 				</div>
 
 				<div className="col-md-6 form-labels-style">
-					<label htmlFor="email">Email</label>
+					<label htmlFor="email">Имейл</label>
 					<input
 						type="text"
 						name="email"
 						className="form-control"
 						id="email"
-						placeholder="Email"
+						placeholder="Введите имейл"
 						required=""
 						value={this.state.email}
 						onChange={this.handleInputChange}
 					/>
 				</div>
 
-				<div className="col-md-6 form-labels-style">
-					<label htmlFor="agree">Agree to receive emails from us</label>
-					<input type="checkbox" required="" />
-				</div>
-
-				<Button variant="outline-primary" size="lg" type="submit">
-					Create
-				</Button>
+				<button className="btn-3" type="submit">
+					Подисаться
+				</button>
 			</Form>
 		);
 	}
