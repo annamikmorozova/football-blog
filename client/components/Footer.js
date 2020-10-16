@@ -44,14 +44,14 @@ class Footer extends React.Component {
 				</div>
 				<div className="social-media">
 					<a
-						href="https://www.instagram.com/mikhailmorozovfootball"
+						href="https://www.instagram.com/mkmfootball"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
 						<TiSocialInstagram color="white" size={22} />
 					</a>
 					<a
-						href="https://www.facebook.com/MikhailMorozovFootball"
+						href="https://www.facebook.com/mkmfootball"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
