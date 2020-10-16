@@ -249,16 +249,17 @@ form div {
 
 .single-post-title {
 	display: flex;
-	margin-left: 50px;
+	justify-content: center;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	font-size: x-large;
+	text-align: center;
 }
 
 .single-post-description {
 	display: flex;
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-left: 150px;
+	margin-right: 150px;
 	font-size: 16px;
 }
 
@@ -268,9 +269,9 @@ form div {
 		margin-left: 50px;
 		margin-right: 50px;
 		margin-top: 20px;
-		margin-bottom: 20px;
 		color: darkgray;
 		font-size: 16px;
+		align-items: center;
 	}
 }
 
@@ -280,20 +281,30 @@ form div {
 	margin-left: 50px;
 	margin-right: 50px;
 	margin-top: 20px;
-	margin-bottom: 20px;
 	color: darkgray;
 	font-size: 16px;
+	align-items: center;
 }
 
-.single-post-tag,
-.single-post-share {
+.single-post-tag {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	margin-right: 50px;
 	margin-top: 20px;
 	color: darkgray;
 	font-size: 16px;
 	margin-left: 50px;
+}
+
+@media (min-width: 650px) {
+	.single-post-share {
+		justify-content: flex-end;
+	}
+}
+
+.single-post-share {
+	margin-left: 170px;
+	margin-right: 50px;
 }
 
 .tag-text {
@@ -337,8 +348,10 @@ form div {
 }
 
 .single-post-image {
-	max-height: 300px;
+	max-height: 500px;
 	margin: auto;
+	display: flex;
+	align-self: center;
 }
 
 .post-layout {
@@ -352,10 +365,12 @@ form div {
 
 	.single-post-description {
 		justify-content: center;
+		margin-left: 15px;
+		margin-right: 15px;
 	}
 
 	.single-post-image {
-		max-height: 300px;
+		max-height: 500px;
 		max-width: 350px;
 		max-block-size: fit-content;
 		margin-top: 20px;
@@ -363,6 +378,8 @@ form div {
 
 	.single-post-title {
 		display: flex;
+		justify-content: center;
+		text-align: center;
 	}
 }
 
@@ -440,18 +457,12 @@ form div {
 }
 
 .post-box {
-	background: lightgrey;
 	width: 400px;
 	height: 400px;
 	margin-top: 50px;
 	margin-bottom: 20px;
 	margin-right: 15px;
 	margin-left: 15px;
-	-webkit-box-shadow: 0 8px 6px -6px black;
-	-moz-box-shadow: 0 8px 6px -6px black;
-	box-shadow: 0 8px 6px -6px black;
-	border: 2px solid;
-	height: 100%;
 }
 
 .post-box:hover {
@@ -978,4 +989,8 @@ a.see-all {
 .row-date {
 	flex-direction: row;
 	display: flex;
+}
+
+._2tga.active {
+	background: #101727;
 }

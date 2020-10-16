@@ -21,30 +21,13 @@ class SinglePost extends Component {
 		return (
 			<div className="columns-post">
 				<div className="single-post">
+					<img className="single-post-image" src={`/${post.imageName}`} />
 					<div className="single-post-tag">
 						{post.tags.map(tag => (
 							<div key={tag.id}>
 								<Badge className="tag-text">{tag.text}</Badge>
 							</div>
 						))}
-					</div>
-					<div className="single-post-share">
-						<div>Share</div>
-						<IoMdShareAlt size={22} />
-						<a
-							href="mailto:?subject=Почитай эту статью&amp;body=Это на сайте Михаила Морозова https://football-blog.herokuapp.com"
-							title="Share by Email"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<img
-								className="share-image"
-								src="http://png-2.findicons.com/files/icons/573/must_have/48/mail.png"
-							/>
-						</a>
-					</div>
-					<div className="single-post-share">
-						<LikePost id={post.id} />
 					</div>
 					<div className="single-post-title">{post.title}</div>
 					<div className="single-post-date">
@@ -62,8 +45,10 @@ class SinglePost extends Component {
 					</div>
 					<div className="post-layout">
 						<div className="single-post-description">{post.description}</div>
-						<img className="single-post-image" src={`/${post.imageName}`} />
 					</div>
+				</div>
+				<div className="single-post-share">
+					<LikePost id={post.id} />
 				</div>
 				<div className="comment-align">
 					<FacebookComments id={post.id} />
