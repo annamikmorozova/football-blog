@@ -111,6 +111,9 @@ class NewPostForm extends Component {
 			);
 		} else {
 			this.props.newPostThunk(form);
+			this.setState({
+				redirect: true
+			});
 		}
 	}
 

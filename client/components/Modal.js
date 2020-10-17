@@ -76,7 +76,7 @@ export default class Modal extends React.Component {
 							type="button"
 							onClick={this.handleModalClose}
 						>
-							Close
+							Отменить
 						</Button>
 					</form>
 				</section>

@@ -458,11 +458,12 @@ form div {
 
 .post-box {
 	width: 400px;
-	height: 400px;
+	height: 420px;
 	margin-top: 50px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 	margin-right: 15px;
 	margin-left: 15px;
+	text-align: center;
 }
 
 .post-box:hover {
@@ -518,7 +519,7 @@ form div {
 	background-color: #101727;
 	height: fit-content;
 	margin-bottom: 0px;
-	margin-top: 50px;
+	margin-top: 100px;
 }
 
 .footer-col {
