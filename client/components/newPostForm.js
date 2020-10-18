@@ -110,10 +110,11 @@ class NewPostForm extends Component {
 				})
 			);
 		} else {
-			this.props.newPostThunk(form);
-			this.setState({
-				redirect: true
-			});
+			this.props.newPostThunk(this.props.match.params.id, form).then(() =>
+				this.setState({
+					redirect: true
+				})
+			);
 		}
 	}
 
