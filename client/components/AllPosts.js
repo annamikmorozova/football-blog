@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {Col, Row, Badge, Button} from "reactstrap";
 import {fetchPosts, deletePostThunk} from "../store/post";
-import axios from "axios";
 
 class AllPosts extends React.Component {
 	constructor() {
@@ -16,16 +15,21 @@ class AllPosts extends React.Component {
 	}
 
 	componentWillMount() {
-		this.props.allPosts();
-		axios.get("/api/tags").then(resp => {
-			const tagMap = resp.data.reduce((acc, tag) => {
-				if (acc.hasOwnProperty(tag.category)) {
-					acc[tag.category].push(tag.text);
-				} else {
-					acc[tag.category] = [tag.text];
-				}
-				return acc;
-			}, {});
+		this.props.allPosts().then(() => {
+			const tagMap = {};
+			this.props.posts.forEach(post => {
+				post.tags.reduce((acc, tag) => {
+					if (
+						acc.hasOwnProperty(tag.category) &&
+						!acc[tag.category].includes(tag.text)
+					) {
+						acc[tag.category].push(tag.text);
+					} else if (!acc.hasOwnProperty(tag.category)) {
+						acc[tag.category] = [tag.text];
+					}
+					return acc;
+				}, tagMap);
+			});
 			this.setState({tagMap});
 		});
 	}
@@ -43,6 +47,13 @@ class AllPosts extends React.Component {
 				post.tags.some(tag => tag.text === this.state.filterTag)
 			);
 		});
+
+		let sortedPosts = shownPosts
+			.sort((a, b) => {
+				return new Date(a.data).getTime() - new Date(b.date).getTime();
+			})
+			.reverse();
+
 		return (
 			<div>
 				<div className="posts-tags">
@@ -57,7 +68,7 @@ class AllPosts extends React.Component {
 					{Object.keys(this.state.tagMap || {}).map(category => (
 						<div className="posts-category" key={category}>
 							<p className="category-font-2">{category}:</p>
-							{this.state.tagMap[category].map(tag => (
+							{this.state.tagMap[category].map((tag, i) => (
 								<p
 									className="tags-font-2"
 									onClick={() => {
@@ -65,7 +76,7 @@ class AllPosts extends React.Component {
 									}}
 									key={tag}
 								>
-									&emsp;{tag} |
+									{i !== 0 ? "|" : ""} &emsp;{tag}
 								</p>
 							))}
 						</div>
@@ -73,7 +84,7 @@ class AllPosts extends React.Component {
 				</div>
 
 				<div className="all-posts-boxes">
-					{shownPosts.map(post => (
+					{sortedPosts.map(post => (
 						<div className="post-box" key={post.id}>
 							<Link to={`/posts/${post.id}`}>
 								<img className="posts-images" src={`/${post.imageName}`} />

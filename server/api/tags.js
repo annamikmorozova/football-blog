@@ -22,16 +22,4 @@ router.post("/", async (req, res, next) => {
 	}
 });
 
-router.delete("/:id", async (req, res, next) => {
-	const {id} = req.params;
-	await Tag.destroy({
-		where: {
-			id
-		}
-	});
-	res.json({
-		deleted: id
-	});
-});
-
 module.exports = router;

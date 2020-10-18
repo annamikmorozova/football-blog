@@ -7,16 +7,21 @@ import {Lightbox} from "react-modal-image";
 
 class Library extends Component {
 	componentWillMount() {
-		this.props.allPosts();
-		axios.get("/api/tags").then(resp => {
-			const tagMap = resp.data.reduce((acc, tag) => {
-				if (acc.hasOwnProperty(tag.category)) {
-					acc[tag.category].push(tag.text);
-				} else {
-					acc[tag.category] = [tag.text];
-				}
-				return acc;
-			}, {});
+		this.props.allPosts().then(() => {
+			const tagMap = {};
+			this.props.posts.forEach(post => {
+				post.tags.reduce((acc, tag) => {
+					if (
+						acc.hasOwnProperty(tag.category) &&
+						!acc[tag.category].includes(tag.text)
+					) {
+						acc[tag.category].push(tag.text);
+					} else if (!acc.hasOwnProperty(tag.category)) {
+						acc[tag.category] = [tag.text];
+					}
+					return acc;
+				}, tagMap);
+			});
 			this.setState({tagMap});
 		});
 	}
