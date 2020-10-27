@@ -87,7 +87,7 @@ class AllPosts extends React.Component {
 					{sortedPosts.map(post => (
 						<div className="post-box" key={post.id}>
 							<Link to={`/posts/${post.id}`}>
-								<img className="posts-images" src={`/${post.imageName}`} />
+								<img className="posts-images" src={`${post.imageName}`} />
 							</Link>
 							<Row className="tags-all-posts">
 								{post.tags.map(tag => (

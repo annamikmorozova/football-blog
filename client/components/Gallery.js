@@ -98,7 +98,7 @@ class Library extends Component {
 									<img
 										onClick={() => {
 											this.setState({
-												modalImage: `/${post.imageName}`,
+												modalImage: `${post.imageName}`,
 												modalDescription: post.pictureDescription
 											});
 										}}

@@ -110,7 +110,7 @@ class NewPostForm extends Component {
 				})
 			);
 		} else {
-			this.props.newPostThunk(this.props.match.params.id, form).then(() =>
+			this.props.newPostThunk(form).then(() =>
 				this.setState({
 					redirect: true
 				})
@@ -125,7 +125,7 @@ class NewPostForm extends Component {
 
 	render() {
 		if (this.state.redirect) {
-			return <Redirect to={`/posts/${this.props.match.params.id}`} />;
+			return <Redirect to={`/posts/${this.props.match.params.id || ""}`} />;
 		}
 
 		return (
