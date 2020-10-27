@@ -1,14 +1,13 @@
 const router = require("express").Router();
 const {Post, Tag} = require("../db/models");
-
+const cloudinary = require("cloudinary").v2;
+const {CloudinaryStorage} = require("multer-storage-cloudinary");
 const multer = require("multer");
 
-const storage = multer.diskStorage({
-	destination: (req, file, cb) => {
-		cb(null, "./uploads");
-	},
-	filename: (req, file, cb) => {
-		cb(null, `${file.fieldname}_${+new Date()}.jpg`);
+const storage = new CloudinaryStorage({
+	cloudinary: cloudinary,
+	params: {
+		folder: () => "football-blog"
 	}
 });
 
@@ -75,7 +74,7 @@ router.post("/:id", upload.single("image"), async (req, res, next) => {
 		};
 
 		if (req.file && req.file.path) {
-			params.imageName = req.file.path.slice(8);
+			params.imageName = req.file.path;
 		}
 
 		await Post.update(params, {
@@ -101,7 +100,6 @@ router.post("/:id", upload.single("image"), async (req, res, next) => {
 
 router.post("/", upload.single("image"), async (req, res, next) => {
 	try {
-		const path = req.file.path.slice(8);
 		const {
 			title,
 			description,
@@ -117,7 +115,7 @@ router.post("/", upload.single("image"), async (req, res, next) => {
 			imageTitle,
 			credits,
 			pictureDescription,
-			imageName: path
+			imageName: req.file.path
 		});
 
 		const tagIds = JSON.parse(req.body.tags).map(tag => tag.id);

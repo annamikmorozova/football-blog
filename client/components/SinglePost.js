@@ -21,7 +21,7 @@ class SinglePost extends Component {
 		return (
 			<div className="columns-post">
 				<div className="single-post">
-					<img className="single-post-image" src={`/${post.imageName}`} />
+					<img className="single-post-image" src={`${post.imageName}`} />
 					<div className="single-post-tag">
 						{post.tags.map(tag => (
 							<div key={tag.id}>
