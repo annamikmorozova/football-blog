@@ -11,3 +11,4 @@ As a user of this website you can:
 3. comment on a post using your Facebook account;
 4. like a post;
 5. share a post on your personal Facebook page or send via email;
+6. sign up for newsletters to stay up to date with the blog's updates.
