@@ -7,7 +7,7 @@ export default class LikePost extends Component {
 			return (
 				<FacebookProvider appId={process.env.FB_APPID || "123456789"}>
 					<Like
-						href={`http://localhost:8080/posts/${this.props.id}`}
+						href={`https://mkm-football.herokuapp.com/posts/${this.props.id}`}
 						colorScheme="dark"
 						showFaces
 						share
