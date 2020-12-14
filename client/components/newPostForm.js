@@ -213,7 +213,7 @@ class NewPostForm extends Component {
 					</div>
 
 					<div className="col-md-6 form-labels-style">
-						<label htmlFor="credits">Чья фото</label>
+						<label htmlFor="credits">Чьe фото</label>
 						<input
 							type="text"
 							name="credits"

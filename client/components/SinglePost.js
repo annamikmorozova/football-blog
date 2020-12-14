@@ -22,6 +22,11 @@ class SinglePost extends Component {
 			<div className="columns-post">
 				<div className="single-post">
 					<img className="single-post-image" src={`${post.imageName}`} />
+					{post.credits ? (
+						<div className="credits-tag">Источник фото: {post.credits}</div>
+					) : (
+						""
+					)}
 					<div className="single-post-tag">
 						{post.tags.map(tag => (
 							<div key={tag.id}>

@@ -103,7 +103,7 @@ class Library extends Component {
 											});
 										}}
 										className="library-images"
-										src={`/${post.imageName}`}
+										src={`${post.imageName}`}
 									/>
 								</div>
 							))}

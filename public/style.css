@@ -458,7 +458,7 @@ form div {
 
 .post-box {
 	width: 400px;
-	height: 420px;
+	height: fit-content;
 	margin-top: 50px;
 	margin-bottom: 40px;
 	margin-right: 15px;
@@ -519,7 +519,7 @@ form div {
 	background-color: #101727;
 	height: fit-content;
 	margin-bottom: 0px;
-	margin-top: 100px;
+	margin-top: 350px;
 }
 
 .footer-col {
@@ -763,13 +763,14 @@ a.see-all {
 	color: black;
 }
 
+.credits-tag {
+	text-align: center;
+	margin-top: 10px;
+}
+
 .tags-font:hover {
-	background-color: #167bff;
-	color: white;
 	width: fit-content;
-	padding-right: 10px;
-	padding-left: 10px;
-	border-radius: 50%;
+	color: #167bff;
 }
 
 @media (max-width: 650px) {
